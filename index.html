@@ -1,1001 +1,373 @@
 <!DOCTYPE html>
-<html lang="es">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Solace Skin Lab 23 Jun - 22 Jul</title>
-<style>
-        /* ── RESET & BASE ── */
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-        :root {
-            --bg:        #111111;
-            --bg2:       #1a1a1a;
-            --bg3:       #222222;
-            --gold:      #C9A84C;
-            --gold-dim:  #9a7a35;
-            --text:      #f0ece4;
-            --text-dim:  #9a9080;
-            --border:    #333333;
-            --green:     #22c55e;
-            --red:       #ef4444;
-            --blue:      #3b82f6;
-        }
-
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            min-height: 100vh;
-        }
-
-        /* ── HEADER ── */
-        .site-header {
-            background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
-            border-bottom: 1px solid var(--gold);
-            padding: 24px 40px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 24px;
-        }
-
-        .header-brand {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .brand-logo {
-            width: 44px;
-            height: 44px;
-            background: var(--gold);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Georgia', serif;
-            font-weight: bold;
-            font-size: 20px;
-            color: #111;
-        }
-
-        .brand-name {
-            font-family: 'Georgia', serif;
-            font-size: 20px;
-            color: var(--gold);
-            letter-spacing: 1px;
-        }
-
-        .brand-subtitle {
-            font-size: 12px;
-            color: var(--text-dim);
-            margin-top: 2px;
-        }
-
-        .header-stats {
-            display: flex;
-            gap: 20px;
-        }
-
-        .stat-pill {
-            background: var(--bg3);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 6px 14px;
-            font-size: 13px;
-            color: var(--text-dim);
-        }
-
-        .stat-pill strong {
-            color: var(--gold);
-        }
-
-        .header-actions {
-            display: flex;
-            gap: 12px;
-        }
-
-        .btn-approve-all {
-            background: var(--green);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 10px 20px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: opacity .2s;
-        }
-        .btn-approve-all:hover { opacity: .85; }
-
-        .btn-whatsapp {
-            background: #25D366;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 10px 20px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: opacity .2s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .btn-whatsapp:hover { opacity: .85; }
-
-        .btn-telegram {
-            background: #0088CC;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 10px 20px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: opacity .2s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .btn-telegram:hover { opacity: .85; }
-
-        .btn-export {
-            background: var(--gold);
-            color: #111;
-            border: none;
-            border-radius: 8px;
-            padding: 10px 20px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: opacity .2s;
-        }
-        .btn-export:hover { opacity: .85; }
-
-        /* ── PROGRESS BAR ── */
-        .progress-bar-wrap {
-            background: var(--bg2);
-            border-bottom: 1px solid var(--border);
-            padding: 10px 40px;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .progress-label {
-            font-size: 13px;
-            color: var(--text-dim);
-            white-space: nowrap;
-        }
-
-        .progress-track {
-            flex: 1;
-            background: var(--bg3);
-            border-radius: 4px;
-            height: 8px;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--gold), var(--green));
-            border-radius: 4px;
-            transition: width .4s ease;
-        }
-
-        .progress-count {
-            font-size: 13px;
-            color: var(--gold);
-            font-weight: 600;
-            white-space: nowrap;
-        }
-
-        /* ── MAIN CONTENT ── */
-        .main {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 32px 24px 80px;
-        }
-
-        /* ── WEEK SECTION ── */
-        .week-header {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin: 40px 0 20px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .week-badge {
-            border: 1px solid;
-            border-radius: 4px;
-            padding: 3px 10px;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-        }
-
-        .week-theme {
-            font-size: 16px;
-            color: var(--text-dim);
-            font-style: italic;
-        }
-
-        .week-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        /* ── POST CARD ── */
-        .post-card {
-            background: var(--bg2);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: border-color .2s, box-shadow .2s;
-        }
-
-        .post-card:hover {
-            border-color: var(--gold-dim);
-            box-shadow: 0 4px 20px rgba(201,168,76,.1);
-        }
-
-        .post-card.approved {
-            border-color: var(--green) !important;
-            box-shadow: 0 0 0 1px #22c55e33;
-        }
-
-        .post-card.skipped {
-            opacity: 0.5;
-            border-color: var(--border) !important;
-        }
-
-        /* Card header */
-        .card-header {
-            padding: 14px 16px;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            gap: 8px;
-        }
-
-        .card-day-info {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-
-        .day-number {
-            font-size: 12px;
-            color: var(--gold);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .day-date {
-            font-size: 14px;
-            color: var(--text);
-            font-weight: 600;
-        }
-
-        .card-badges {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 4px;
-        }
-
-        .type-badge {
-            font-size: 11px;
-            font-weight: 600;
-            border-radius: 12px;
-            padding: 2px 8px;
-            white-space: nowrap;
-        }
-
-        .time-badge {
-            font-size: 11px;
-            color: var(--text-dim);
-            background: var(--bg3);
-            border-radius: 12px;
-            padding: 2px 8px;
-        }
-
-        /* Card image */
-        .card-image {
-            position: relative;
-            aspect-ratio: 1/1;
-            background: var(--bg3);
-            overflow: hidden;
-        }
-
-        .post-image {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .img-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
-            border: 2px dashed var(--border);
-        }
-
-        .placeholder-icon {
-            font-size: 40px;
-        }
-
-        .placeholder-text {
-            font-size: 13px;
-            color: var(--text-dim);
-        }
-
-        .placeholder-filename {
-            font-size: 10px;
-            color: var(--border);
-            font-family: monospace;
-        }
-
-        /* Card copy */
-        .card-copy {
-            padding: 14px 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .copy-section {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .copy-label {
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-dim);
-        }
-
-        .copy-field {
-            background: var(--bg3);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            color: var(--text);
-            font-size: 13px;
-            line-height: 1.5;
-            padding: 8px 10px;
-            resize: vertical;
-            font-family: inherit;
-            transition: border-color .2s;
-            width: 100%;
-        }
-
-        .copy-field:focus {
-            outline: none;
-            border-color: var(--gold-dim);
-        }
-
-        .hook-field { font-style: italic; }
-        .hashtag-field { font-size: 12px; color: #4A90D9; }
-
-        /* Prompt section */
-        .card-prompt {
-            padding: 0 16px 14px;
-        }
-
-        .prompt-toggle {
-            background: none;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            color: var(--text-dim);
-            font-size: 12px;
-            padding: 5px 12px;
-            cursor: pointer;
-            transition: border-color .2s, color .2s;
-            width: 100%;
-        }
-
-        .prompt-toggle:hover {
-            border-color: var(--gold-dim);
-            color: var(--gold);
-        }
-
-        .prompt-content {
-            margin-top: 8px;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .prompt-field {
-            background: #0d0d0d;
-            border: 1px solid #333;
-            border-radius: 6px;
-            color: #888;
-            font-size: 11px;
-            font-family: monospace;
-            line-height: 1.5;
-            padding: 8px 10px;
-            resize: vertical;
-            width: 100%;
-        }
-
-        .btn-regen {
-            background: var(--bg3);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            color: var(--text-dim);
-            font-size: 11px;
-            padding: 5px 10px;
-            cursor: pointer;
-            align-self: flex-start;
-        }
-
-        /* Card actions */
-        .card-actions {
-            padding: 14px 16px;
-            border-top: 1px solid var(--border);
-            display: flex;
-            gap: 8px;
-        }
-
-        .btn-approve {
-            flex: 1;
-            background: #16a34a22;
-            border: 1px solid #22c55e55;
-            border-radius: 6px;
-            color: var(--green);
-            font-size: 13px;
-            font-weight: 600;
-            padding: 8px;
-            cursor: pointer;
-            transition: background .2s;
-        }
-        .btn-approve:hover, .btn-approve.active { background: #16a34a44; }
-
-        .btn-edit {
-            flex: 1;
-            background: var(--gold)22;
-            border: 1px solid var(--gold-dim)55;
-            border-radius: 6px;
-            color: var(--gold);
-            font-size: 13px;
-            font-weight: 600;
-            padding: 8px;
-            cursor: pointer;
-            transition: background .2s;
-        }
-        .btn-edit:hover { background: var(--gold)33; }
-
-        .btn-skip {
-            background: var(--bg3);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            color: var(--text-dim);
-            font-size: 13px;
-            padding: 8px 10px;
-            cursor: pointer;
-        }
-
-        /* Card note per post */
-        .card-note {
-            padding: 0 16px 14px;
-        }
-
-        .note-toggle {
-            background: none;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            color: var(--text-dim);
-            font-size: 12px;
-            padding: 5px 12px;
-            cursor: pointer;
-            transition: border-color .2s, color .2s;
-            width: 100%;
-            text-align: center;
-        }
-
-        .note-toggle:hover {
-            border-color: #EC4899;
-            color: #EC4899;
-        }
-
-        .note-content {
-            margin-top: 8px;
-        }
-
-        .note-field {
-            width: 100%;
-            background: #1a0a1a;
-            border: 1px solid #EC489944;
-            border-radius: 6px;
-            color: #f0d4e0;
-            font-size: 12px;
-            font-family: inherit;
-            line-height: 1.5;
-            padding: 8px 10px;
-            resize: vertical;
-        }
-
-        .note-field:focus {
-            outline: none;
-            border-color: #EC4899;
-        }
-
-        .note-field::placeholder {
-            color: #EC489955;
-        }
-
-        /* Card status */
-        .card-status {
-            padding: 8px 16px;
-            font-size: 11px;
-            border-top: 1px solid var(--border);
-            text-align: center;
-        }
-
-        .status-pending { color: var(--text-dim); }
-        .status-approved { color: var(--green); font-weight: 600; }
-        .status-skipped  { color: var(--red); }
-
-        /* ── TOAST ── */
-        #toast {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            background: var(--bg2);
-            border: 1px solid var(--gold);
-            border-radius: 8px;
-            padding: 12px 20px;
-            font-size: 14px;
-            color: var(--text);
-            opacity: 0;
-            transform: translateY(10px);
-            transition: opacity .3s, transform .3s;
-            z-index: 9999;
-            pointer-events: none;
-        }
-        #toast.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ── MODAL DE EXPORTACIÓN ── */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,.8);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-        .modal-overlay.show {
-            display: flex;
-        }
-
-        /* Facebook Ads Section */
-        .facebook-ads-section {
-            margin-top: 40px;
-            padding: 24px;
-            background: linear-gradient(135deg, var(--bg2), var(--bg3));
-            border-radius: 12px;
-            border-left: 4px solid var(--gold);
-        }
-
-        .facebook-ads-section h2 {
-            color: var(--gold);
-            margin-bottom: 12px;
-            font-size: 20px;
-        }
-
-        .ads-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 16px;
-            margin-top: 20px;
-        }
-
-        .ad-card {
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .ad-image {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-        }
-
-        .ad-card h4 {
-            color: var(--gold);
-            font-size: 14px;
-            margin: 12px;
-        }
-
-        .ad-card p {
-            color: var(--text-light);
-            font-size: 13px;
-            margin: 0 12px 12px;
-        }
-        .modal {
-            background: var(--bg2);
-            border: 1px solid var(--gold);
-            border-radius: 12px;
-            padding: 32px;
-            max-width: 600px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-        }
-        .modal h2 {
-            font-family: 'Georgia', serif;
-            color: var(--gold);
-            margin-bottom: 16px;
-        }
-        .modal p {
-            color: var(--text-dim);
-            font-size: 14px;
-            margin-bottom: 16px;
-        }
-        .export-content {
-            background: #0d0d0d;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 16px;
-            font-family: monospace;
-            font-size: 12px;
-            color: #ccc;
-            white-space: pre-wrap;
-            max-height: 300px;
-            overflow-y: auto;
-        }
-        .modal-actions {
-            display: flex;
-            gap: 12px;
-            margin-top: 20px;
-        }
-        .btn-copy-export {
-            background: var(--gold);
-            color: #111;
-            border: none;
-            border-radius: 6px;
-            padding: 10px 20px;
-            font-weight: 600;
-            cursor: pointer;
-        }
-        .btn-close-modal {
-            background: var(--bg3);
-            color: var(--text);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 10px 20px;
-            cursor: pointer;
-        }
-
-        /* ── MODAL WHATSAPP ── */
-        .modal.whatsapp-modal {
-            border-color: #25D366;
-            max-width: 680px;
-        }
-        .modal.whatsapp-modal h2 {
-            color: #25D366;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .wa-summary-box {
-            background: #0d1a0f;
-            border: 1px solid #25D36633;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 16px;
-        }
-        .wa-summary-box .wa-bubble {
-            background: #1a2e1e;
-            border-radius: 8px 8px 8px 0;
-            padding: 14px 16px;
-            font-size: 13px;
-            line-height: 1.7;
-            color: #d4f7dd;
-            white-space: pre-wrap;
-            font-family: inherit;
-            border: 1px solid #25D36622;
-        }
-        .wa-bubble-label {
-            font-size: 11px;
-            color: #25D366;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-        }
-        .wa-notes-section {
-            margin-bottom: 16px;
-        }
-        .wa-notes-section label {
-            display: block;
-            font-size: 12px;
-            color: var(--text-dim);
-            margin-bottom: 6px;
-            font-weight: 600;
-        }
-        .wa-notes-field {
-            width: 100%;
-            background: var(--bg3);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            color: var(--text);
-            font-size: 13px;
-            font-family: inherit;
-            padding: 10px 12px;
-            resize: vertical;
-            line-height: 1.5;
-            transition: border-color .2s;
-        }
-        .wa-notes-field:focus {
-            outline: none;
-            border-color: #25D366;
-        }
-        .wa-approved-list {
-            margin: 12px 0;
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-        .wa-approved-item {
-            font-size: 12px;
-            color: #d4f7dd;
-            display: flex;
-            gap: 8px;
-            align-items: flex-start;
-        }
-        .wa-approved-item .day-tag {
-            background: #25D36622;
-            border: 1px solid #25D36644;
-            border-radius: 4px;
-            padding: 1px 6px;
-            color: #25D366;
-            font-size: 10px;
-            font-weight: 700;
-            white-space: nowrap;
-            margin-top: 1px;
-        }
-        .btn-send-wa {
-            background: #25D366;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 12px 24px;
-            font-size: 15px;
-            font-weight: 700;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: opacity .2s;
-        }
-        .btn-send-wa:hover { opacity: .85; }
-        .wa-counter {
-            background: #25D36622;
-            border: 1px solid #25D36644;
-            border-radius: 20px;
-            padding: 6px 14px;
-            font-size: 13px;
-            color: #25D366;
-            font-weight: 600;
-        }
-
-        /* ── RESPONSIVE ── */
-        @media (max-width: 768px) {
-            .site-header {
-                flex-wrap: wrap;
-                padding: 16px 20px;
-            }
-            .header-stats { display: none; }
-            .main { padding: 16px 12px 60px; }
-            .week-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-<style>.approved{border-left:4px solid #22c55e!important;background:linear-gradient(135deg,#22c55e08,transparent)!important;}.skipped{opacity:.5;}</style>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Solace Skin Lab Med Spa — Content Review</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+:root{--gold:#C9A84C;--gold-light:#D4B96A;--gold-glow:rgba(201,168,76,0.3);--dark:#0a0a0a;--dark2:#111;--dark3:#1a1a1a;--dark4:#222;--text:#f0f0f0;--text-dim:#888;--text-muted:#555;--green:#22c55e;--orange:#f97316;--red:#ef4444;--blue:#3b82f6;--purple:#8b5cf6;--pink:#ec4899;--radius:12px;--radius-sm:8px;--shadow-gold:0 0 30px rgba(201,168,76,0.15)}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{background:var(--dark);color:var(--text);font-family:'Inter',sans-serif;line-height:1.6;overflow-x:hidden}
+.loader{position:fixed;inset:0;z-index:9999;background:var(--dark);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;transition:opacity .6s,visibility .6s}.loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.loader-ring{width:50px;height:50px;border:3px solid var(--dark3);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loader-text{font-family:'Playfair Display',serif;color:var(--gold);font-size:18px;letter-spacing:3px}
+.header{position:sticky;top:0;z-index:100;background:rgba(10,10,10,.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,168,76,.15);padding:16px 24px}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-logo{width:42px;height:42px;background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:800;font-size:22px;color:var(--dark);box-shadow:var(--shadow-gold)}
+.brand h1{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.brand span{font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:2px}
+.progress-wrap{max-width:1400px;margin:0 auto;padding:20px 24px 0}
+.progress-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.progress-label{font-size:13px;color:var(--text-dim)}.progress-count{font-size:14px;font-weight:600;color:var(--gold)}
+.progress-bar{height:6px;background:var(--dark3);border-radius:10px;overflow:hidden}
+.progress-fill{height:100%;border-radius:10px;background:linear-gradient(90deg,var(--gold),var(--gold-light));transition:width .8s cubic-bezier(.22,1,.36,1);box-shadow:0 0 12px var(--gold-glow)}
+.stats-bar{max-width:1400px;margin:16px auto 0;padding:0 24px;display:flex;gap:12px;flex-wrap:wrap}
+.stat-chip{display:flex;align-items:center;gap:6px;padding:6px 14px;background:var(--dark3);border-radius:20px;font-size:12px;font-weight:500;border:1px solid var(--dark4);transition:border-color .3s,transform .2s}
+.stat-chip:hover{border-color:var(--gold);transform:translateY(-1px)}
+.stat-dot{width:8px;height:8px;border-radius:50%}
+.filter-bar{max-width:1400px;margin:20px auto 0;padding:0 24px;display:flex;gap:8px;flex-wrap:wrap}
+.filter-btn{padding:7px 16px;border-radius:20px;font-size:12px;font-weight:600;background:var(--dark3);color:var(--text-dim);border:1px solid transparent;cursor:pointer;transition:all .3s;text-transform:uppercase;letter-spacing:.5px}
+.filter-btn:hover{color:var(--text);border-color:var(--dark4)}
+.filter-btn.active{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--dark);border-color:var(--gold)}
+.main{max-width:1400px;margin:0 auto;padding:24px}
+.section-title{display:flex;align-items:center;gap:12px;margin:40px 0 20px;font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--gold)}
+.section-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(201,168,76,.3),transparent)}
+.post-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.post-card{background:var(--dark2);border:1px solid var(--dark4);border-radius:var(--radius);overflow:hidden;transition:all .4s cubic-bezier(.22,1,.36,1);opacity:0;transform:translateY(30px) scale(.97);animation:cardIn .5s forwards}
+.post-card:hover{border-color:rgba(201,168,76,.3);transform:translateY(-4px);box-shadow:var(--shadow-gold)}
+.post-card.approved{border-color:rgba(34,197,94,.4)}.post-card.skipped{border-color:rgba(249,115,22,.4);opacity:.6}
+@keyframes cardIn{to{opacity:1;transform:translateY(0) scale(1)}}
+.card-header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--dark3);border-bottom:1px solid var(--dark4);flex-wrap:wrap;gap:6px}
+.card-day{font-weight:700;font-size:15px;color:var(--gold);font-family:'Playfair Display',serif}
+.card-date{font-size:11px;color:var(--text-dim)}
+.card-badges{display:flex;gap:6px;flex-wrap:wrap}
+.badge{padding:3px 8px;border-radius:10px;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;display:inline-flex;align-items:center;gap:4px}
+.badge-type{background:rgba(59,130,246,.15);color:var(--blue)}
+.badge-promo{background:rgba(249,115,22,.15);color:var(--orange)}
+.badge-edu{background:rgba(139,92,246,.15);color:var(--purple)}
+.badge-social{background:rgba(236,72,153,.15);color:var(--pink)}
+.badge-client{background:rgba(201,168,76,.2);color:var(--gold)}
+.badge-time{background:rgba(255,255,255,.05);color:var(--text-dim)}
+.badge-approved{background:rgba(34,197,94,.15);color:var(--green)}
+.badge-skipped{background:rgba(249,115,22,.15);color:var(--orange)}
+.card-image-wrap{position:relative;width:100%;aspect-ratio:1/1;background:var(--dark);overflow:hidden}
+.card-image{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.22,1,.36,1)}
+.post-card:hover .card-image{transform:scale(1.03)}
+.card-image-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6),transparent 40%);pointer-events:none}
+.image-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--text-muted);font-size:13px}
+.card-body{padding:14px 16px}
+.card-hook{font-size:14px;font-weight:600;color:var(--text);line-height:1.4;margin-bottom:6px}
+.card-copy{font-size:12px;color:var(--text-dim);line-height:1.5;margin-bottom:8px;white-space:pre-line;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.card-cta{font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:1px}
+.card-notes{padding:0 16px 12px}
+.notes-field{width:100%;background:var(--dark);border:1px solid var(--dark4);border-radius:var(--radius-sm);padding:8px 10px;font-size:11px;color:var(--text-dim);font-family:'Inter',sans-serif;resize:none;min-height:36px;transition:border-color .3s}
+.notes-field:focus{outline:none;border-color:var(--gold);color:var(--text)}
+.notes-field::placeholder{color:var(--text-muted)}
+.card-actions{display:flex;gap:6px;padding:12px 16px;border-top:1px solid var(--dark4)}
+.btn{flex:1;padding:8px 12px;border:none;border-radius:var(--radius-sm);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;gap:4px}
+.btn-approve{background:rgba(34,197,94,.15);color:var(--green);border:1px solid rgba(34,197,94,.3)}
+.btn-approve:hover{background:var(--green);color:#000}
+.btn-skip{background:rgba(249,115,22,.15);color:var(--orange);border:1px solid rgba(249,115,22,.3)}
+.btn-skip:hover{background:var(--orange);color:#000}
+.btn-edit{background:rgba(59,130,246,.15);color:var(--blue);border:1px solid rgba(59,130,246,.3)}
+.btn-edit:hover{background:var(--blue);color:#fff}
+.status-indicator{position:absolute;top:12px;right:12px;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;z-index:2;animation:popIn .3s cubic-bezier(.175,.885,.32,1.275)}
+.status-approved{background:var(--green);color:#000}.status-skipped{background:var(--orange);color:#000}
+@keyframes popIn{0%{transform:scale(0)}100%{transform:scale(1)}}
+.ads-section{margin-top:50px;padding:30px;background:linear-gradient(135deg,var(--dark2),var(--dark3));border-radius:16px;border:1px solid var(--dark4);border-left:4px solid var(--gold)}
+.ads-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;margin-top:20px}
+.ad-card{background:var(--dark);border:1px solid var(--dark4);border-radius:var(--radius);overflow:hidden;transition:all .4s;animation:cardIn .5s forwards;opacity:0;transform:translateY(20px)}
+.ad-card:hover{border-color:rgba(201,168,76,.3);transform:translateY(-3px);box-shadow:var(--shadow-gold)}
+.ad-image{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;background:var(--dark3)}
+.ad-body{padding:14px 16px}
+.ad-headline{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--gold);margin-bottom:6px}
+.ad-hook{font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px}
+.ad-copy{font-size:12px;color:var(--text-dim);line-height:1.5;margin-bottom:8px}
+.ad-cta-tag{display:inline-block;padding:4px 10px;border-radius:6px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;background:rgba(201,168,76,.15);color:var(--gold);border:1px solid rgba(201,168,76,.3)}
+.ad-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.export-section{margin-top:50px;padding:30px;background:var(--dark2);border-radius:16px;border:1px solid var(--dark4);text-align:center}
+.export-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.btn-export{padding:12px 24px;border-radius:var(--radius);font-size:13px;font-weight:700;cursor:pointer;transition:all .3s;text-transform:uppercase;letter-spacing:.5px;display:flex;align-items:center;gap:8px}
+.btn-json{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--dark);border:none}
+.btn-json:hover{transform:translateY(-2px);box-shadow:var(--shadow-gold)}
+.btn-whatsapp{background:rgba(37,211,102,.15);color:#25d366;border:1px solid rgba(37,211,102,.3)}
+.btn-whatsapp:hover{background:#25d366;color:#fff}
+.btn-clear{background:rgba(239,68,68,.1);color:var(--red);border:1px solid rgba(239,68,68,.3)}
+.btn-clear:hover{background:var(--red);color:#fff}
+.feedback-section{margin-top:50px;padding:30px;background:linear-gradient(135deg,var(--dark2),var(--dark3));border-radius:16px;border:1px solid var(--dark4);border-left:4px solid var(--orange)}
+.feedback-item{padding:12px 0;border-bottom:1px solid var(--dark4);display:flex;gap:10px;align-items:flex-start}
+.feedback-icon{font-size:18px;flex-shrink:0;margin-top:2px}
+.feedback-text{font-size:13px;color:var(--text-dim);line-height:1.5}
+.feedback-text strong{color:var(--text)}
+.scroll-top{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;border:none;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--dark);font-size:20px;cursor:pointer;z-index:90;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(20px);transition:all .3s;box-shadow:var(--shadow-gold)}
+.scroll-top.visible{opacity:1;transform:translateY(0)}
+.scroll-top:hover{transform:translateY(-3px) scale(1.05)}
+@media(max-width:768px){.post-grid{grid-template-columns:1fr}.ads-grid{grid-template-columns:1fr}.header-inner{flex-direction:column;align-items:flex-start}.section-title{font-size:20px}}</style>
 </head>
 <body>
-<header class="site-header"><div class="header-brand"><div class="brand-logo">S</div><div><div class="brand-name">Solace Skin Lab</div><div class="brand-subtitle">23 Jun al 22 Jul 2026</div></div></div>
-<div class="header-stats"><span class="stat-pill"><strong>15 Originales</strong> + <strong>15 Cliente</strong></span><span class="stat-pill">📱 WhatsApp</span></div>
-<div class="header-actions"><button class="btn-approve-all" onclick="approveAll()">✅ Aprobar Todo</button><button class="btn-export" onclick="exportJSON()">📥 JSON</button></div></header>
-<div class="progress-bar-wrap"><span class="progress-label">Aprobacion:</span><div class="progress-track"><div class="progress-fill" id="pFill" style="width:0%"></div></div><span class="progress-count" id="pCount">0 / 30</span></div>
-<main class="main">
-<div class="week-header"><span class="week-badge" style="border-color:#C9A84C;color:#C9A84C">SEMANA 1</span><span class="week-theme">Lanzamiento de Mes</span></div>
-<div class="week-grid"><div class="post-card" data-day="1"><div class="card-header"><div class="card-day-info"><span class="day-number">DIA 1</span><span class="day-date">Martes 23 Jun</span></div><div class="card-badges"><span class="type-badge" style="background:#C9A84C22;color:#C9A84C;border:1px solid #C9A84C55">🥂 2x1 Tuesday</span><span class="time-badge">⏰ 09:00</span></div></div><div class="card-image"><img src="images/day04_2x1_tuesday.jpg" alt="" class="post-image" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><div class=\'placeholder-icon\'>🖼️</div><div class=\'placeholder-text\'>Imagen pendiente</div></div>'"></div><div class="card-copy"><div class="copy-section"><label class="copy-label">🎣 Hook</label><textarea class="copy-field hook-field" id="hook_1" rows="2">It's 2x1 Tuesday! 🥂 Bring your bestie — both of you get a FREE facial.</textarea></div><div class="copy-section"><label class="copy-label">📝 Cuerpo</label><textarea class="copy-field body-field" id="body_1" rows="5">Every Tuesday at Solace Skin Lab, you and a friend each get a relaxing facial — plus a complimentary glass of wine 🍷
-
-Because self-care is better together. Treat yourselves to the Solace Skin Lab Med Spa experience at Cielo Vista Mall.</textarea></div><div class="copy-section"><label class="copy-label">📞 CTA</label><textarea class="copy-field cta-field" id="cta_1" rows="3">📲 DM us or call to reserve your Tuesday spot — slots fill fast!
-📍 Cielo Vista Mall, El Paso TX | 📞 (915) 209-2060</textarea></div><div class="copy-section"><label class="copy-label">🏷️ Hashtags</label><div class="hashtag-display"></div></div></div><div class="card-actions"><button class="btn-approve" onclick="approvePost(1)">✅ Aprobar</button><button class="btn-edit" onclick="editPost(1)">✏️ Editar</button><button class="btn-skip" onclick="skipPost(1)">⏭️ Omitir</button></div><div class="card-note"><label class="copy-label">📝 Notas</label><textarea class="copy-field" id="note_1" rows="2" placeholder="Agregar observaciones..."></textarea></div></div><div class="post-card" data-day="2"><div class="card-header"><div class="card-day-info"><span class="day-number">DIA 2</span><span class="day-date">Miercoles 24 Jun</span></div><div class="card-badges"><span class="type-badge" style="background:#06B6D422;color:#06B6D4;border:1px solid #06B6D455">💎 Servicio/Promo Spotlight</span><span class="time-badge">⏰ 09:00</span><span class="time-badge" style="background:#F9731622;color:#f97316;border:1px solid #F9731655;">🆕 CLIENTE</span></div></div><div class="card-image"><img src="images/day02_facial_consultation.jpg" alt="" class="post-image" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><div class=\'placeholder-icon\'>🖼️</div><div class=\'placeholder-text\'>Imagen pendiente</div></div>'"></div><div class="card-copy"><div class="copy-section"><label class="copy-label">🎣 Hook</label><textarea class="copy-field hook-field" id="hook_2" rows="2">Not sure what your skin really needs?</textarea></div><div class="copy-section"><label class="copy-label">📝 Cuerpo</label><textarea class="copy-field body-field" id="body_2" rows="5">Our Personalized Facial + Skin Consultation is designed to analyze your skin, identify your concerns, and create a treatment plan tailored specifically to you.\n\nWhether you're dealing with dryness, acne-prone skin, sensitivity, texture, or signs of aging, we'll help you start with the right plan.\n\nHealthy, glowing skin starts here. Only $64.99.</textarea></div><div class="copy-section"><label class="copy-label">📞 CTA</label><textarea class="copy-field cta-field" id="cta_2" rows="3">Message us 'GLOW' for a complimentary consultation!\nCielo Vista Mall, El Paso TX | (915) 209-2060</textarea></div><div class="copy-section"><label class="copy-label">🏷️ Hashtags</label><div class="hashtag-display">#FacialConsultation #SkinAnalysis #SolaceSkinLab #ElPasoBeauty #PersonalizedSkincare #GlowStart #MedSpa</div></div></div><div class="card-actions"><button class="btn-approve" onclick="approvePost(2)">✅ Aprobar</button><button class="btn-edit" onclick="editPost(2)">✏️ Editar</button><button class="btn-skip" onclick="skipPost(2)">⏭️ Omitir</button></div><div class="card-note"><label class="copy-label">📝 Notas</label><textarea class="copy-field" id="note_2" rows="2" placeholder="Agregar observaciones..."></textarea></div></div><div class="post-card" data-day="3"><div class="card-header"><div class="card-day-info"><span class="day-number">DIA 3</span><span class="day-date">Jueves 25 Jun</span></div><div class="card-badges"><span class="type-badge" style="background:#8B5CF622;color:#8B5CF6;border:1px solid #8B5CF655">💆‍♀️ Servicio Spotlight</span><span class="time-badge">⏰ 09:00</span></div></div><div class="card-image"><img src="images/day05_servicio_spotlight.jpg" alt="" class="post-image" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><div class=\'placeholder-icon\'>🖼️</div><div class=\'placeholder-text\'>Imagen pendiente</div></div>'"></div><div class="card-copy"><div class="copy-section"><label class="copy-label">🎣 Hook</label><textarea class="copy-field hook-field" id="hook_3" rows="2">GLOW DEEPER. Shine Brighter. ✨ Dermaplaning + Complete Facial — just $149.99</textarea></div><div class="copy-section"><label class="copy-label">📝 Cuerpo</label><textarea class="copy-field body-field" id="body_3" rows="5">Smooth. Refresh. Rejuvenate. The ultimate skincare experience.
-
-Why dermaplaning before a facial? Dermaplaning removes the barrier of dead skin cells and peach fuzz, allowing facial products to penetrate deeper and work more effectively.
-
-Better absorption. Better results. Longer lasting glow.
-
-Includes: Dermaplaning treatment + Deep Cleansing Facial + LED Light Therapy</textarea></div><div class="copy-section"><label class="copy-label">📞 CTA</label><textarea class="copy-field cta-field" id="cta_3" rows="3">📲 Book your Dermaplaning + Facial combo today. Limited spots!
-📍 Cielo Vista Mall, El Paso TX | 📞 (915) 209-2060</textarea></div><div class="copy-section"><label class="copy-label">🏷️ Hashtags</label><div class="hashtag-display"></div></div></div><div class="card-actions"><button class="btn-approve" onclick="approvePost(3)">✅ Aprobar</button><button class="btn-edit" onclick="editPost(3)">✏️ Editar</button><button class="btn-skip" onclick="skipPost(3)">⏭️ Omitir</button></div><div class="card-note"><label class="copy-label">📝 Notas</label><textarea class="copy-field" id="note_3" rows="2" placeholder="Agregar observaciones..."></textarea></div></div><div class="post-card" data-day="4"><div class="card-header"><div class="card-day-info"><span class="day-number">DIA 4</span><span class="day-date">Viernes 26 Jun</span></div><div class="card-badges"><span class="type-badge" style="background:#F9731622;color:#F97316;border:1px solid #F9731655">🔥 Promo Spotlight</span><span class="time-badge">⏰ 09:00</span><span class="time-badge" style="background:#F9731622;color:#f97316;border:1px solid #F9731655;">🆕 CLIENTE</span></div></div><div class="card-image"><img src="images/day04_dermaplaning_99.jpg" alt="" class="post-image" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><div class=\'placeholder-icon\'>🖼️</div><div class=\'placeholder-text\'>Imagen pendiente</div></div>'"></div><div class="card-copy"><div class="copy-section"><label class="copy-label">🎣 Hook</label><textarea class="copy-field hook-field" id="hook_4" rows="2">Instantly smoother, brighter-looking skin.</textarea></div><div class="copy-section"><label class="copy-label">📝 Cuerpo</label><textarea class="copy-field body-field" id="body_4" rows="5">Our Dermaplaning + Complete Facial removes built-up dead skin cells and fine facial hair while deeply cleansing, hydrating, and refreshing your complexion.\n\nPerfect before vacations, weddings, special events, or anytime your skin needs a reset.\n\nStarting at $99+.</textarea></div><div class="copy-section"><label class="copy-label">📞 CTA</label><textarea class="copy-field cta-field" id="cta_4" rows="3">Message us 'GLOW' for a complimentary consultation!\nCielo Vista Mall, El Paso TX | (915) 209-2060</textarea></div><div class="copy-section"><label class="copy-label">🏷️ Hashtags</label><div class="hashtag-display">#Dermaplaning #FacialGlow #SkinReset #SolaceSkinLab #ElPasoBeauty #MedSpa #Glow</div></div></div><div class="card-actions"><button class="btn-approve" onclick="approvePost(4)">✅ Aprobar</button><button class="btn-edit" onclick="editPost(4)">✏️ Editar</button><button class="btn-skip" onclick="skipPost(4)">⏭️ Omitir</button></div><div class="card-note"><label class="copy-label">📝 Notas</label><textarea class="copy-field" id="note_4" rows="2" placeholder="Agregar observaciones..."></textarea></div></div><div class="post-card" data-day="5"><div class="card-header"><div class="card-day-info"><span class="day-number">DIA 5</span><span class="day-date">Sabado 27 Jun</span></div><div class="card-badges"><span class="type-badge" style="background:#F9731622;color:#F97316;border:1px solid #F9731655">🔥 Promo Spotlight</span><span class="time-badge">⏰ 09:00</span></div></div><div class="card-image"><img src="images/day06_promo_spotlight.jpg" alt="" class="post-image" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><div class=\'placeholder-icon\'>🖼️</div><div class=\'placeholder-text\'>Imagen pendiente</div></div>'"></div><div class="card-copy"><div class="copy-section"><label class="copy-label">🎣 Hook</label><textarea class="copy-field hook-field" id="hook_5" rows="2">GLOW DEEPER. Shine Brighter. ✨ Dermaplaning + Complete Facial — just $149.99</textarea></div><div class="copy-section"><label class="copy-label">📝 Cuerpo</label><textarea class="copy-field body-field" id="body_5" rows="5">Smooth. Refresh. Rejuvenate. The ultimate skincare experience.
-
-Why dermaplaning before a facial? Dermaplaning removes the barrier of dead skin cells and peach fuzz, allowing facial products to penetrate deeper and work more effectively.
-
-Better absorption. Better results. Longer lasting glow.
-
-Includes: Dermaplaning treatment + Deep Cleansing Facial + LED Light Therapy</textarea></div><div class="copy-section"><label class="copy-label">📞 CTA</label><textarea class="copy-field cta-field" id="cta_5" rows="3">📲 Book your Dermaplaning + Facial combo today. Limited spots!
-📍 Cielo Vista Mall, El Paso TX | 📞 (915) 209-2060</textarea></div><div class="copy-section"><label class="copy-label">🏷️ Hashtags</label><div class="hashtag-display"></div></div></div><div class="card-actions"><button class="btn-approve" onclick="approvePost(5)">✅ Aprobar</button><button class="btn-edit" onclick="editPost(5)">✏️ Editar</button><button class="btn-skip" onclick="skipPost(5)">⏭️ Omitir</button></div><div class="card-note"><label class="copy-label">📝 Notas</label><textarea class="copy-field" id="note_5" rows="2" placeholder="Agregar observaciones..."></textarea></div></div><div class="post-card" data-day="6"><div class="card-header"><div class="card-day-info"><span class="day-number">DIA 6</span><span class="day-date">Domingo 28 Jun</span></div><div class="card-badges"><span class="type-badge" style="background:#8B5CF622;color:#8B5CF6;border:1px solid #8B5CF655">💆‍♀️ Servicio Spotlight</span><span class="time-badge">⏰ 09:00</span><span class="time-badge" style="background:#F9731622;color:#f97316;border:1px solid #F9731655;">🆕 CLIENTE</span></div></div><div class="card-image"><img src="images/day06_botox_cosmetic.jpg" alt="" class="post-image" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><div class=\'placeholder-icon\'>🖼️</div><div class=\'placeholder-text\'>Imagen pendiente</div></div>'"></div><div class="card-copy"><div class="copy-section"><label class="copy-label">🎣 Hook</label><textarea class="copy-field hook-field" id="hook_6" rows="2">Look refreshed. Feel confident.</textarea></div><div class="copy-section"><label class="copy-label">📝 Cuerpo</label><textarea class="copy-field body-field" id="body_6" rows="5">BOTOX Cosmetic treatments help soften the appearance of fine lines and wrinkles while maintaining natural-looking results.\n\nConsultation available. Treatment plans customized to your goals.</textarea></div><div class="copy-section"><label class="copy-label">📞 CTA</label><textarea class="copy-field cta-field" id="cta_6" rows="3">Message us 'GLOW' for a complimentary consultation!\nCielo Vista Mall, El Paso TX | (915) 209-2060</textarea></div><div class="copy-section"><label class="copy-label">🏷️ Hashtags</label><div class="hashtag-display">#Botox #NaturalResults #AntiAging #SolaceSkinLab #ElPasoBeauty #MedSpa #Confidence</div></div></div><div class="card-actions"><button class="btn-approve" onclick="approvePost(6)">✅ Aprobar</button><button class="btn-edit" onclick="editPost(6)">✏️ Editar</button><button class="btn-skip" onclick="skipPost(6)">⏭️ Omitir</button></div><div class="card-note"><label class="copy-label">📝 Notas</label><textarea class="copy-field" id="note_6" rows="2" placeholder="Agregar observaciones..."></textarea></div></div><div class="post-card" data-day="7"><div class="card-header"><div class="card-day-info"><span class="day-number">DIA 7</span><span class="day-date">Lunes 29 Jun</span></div><div class="card-badges"><span class="type-badge" style="background:#06B6D422;color:#06B6D4;border:1px solid #06B6D455">💎 Servicio/Promo Spotlight</span><span class="time-badge">⏰ 09:00</span></div></div><div class="card-image"><img src="images/day10_servicio_promo_spotl.jpg" alt="" class="post-image" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><div class=\'placeholder-icon\'>🖼️</div><div class=\'placeholder-text\'>Imagen pendiente</div></div>'"></div><div class="card-copy"><div class="copy-section"><label class="copy-label">🎣 Hook</label><textarea class="copy-field hook-field" id="hook_7" rows="2">Botox Party this weekend! 🎉 Bring your friends and glow together 💉✨</textarea></div><div class="copy-section"><label class="copy-label">📝 Cuerpo</label><textarea class="copy-field body-field" id="body_7" rows="5">Grab your squad and come experience Botox together at Solace Skin Lab. Exclusive group pricing, complimentary champagne, and a private treatment suite for you and your friends.
-
-Results that look completely natural — because you should still look like YOU, just refreshed.
-
-Limited group spots available. Book your Botox Party today!</textarea></div><div class="copy-section"><label class="copy-label">📞 CTA</label><textarea class="copy-field cta-field" id="cta_7" rows="3">🎉 DM us or call to reserve your Botox Party slot!
-📍 Cielo Vista Mall, El Paso TX | 📞 (915) 209-2060</textarea></div><div class="copy-section"><label class="copy-label">🏷️ Hashtags</label><div class="hashtag-display"></div></div></div><div class="card-actions"><button class="btn-approve" onclick="approvePost(7)">✅ Aprobar</button><button class="btn-edit" onclick="editPost(7)">✏️ Editar</button><button class="btn-skip" onclick="skipPost(7)">⏭️ Omitir</button></div><div class="card-note"><label class="copy-label">📝 Notas</label><textarea class="copy-field" id="note_7" rows="2" placeholder="Agregar observaciones..."></textarea></div></div>
-</div>
-<div class="week-header"><span class="week-badge" style="border-color:#8B5CF6;color:#8B5CF6">SEMANA 2</span><span class="week-theme">Deep Dive</span></div>
-<div class="week-grid"><div class="post-card" data-day="8"><div class="card-header"><div class="card-day-info"><span class="day-number">DIA 8</span><span class="day-date">Martes 30 Jun</span></div><div class="card-badges"><span class="type-badge" style="background:#8B5CF622;color:#8B5CF6;border:1px solid #8B5CF655">💋 Servicio Spotlight</span><span class="time-badge">⏰ 09:00</span><span class="time-badge" style="background:#F9731622;color:#f97316;border:1px solid #F9731655;">🆕 CLIENTE</span></div></div><div class="card-image"><img src="images/day08_juvederm_lip.jpg" alt="" class="post-image" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><div class=\'placeholder-icon\'>🖼️</div><div class=\'placeholder-text\'>Imagen pendiente</div></div>'"></div><div class="card-copy"><div class="copy-section"><label class="copy-label">🎣 Hook</label><textarea class="copy-field hook-field" id="hook_8" rows="2">Enhance your natural beauty with fuller, balanced-looking lips.</textarea></div><div class="copy-section"><label class="copy-label">📝 Cuerpo</label><textarea class="copy-field body-field" id="body_8" rows="5">Whether you're looking for subtle definition or added volume, our customized JUVEDERM lip filler treatments are designed to complement your unique features.\n\nNatural-looking results. Personalized treatment plans.</textarea></div><div class="copy-section"><label class="copy-label">📞 CTA</label><textarea class="copy-field cta-field" id="cta_8" rows="3">Message us 'GLOW' for a complimentary consultation!\nCielo Vista Mall, El Paso TX | (915) 209-2060</textarea></div><div class="copy-section"><label class="copy-label">🏷️ Hashtags</label><div class="hashtag-display">#Juvederm #LipFiller #NaturalBeauty #SolaceSkinLab #ElPasoBeauty #MedSpa #LipGoals</div></div></div><div class="card-actions"><button class="btn-approve" onclick="approvePost(8)">✅ Aprobar</button><button class="btn-edit" onclick="editPost(8)">✏️ Editar</button><button class="btn-skip" onclick="skipPost(8)">⏭️ Omitir</button></div><div class="card-note"><label class="copy-label">📝 Notas</label><textarea class="copy-field" id="note_8" rows="2" placeholder="Agregar observaciones..."></textarea></div></div><div class="post-card" data-day="9"><div class="card-header"><div class="card-day-info"><span class="day-number">DIA 9</span><span class="day-date">Miercoles 1 Jul</span></div><div class="card-badges"><span class="type-badge" style="background:#8B5CF622;color:#8B5CF6;border:1px solid #8B5CF655">💆‍♀️ Servicio Spotlight</span><span class="time-badge">⏰ 09:00</span></div></div><div class="card-image"><img src="images/day12_servicio_spotlight.jpg" alt="" class="post-image" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><div class=\'placeholder-icon\'>🖼️</div><div class=\'placeholder-text\'>Imagen pendiente</div></div>'"></div><div class="card-copy"><div class="copy-section"><label class="copy-label">🎣 Hook</label><textarea class="copy-field hook-field" id="hook_9" rows="2">Botox Party this weekend! 🎉 Bring your friends and glow together 💉✨</textarea></div><div class="copy-section"><label class="copy-label">📝 Cuerpo</label><textarea class="copy-field body-field" id="body_9" rows="5">Grab your squad and come experience Botox together at Solace Skin Lab. Exclusive group pricing, complimentary champagne, and a private treatment suite for you and your friends.
-
-Results that look completely natural — because you should still look like YOU, just refreshed.
-
-Limited group spots available. Book your Botox Party today!</textarea></div><div class="copy-section"><label class="copy-label">📞 CTA</label><textarea class="copy-field cta-field" id="cta_9" rows="3">🎉 DM us or call to reserve your Botox Party slot!
-📍 Cielo Vista Mall, El Paso TX | 📞 (915) 209-2060</textarea></div><div class="copy-section"><label class="copy-label">🏷️ Hashtags</label><div class="hashtag-display"></div></div></div><div class="card-actions"><button class="btn-approve" onclick="approvePost(9)">✅ Aprobar</button><button class="btn-edit" onclick="editPost(9)">✏️ Editar</button><button class="btn-skip" onclick="skipPost(9)">⏭️ Omitir</button></div><div class="card-note"><label class="copy-label">📝 Notas</label><textarea class="copy-field" id="note_9" rows="2" placeholder="Agregar observaciones..."></textarea></div></div><div class="post-card" data-day="10"><div class="card-header"><div class="card-day-info"><span class="day-number">DIA 10</span><span class="day-date">Jueves 2 Jul</span></div><div class="card-badges"><span class="type-badge" style="background:#F9731622;color:#F97316;border:1px solid #F9731655">💡 Promo Spotlight</span><span class="time-badge">⏰ 09:00</span><span class="time-badge" style="background:#F9731622;color:#f97316;border:1px solid #F9731655;">🆕 CLIENTE</span></div></div><div class="card-image"><img src="images/day10_led_therapy.jpg" alt="" class="post-image" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><div class=\'placeholder-icon\'>🖼️</div><div class=\'placeholder-text\'>Imagen pendiente</div></div>'"></div><div class="card-copy"><div class="copy-section"><label class="copy-label">🎣 Hook</label><textarea class="copy-field hook-field" id="hook_10" rows="2">Give your skin the high-tech glow treatment it deserves.</textarea></div><div class="copy-section"><label class="copy-label">📝 Cuerpo</label><textarea class="copy-field body-field" id="body_10" rows="5">LED Light Therapy helps support a brighter, refreshed, healthy-looking complexion and can be added to your personalized skin plan.\n\nPerfect for clients looking for a gentle glow-boosting treatment.</textarea></div><div class="copy-section"><label class="copy-label">📞 CTA</label><textarea class="copy-field cta-field" id="cta_10" rows="3">Message us 'GLOW' for a complimentary consultation!\nCielo Vista Mall, El Paso TX | (915) 209-2060</textarea></div><div class="copy-section"><label class="copy-label">🏷️ Hashtags</label><div class="hashtag-display">#LEDTherapy #LightTherapy #GlowTreatment #SolaceSkinLab #ElPasoBeauty #MedSpa #SkinHealth</div></div></div><div class="card-actions"><button class="btn-approve" onclick="approvePost(10)">✅ Aprobar</button><button class="btn-edit" onclick="editPost(10)">✏️ Editar</button><button class="btn-skip" onclick="skipPost(10)">⏭️ Omitir</button></div><div class="card-note"><label class="copy-label">📝 Notas</label><textarea class="copy-field" id="note_10" rows="2" placeholder="Agregar observaciones..."></textarea></div></div><div class="post-card" data-day="11"><div class="card-header"><div class="card-day-info"><span class="day-number">DIA 11</span><span class="day-date">Viernes 3 Jul</span></div><div class="card-badges"><span class="type-badge" style="background:#F9731622;color:#F97316;border:1px solid #F9731655">🔥 Promo Spotlight</span><span class="time-badge">⏰ 09:00</span></div></div><div class="card-image"><img src="images/day13_promo_spotlight.jpg" alt="" class="post-image" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><div class=\'placeholder-icon\'>🖼️</div><div class=\'placeholder-text\'>Imagen pendiente</div></div>'"></div><div class="card-copy"><div class="copy-section"><label class="copy-label">🎣 Hook</label><textarea class="copy-field hook-field" id="hook_11" rows="2">Botox Party this weekend! 🎉 Bring your friends and glow together 💉✨</textarea></div><div class="copy-section"><label class="copy-label">📝 Cuerpo</label><textarea class="copy-field body-field" id="body_11" rows="5">Grab your squad and come experience Botox together at Solace Skin Lab. Exclusive group pricing, complimentary champagne, and a private treatment suite for you and your friends.
-
-Results that look completely natural — because you should still look like YOU, just refreshed.
-
-Limited group spots available. Book your Botox Party today!</textarea></div><div class="copy-section"><label class="copy-label">📞 CTA</label><textarea class="copy-field cta-field" id="cta_11" rows="3">🎉 DM us or call to reserve your Botox Party slot!
-📍 Cielo Vista Mall, El Paso TX | 📞 (915) 209-2060</textarea></div><div class="copy-section"><label class="copy-label">🏷️ Hashtags</label><div class="hashtag-display"></div></div></div><div class="card-actions"><button class="btn-approve" onclick="approvePost(11)">✅ Aprobar</button><button class="btn-edit" onclick="editPost(11)">✏️ Editar</button><button class="btn-skip" onclick="skipPost(11)">⏭️ Omitir</button></div><div class="card-note"><label class="copy-label">📝 Notas</label><textarea class="copy-field" id="note_11" rows="2" placeholder="Agregar observaciones..."></textarea></div></div><div class="post-card" data-day="12"><div class="card-header"><div class="card-day-info"><span class="day-number">DIA 12</span><span class="day-date">Sabado 4 Jul</span></div><div class="card-badges"><span class="type-badge" style="background:#8B5CF622;color:#8B5CF6;border:1px solid #8B5CF655">💆‍♀️ Servicio Spotlight</span><span class="time-badge">⏰ 09:00</span><span class="time-badge" style="background:#F9731622;color:#f97316;border:1px solid #F9731655;">🆕 CLIENTE</span></div></div><div class="card-image"><img src="images/day12_microneedling_regeneration.jpg" alt="" class="post-image" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><div class=\'placeholder-icon\'>🖼️</div><div class=\'placeholder-text\'>Imagen pendiente</div></div>'"></div><div class="card-copy"><div class="copy-section"><label class="copy-label">🎣 Hook</label><textarea class="copy-field hook-field" id="hook_12" rows="2">Ready to take your skin rejuvenation to the next level?</textarea></div><div class="copy-section"><label class="copy-label">📝 Cuerpo</label><textarea class="copy-field body-field" id="body_12" rows="5">Our advanced Microneedling + Skin Regeneration treatment helps improve the appearance of fine lines, acne scars, uneven skin texture, enlarged pores, and dull-looking skin.\n\nMinimal downtime. Customized treatment plan.</textarea></div><div class="copy-section"><label class="copy-label">📞 CTA</label><textarea class="copy-field cta-field" id="cta_12" rows="3">Message us 'GLOW' for a complimentary consultation!\nCielo Vista Mall, El Paso TX | (915) 209-2060</textarea></div><div class="copy-section"><label class="copy-label">🏷️ Hashtags</label><div class="hashtag-display">#Microneedling #SkinRegeneration #CollagenBoost #SolaceSkinLab #ElPasoBeauty #MedSpa</div></div></div><div class="card-actions"><button class="btn-approve" onclick="approvePost(12)">✅ Aprobar</button><button class="btn-edit" onclick="editPost(12)">✏️ Editar</button><button class="btn-skip" onclick="skipPost(12)">⏭️ Omitir</button></div><div class="card-note"><label class="copy-label">📝 Notas</label><textarea class="copy-field" id="note_12" rows="2" placeholder="Agregar observaciones..."></textarea></div></div><div class="post-card" data-day="13"><div class="card-header"><div class="card-day-info"><span class="day-number">DIA 13</span><span class="day-date">Domingo 5 Jul</span></div><div class="card-badges"><span class="type-badge" style="background:#22C55E22;color:#22C55E;border:1px solid #22C55E55">💬 Engagement</span><span class="time-badge">⏰ 09:00</span></div></div><div class="card-image"><img src="images/day15_engagement.jpg" alt="" class="post-image" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><div class=\'placeholder-icon\'>🖼️</div><div class=\'placeholder-text\'>Imagen pendiente</div></div>'"></div><div class="card-copy"><div class="copy-section"><label class="copy-label">🎣 Hook</label><textarea class="copy-field hook-field" id="hook_13" rows="2">POLL TIME 📊 Which treatment are you most curious about?</textarea></div><div class="copy-section"><label class="copy-label">📝 Cuerpo</label><textarea class="copy-field body-field" id="body_13" rows="5">A) Botox 💉
-B) Lip Filler 💋
-C) Microneedling ✨
-D) Deep Cleansing Facial 💆‍♀️
-
-Vote in the comments! And if you want to learn more about any of these — we're always here to answer your questions.</textarea></div><div class="copy-section"><label class="copy-label">📞 CTA</label><textarea class="copy-field cta-field" id="cta_13" rows="3">💬 Vote and tag a friend who needs to know about this!
-📍 Cielo Vista Mall, El Paso TX | 📞 (915) 209-2060</textarea></div><div class="copy-section"><label class="copy-label">🏷️ Hashtags</label><div class="hashtag-display"></div></div></div><div class="card-actions"><button class="btn-approve" onclick="approvePost(13)">✅ Aprobar</button><button class="btn-edit" onclick="editPost(13)">✏️ Editar</button><button class="btn-skip" onclick="skipPost(13)">⏭️ Omitir</button></div><div class="card-note"><label class="copy-label">📝 Notas</label><textarea class="copy-field" id="note_13" rows="2" placeholder="Agregar observaciones..."></textarea></div></div><div class="post-card" data-day="14"><div class="card-header"><div class="card-day-info"><span class="day-number">DIA 14</span><span class="day-date">Lunes 6 Jul</span></div><div class="card-badges"><span class="type-badge" style="background:#F9731622;color:#F97316;border:1px solid #F9731655">🔥 Promo Spotlight</span><span class="time-badge">⏰ 09:00</span><span class="time-badge" style="background:#F9731622;color:#f97316;border:1px solid #F9731655;">🆕 CLIENTE</span></div></div><div class="card-image"><img src="images/day14_microneedling_acne.jpg" alt="" class="post-image" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><div class=\'placeholder-icon\'>🖼️</div><div class=\'placeholder-text\'>Imagen pendiente</div></div>'"></div><div class="card-copy"><div class="copy-section"><label class="copy-label">🎣 Hook</label><textarea class="copy-field hook-field" id="hook_14" rows="2">Acne may be gone, but the scars don't have to stay.</textarea></div><div class="copy-section"><label class="copy-label">📝 Cuerpo</label><textarea class="copy-field body-field" id="body_14" rows="5">Microneedling helps improve the appearance of acne scars, uneven texture, and rough skin by supporting your skin's natural collagen production.\n\nSmoother-looking skin starts here.</textarea></div><div class="copy-section"><label class="copy-label">📞 CTA</label><textarea class="copy-field cta-field" id="cta_14" rows="3">Message us 'GLOW' for a complimentary consultation!\nCielo Vista Mall, El Paso TX | (915) 209-2060</textarea></div><div class="copy-section"><label class="copy-label">🏷️ Hashtags</label><div class="hashtag-display">#AcneScars #Microneedling #ScarTreatment #SolaceSkinLab #ElPasoBeauty #MedSpa #SmoothSkin</div></div></div><div class="card-actions"><button class="btn-approve" onclick="approvePost(14)">✅ Aprobar</button><button class="btn-edit" onclick="editPost(14)">✏️ Editar</button><button class="btn-skip" onclick="skipPost(14)">⏭️ Omitir</button></div><div class="card-note"><label class="copy-label">📝 Notas</label><textarea class="copy-field" id="note_14" rows="2" placeholder="Agregar observaciones..."></textarea></div></div>
-</div>
-<div class="week-header"><span class="week-badge" style="border-color:#06B6D4;color:#06B6D4">SEMANA 3</span><span class="week-theme">Microneedling Week</span></div>
-<div class="week-grid"><div class="post-card" data-day="15"><div class="card-header"><div class="card-day-info"><span class="day-number">DIA 15</span><span class="day-date">Martes 7 Jul</span></div><div class="card-badges"><span class="type-badge" style="background:#06B6D422;color:#06B6D4;border:1px solid #06B6D455">💎 Servicio/Promo Spotlight</span><span class="time-badge">⏰ 09:00</span></div></div><div class="card-image"><img src="images/day17_servicio_promo_spotl.jpg" alt="" class="post-image" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><div class=\'placeholder-icon\'>🖼️</div><div class=\'placeholder-text\'>Imagen pendiente</div></div>'"></div><div class="card-copy"><div class="copy-section"><label class="copy-label">🎣 Hook</label><textarea class="copy-field hook-field" id="hook_15" rows="2">Botox made simple. Pick your area. Starting at just $99.</textarea></div><div class="copy-section"><label class="copy-label">📝 Cuerpo</label><textarea class="copy-field body-field" id="body_15" rows="5">The Neurotoxin Menu at Solace Skin Lab — Botox Cosmetic (onabotulinumtoxinA):
-
-👁️ Glabellar Lines (11s between brows) — Start at $99
-👤 Forehead Lines — Start at $99
-👁️ Crows Feet — Start at $120
-🦋 Neck Bands (Platysma) — Start at $179
-
-Every visit includes: Complimentary Consultation | Personalized Plan | Post-Care | Follow-Up</textarea></div><div class="copy-section"><label class="copy-label">📞 CTA</label><textarea class="copy-field cta-field" id="cta_15" rows="3">📲 Book your Botox consultation today!
-📍 Cielo Vista Mall, El Paso TX | 📞 (915) 209-2060</textarea></div><div class="copy-section"><label class="copy-label">🏷️ Hashtags</label><div class="hashtag-display"></div></div></div><div class="card-actions"><button class="btn-approve" onclick="approvePost(15)">✅ Aprobar</button><button class="btn-edit" onclick="editPost(15)">✏️ Editar</button><button class="btn-skip" onclick="skipPost(15)">⏭️ Omitir</button></div><div class="card-note"><label class="copy-label">📝 Notas</label><textarea class="copy-field" id="note_15" rows="2" placeholder="Agregar observaciones..."></textarea></div></div><div class="post-card" data-day="16"><div class="card-header"><div class="card-day-info"><span class="day-number">DIA 16</span><span class="day-date">Miercoles 8 Jul</span></div><div class="card-badges"><span class="type-badge" style="background:#06B6D422;color:#06B6D4;border:1px solid #06B6D455">💎 Servicio/Promo Spotlight</span><span class="time-badge">⏰ 09:00</span><span class="time-badge" style="background:#F9731622;color:#f97316;border:1px solid #F9731655;">🆕 CLIENTE</span></div></div><div class="card-image"><img src="images/day16_microneedling_stretch.jpg" alt="" class="post-image" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><div class=\'placeholder-icon\'>🖼️</div><div class=\'placeholder-text\'>Imagen pendiente</div></div>'"></div><div class="card-copy"><div class="copy-section"><label class="copy-label">🎣 Hook</label><textarea class="copy-field hook-field" id="hook_16" rows="2">Stretch marks don't have to define your skin.</textarea></div><div class="copy-section"><label class="copy-label">📝 Cuerpo</label><textarea class="copy-field body-field" id="body_16" rows="5">Microneedling helps stimulate your skin's natural renewal process, improving the appearance of stretch marks and helping skin look smoother and more even over time.</textarea></div><div class="copy-section"><label class="copy-label">📞 CTA</label><textarea class="copy-field cta-field" id="cta_16" rows="3">Message us 'GLOW' for a complimentary consultation!\nCielo Vista Mall, El Paso TX | (915) 209-2060</textarea></div><div class="copy-section"><label class="copy-label">🏷️ Hashtags</label><div class="hashtag-display">#StretchMarks #Microneedling #SkinRenewal #SolaceSkinLab #ElPasoBeauty #MedSpa</div></div></div><div class="card-actions"><button class="btn-approve" onclick="approvePost(16)">✅ Aprobar</button><button class="btn-edit" onclick="editPost(16)">✏️ Editar</button><button class="btn-skip" onclick="skipPost(16)">⏭️ Omitir</button></div><div class="card-note"><label class="copy-label">📝 Notas</label><textarea class="copy-field" id="note_16" rows="2" placeholder="Agregar observaciones..."></textarea></div></div><div class="post-card" data-day="17"><div class="card-header"><div class="card-day-info"><span class="day-number">DIA 17</span><span class="day-date">Jueves 9 Jul</span></div><div class="card-badges"><span class="type-badge" style="background:#8B5CF622;color:#8B5CF6;border:1px solid #8B5CF655">💆‍♀️ Servicio Spotlight</span><span class="time-badge">⏰ 09:00</span></div></div><div class="card-image"><img src="images/day19_servicio_spotlight.jpg" alt="" class="post-image" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><div class=\'placeholder-icon\'>🖼️</div><div class=\'placeholder-text\'>Imagen pendiente</div></div>'"></div><div class="card-copy"><div class="copy-section"><label class="copy-label">🎣 Hook</label><textarea class="copy-field hook-field" id="hook_17" rows="2">Botox made simple. Pick your area. Starting at just $99.</textarea></div><div class="copy-section"><label class="copy-label">📝 Cuerpo</label><textarea class="copy-field body-field" id="body_17" rows="5">The Neurotoxin Menu at Solace Skin Lab — Botox Cosmetic (onabotulinumtoxinA):
-
-👁️ Glabellar Lines (11s between brows) — Start at $99
-👤 Forehead Lines — Start at $99
-👁️ Crows Feet — Start at $120
-🦋 Neck Bands (Platysma) — Start at $179
-
-Every visit includes: Complimentary Consultation | Personalized Plan | Post-Care | Follow-Up</textarea></div><div class="copy-section"><label class="copy-label">📞 CTA</label><textarea class="copy-field cta-field" id="cta_17" rows="3">📲 Book your Botox consultation today!
-📍 Cielo Vista Mall, El Paso TX | 📞 (915) 209-2060</textarea></div><div class="copy-section"><label class="copy-label">🏷️ Hashtags</label><div class="hashtag-display"></div></div></div><div class="card-actions"><button class="btn-approve" onclick="approvePost(17)">✅ Aprobar</button><button class="btn-edit" onclick="editPost(17)">✏️ Editar</button><button class="btn-skip" onclick="skipPost(17)">⏭️ Omitir</button></div><div class="card-note"><label class="copy-label">📝 Notas</label><textarea class="copy-field" id="note_17" rows="2" placeholder="Agregar observaciones..."></textarea></div></div><div class="post-card" data-day="18"><div class="card-header"><div class="card-day-info"><span class="day-number">DIA 18</span><span class="day-date">Viernes 10 Jul</span></div><div class="card-badges"><span class="type-badge" style="background:#F9731622;color:#F97316;border:1px solid #F9731655">🔥 Promo Spotlight</span><span class="time-badge">⏰ 09:00</span><span class="time-badge" style="background:#F9731622;color:#f97316;border:1px solid #F9731655;">🆕 CLIENTE</span></div></div><div class="card-image"><img src="images/day18_microneedling_scars.jpg" alt="" class="post-image" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><div class=\'placeholder-icon\'>🖼️</div><div class=\'placeholder-text\'>Imagen pendiente</div></div>'"></div><div class="card-copy"><div class="copy-section"><label class="copy-label">🎣 Hook</label><textarea class="copy-field hook-field" id="hook_18" rows="2">Whether from surgery, injury, or acne - scars can affect your confidence.</textarea></div><div class="copy-section"><label class="copy-label">📝 Cuerpo</label><textarea class="copy-field body-field" id="body_18" rows="5">Microneedling is a minimally invasive treatment designed to improve the appearance of scars and help create a smoother, more refined-looking complexion.</textarea></div><div class="copy-section"><label class="copy-label">📞 CTA</label><textarea class="copy-field cta-field" id="cta_18" rows="3">Message us 'GLOW' for a complimentary consultation!\nCielo Vista Mall, El Paso TX | (915) 209-2060</textarea></div><div class="copy-section"><label class="copy-label">🏷️ Hashtags</label><div class="hashtag-display">#ScarTreatment #Microneedling #SkinConfidence #SolaceSkinLab #ElPasoBeauty #MedSpa</div></div></div><div class="card-actions"><button class="btn-approve" onclick="approvePost(18)">✅ Aprobar</button><button class="btn-edit" onclick="editPost(18)">✏️ Editar</button><button class="btn-skip" onclick="skipPost(18)">⏭️ Omitir</button></div><div class="card-note"><label class="copy-label">📝 Notas</label><textarea class="copy-field" id="note_18" rows="2" placeholder="Agregar observaciones..."></textarea></div></div><div class="post-card" data-day="19"><div class="card-header"><div class="card-day-info"><span class="day-number">DIA 19</span><span class="day-date">Sabado 11 Jul</span></div><div class="card-badges"><span class="type-badge" style="background:#F9731622;color:#F97316;border:1px solid #F9731655">🔥 Promo Spotlight</span><span class="time-badge">⏰ 09:00</span></div></div><div class="card-image"><img src="images/day20_promo_spotlight.jpg" alt="" class="post-image" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><div class=\'placeholder-icon\'>🖼️</div><div class=\'placeholder-text\'>Imagen pendiente</div></div>'"></div><div class="card-copy"><div class="copy-section"><label class="copy-label">🎣 Hook</label><textarea class="copy-field hook-field" id="hook_19" rows="2">Botox made simple. Pick your area. Starting at just $99.</textarea></div><div class="copy-section"><label class="copy-label">📝 Cuerpo</label><textarea class="copy-field body-field" id="body_19" rows="5">The Neurotoxin Menu at Solace Skin Lab — Botox Cosmetic (onabotulinumtoxinA):
-
-👁️ Glabellar Lines (11s between brows) — Start at $99
-👤 Forehead Lines — Start at $99
-👁️ Crows Feet — Start at $120
-🦋 Neck Bands (Platysma) — Start at $179
-
-Every visit includes: Complimentary Consultation | Personalized Plan | Post-Care | Follow-Up</textarea></div><div class="copy-section"><label class="copy-label">📞 CTA</label><textarea class="copy-field cta-field" id="cta_19" rows="3">📲 Book your Botox consultation today!
-📍 Cielo Vista Mall, El Paso TX | 📞 (915) 209-2060</textarea></div><div class="copy-section"><label class="copy-label">🏷️ Hashtags</label><div class="hashtag-display"></div></div></div><div class="card-actions"><button class="btn-approve" onclick="approvePost(19)">✅ Aprobar</button><button class="btn-edit" onclick="editPost(19)">✏️ Editar</button><button class="btn-skip" onclick="skipPost(19)">⏭️ Omitir</button></div><div class="card-note"><label class="copy-label">📝 Notas</label><textarea class="copy-field" id="note_19" rows="2" placeholder="Agregar observaciones..."></textarea></div></div><div class="post-card" data-day="20"><div class="card-header"><div class="card-day-info"><span class="day-number">DIA 20</span><span class="day-date">Domingo 12 Jul</span></div><div class="card-badges"><span class="type-badge" style="background:#06B6D422;color:#06B6D4;border:1px solid #06B6D455">💎 Servicio/Promo Spotlight</span><span class="time-badge">⏰ 09:00</span><span class="time-badge" style="background:#F9731622;color:#f97316;border:1px solid #F9731655;">🆕 CLIENTE</span></div></div><div class="card-image"><img src="images/day20_microneedling_texture.jpg" alt="" class="post-image" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><div class=\'placeholder-icon\'>🖼️</div><div class=\'placeholder-text\'>Imagen pendiente</div></div>'"></div><div class="card-copy"><div class="copy-section"><label class="copy-label">🎣 Hook</label><textarea class="copy-field hook-field" id="hook_20" rows="2">Rough texture? Enlarged pores? Dull-looking skin?</textarea></div><div class="copy-section"><label class="copy-label">📝 Cuerpo</label><textarea class="copy-field body-field" id="body_20" rows="5">Microneedling helps support collagen production and improve the appearance of uneven texture, helping your skin look smoother, fresher, and more refined over time.</textarea></div><div class="copy-section"><label class="copy-label">📞 CTA</label><textarea class="copy-field cta-field" id="cta_20" rows="3">Message us 'GLOW' for a complimentary consultation!\nCielo Vista Mall, El Paso TX | (915) 209-2060</textarea></div><div class="copy-section"><label class="copy-label">🏷️ Hashtags</label><div class="hashtag-display">#SkinTexture #Microneedling #PoreCare #SolaceSkinLab #ElPasoBeauty #MedSpa #Glow</div></div></div><div class="card-actions"><button class="btn-approve" onclick="approvePost(20)">✅ Aprobar</button><button class="btn-edit" onclick="editPost(20)">✏️ Editar</button><button class="btn-skip" onclick="skipPost(20)">⏭️ Omitir</button></div><div class="card-note"><label class="copy-label">📝 Notas</label><textarea class="copy-field" id="note_20" rows="2" placeholder="Agregar observaciones..."></textarea></div></div><div class="post-card" data-day="21"><div class="card-header"><div class="card-day-info"><span class="day-number">DIA 21</span><span class="day-date">Lunes 13 Jul</span></div><div class="card-badges"><span class="type-badge" style="background:#C9A84C22;color:#C9A84C;border:1px solid #C9A84C55">✨ Antes y Después</span><span class="time-badge">⏰ 09:00</span></div></div><div class="card-image"><img src="images/day21_antes_y_después.jpg" alt="" class="post-image" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><div class=\'placeholder-icon\'>🖼️</div><div class=\'placeholder-text\'>Imagen pendiente</div></div>'"></div><div class="card-copy"><div class="copy-section"><label class="copy-label">🎣 Hook</label><textarea class="copy-field hook-field" id="hook_21" rows="2">Real results. Real people. Real confidence. ✨</textarea></div><div class="copy-section"><label class="copy-label">📝 Cuerpo</label><textarea class="copy-field body-field" id="body_21" rows="5">Nothing speaks louder than results you can see. Our clients come to Solace Skin Lab with goals — and leave with transformations.
-
-Every before &amp; after you see represents a customized treatment plan, expert hands, and a client who trusted us with their skin.</textarea></div><div class="copy-section"><label class="copy-label">📞 CTA</label><textarea class="copy-field cta-field" id="cta_21" rows="3">📲 Ready to start your transformation? DM us or book a consultation.
-📍 Cielo Vista Mall, El Paso TX | 📞 (915) 209-2060</textarea></div><div class="copy-section"><label class="copy-label">🏷️ Hashtags</label><div class="hashtag-display"></div></div></div><div class="card-actions"><button class="btn-approve" onclick="approvePost(21)">✅ Aprobar</button><button class="btn-edit" onclick="editPost(21)">✏️ Editar</button><button class="btn-skip" onclick="skipPost(21)">⏭️ Omitir</button></div><div class="card-note"><label class="copy-label">📝 Notas</label><textarea class="copy-field" id="note_21" rows="2" placeholder="Agregar observaciones..."></textarea></div></div>
-</div>
-<div class="week-header"><span class="week-badge" style="border-color:#F97316;color:#F97316">SEMANA 4</span><span class="week-theme">Servicios Especiales</span></div>
-<div class="week-grid"><div class="post-card" data-day="22"><div class="card-header"><div class="card-day-info"><span class="day-number">DIA 22</span><span class="day-date">Martes 14 Jul</span></div><div class="card-badges"><span class="type-badge" style="background:#F9731622;color:#F97316;border:1px solid #F9731655">🔥 Promo Spotlight</span><span class="time-badge">⏰ 09:00</span><span class="time-badge" style="background:#F9731622;color:#f97316;border:1px solid #F9731655;">🆕 CLIENTE</span></div></div><div class="card-image"><img src="images/day22_microneedling_fine_lines.jpg" alt="" class="post-image" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><div class=\'placeholder-icon\'>🖼️</div><div class=\'placeholder-text\'>Imagen pendiente</div></div>'"></div><div class="card-copy"><div class="copy-section"><label class="copy-label">🎣 Hook</label><textarea class="copy-field hook-field" id="hook_22" rows="2">Fine lines, texture, and dullness can make your skin look tired.</textarea></div><div class="copy-section"><label class="copy-label">📝 Cuerpo</label><textarea class="copy-field body-field" id="body_22" rows="5">Microneedling helps support your skin's natural renewal process and collagen production for a smoother, healthier-looking complexion.</textarea></div><div class="copy-section"><label class="copy-label">📞 CTA</label><textarea class="copy-field cta-field" id="cta_22" rows="3">Message us 'GLOW' for a complimentary consultation!\nCielo Vista Mall, El Paso TX | (915) 209-2060</textarea></div><div class="copy-section"><label class="copy-label">🏷️ Hashtags</label><div class="hashtag-display">#FineLines #Microneedling #AntiAging #SolaceSkinLab #ElPasoBeauty #MedSpa #NaturalGlow</div></div></div><div class="card-actions"><button class="btn-approve" onclick="approvePost(22)">✅ Aprobar</button><button class="btn-edit" onclick="editPost(22)">✏️ Editar</button><button class="btn-skip" onclick="skipPost(22)">⏭️ Omitir</button></div><div class="card-note"><label class="copy-label">📝 Notas</label><textarea class="copy-field" id="note_22" rows="2" placeholder="Agregar observaciones..."></textarea></div></div><div class="post-card" data-day="23"><div class="card-header"><div class="card-day-info"><span class="day-number">DIA 23</span><span class="day-date">Miercoles 15 Jul</span></div><div class="card-badges"><span class="type-badge" style="background:#06B6D422;color:#06B6D4;border:1px solid #06B6D455">💎 Servicio/Promo Spotlight</span><span class="time-badge">⏰ 09:00</span></div></div><div class="card-image"><img src="images/day24_servicio_promo_spotl.jpg" alt="" class="post-image" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><div class=\'placeholder-icon\'>🖼️</div><div class=\'placeholder-text\'>Imagen pendiente</div></div>'"></div><div class="card-copy"><div class="copy-section"><label class="copy-label">🎣 Hook</label><textarea class="copy-field hook-field" id="hook_23" rows="2">GLOW DEEPER. Shine Brighter. ✨ Dermaplaning + Complete Facial — just $149.99</textarea></div><div class="copy-section"><label class="copy-label">📝 Cuerpo</label><textarea class="copy-field body-field" id="body_23" rows="5">Smooth. Refresh. Rejuvenate. The ultimate skincare experience.
-
-Why dermaplaning before a facial? Dermaplaning removes the barrier of dead skin cells and peach fuzz, allowing facial products to penetrate deeper and work more effectively.
-
-Better absorption. Better results. Longer lasting glow.
-
-Includes: Dermaplaning treatment + Deep Cleansing Facial + LED Light Therapy</textarea></div><div class="copy-section"><label class="copy-label">📞 CTA</label><textarea class="copy-field cta-field" id="cta_23" rows="3">📲 Book your Dermaplaning + Facial combo today. Limited spots!
-📍 Cielo Vista Mall, El Paso TX | 📞 (915) 209-2060</textarea></div><div class="copy-section"><label class="copy-label">🏷️ Hashtags</label><div class="hashtag-display"></div></div></div><div class="card-actions"><button class="btn-approve" onclick="approvePost(23)">✅ Aprobar</button><button class="btn-edit" onclick="editPost(23)">✏️ Editar</button><button class="btn-skip" onclick="skipPost(23)">⏭️ Omitir</button></div><div class="card-note"><label class="copy-label">📝 Notas</label><textarea class="copy-field" id="note_23" rows="2" placeholder="Agregar observaciones..."></textarea></div></div><div class="post-card" data-day="24"><div class="card-header"><div class="card-day-info"><span class="day-number">DIA 24</span><span class="day-date">Jueves 16 Jul</span></div><div class="card-badges"><span class="type-badge" style="background:#06B6D422;color:#06B6D4;border:1px solid #06B6D455">💎 Servicio/Promo Spotlight</span><span class="time-badge">⏰ 09:00</span><span class="time-badge" style="background:#F9731622;color:#f97316;border:1px solid #F9731655;">🆕 CLIENTE</span></div></div><div class="card-image"><img src="images/day24_microneedling_problematic.jpg" alt="" class="post-image" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><div class=\'placeholder-icon\'>🖼️</div><div class=\'placeholder-text\'>Imagen pendiente</div></div>'"></div><div class="card-copy"><div class="copy-section"><label class="copy-label">🎣 Hook</label><textarea class="copy-field hook-field" id="hook_24" rows="2">Dealing with acne-prone skin, uneven tone, or rough texture?</textarea></div><div class="copy-section"><label class="copy-label">📝 Cuerpo</label><textarea class="copy-field body-field" id="body_24" rows="5">Microneedling is one of the most versatile treatments in aesthetics, helping improve the appearance of multiple skin concerns through a customized treatment plan.\n\nYour skin is unique. Your treatment should be too.</textarea></div><div class="copy-section"><label class="copy-label">📞 CTA</label><textarea class="copy-field cta-field" id="cta_24" rows="3">Message us 'GLOW' for a complimentary consultation!\nCielo Vista Mall, El Paso TX | (915) 209-2060</textarea></div><div class="copy-section"><label class="copy-label">🏷️ Hashtags</label><div class="hashtag-display">#ProblematicSkin #Microneedling #SkinHealth #SolaceSkinLab #ElPasoBeauty #MedSpa #CustomCare</div></div></div><div class="card-actions"><button class="btn-approve" onclick="approvePost(24)">✅ Aprobar</button><button class="btn-edit" onclick="editPost(24)">✏️ Editar</button><button class="btn-skip" onclick="skipPost(24)">⏭️ Omitir</button></div><div class="card-note"><label class="copy-label">📝 Notas</label><textarea class="copy-field" id="note_24" rows="2" placeholder="Agregar observaciones..."></textarea></div></div><div class="post-card" data-day="25"><div class="card-header"><div class="card-day-info"><span class="day-number">DIA 25</span><span class="day-date">Viernes 17 Jul</span></div><div class="card-badges"><span class="type-badge" style="background:#8B5CF622;color:#8B5CF6;border:1px solid #8B5CF655">💆‍♀️ Servicio Spotlight</span><span class="time-badge">⏰ 09:00</span></div></div><div class="card-image"><img src="images/day26_servicio_spotlight.jpg" alt="" class="post-image" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><div class=\'placeholder-icon\'>🖼️</div><div class=\'placeholder-text\'>Imagen pendiente</div></div>'"></div><div class="card-copy"><div class="copy-section"><label class="copy-label">🎣 Hook</label><textarea class="copy-field hook-field" id="hook_25" rows="2">3 ways to microneedle. 1 goal: your best skin ever.</textarea></div><div class="copy-section"><label class="copy-label">📝 Cuerpo</label><textarea class="copy-field body-field" id="body_25" rows="5">SAFE FOR ALL SKIN TYPES | MINIMAL DOWNTIME | LONG-LASTING GLOW
-
-💎 HYLA ACTIVE (Hyaluronic Acid) — Start at $250
-Boosts collagen &amp; elastin
-
-💎 COLLAGEN BOOST — Start at $299
-Improves texture, tone &amp; firmness | Enhances skin healing
-
-💎 ELITE REGENERATIVE — Start at $349
-Minimal downtime. Maximum results. Natural glow.
-
-Areas: Face | Body | Scalp
-
-Treats: Acne, Pigmentation, Anti-ageing, Rosacea, Alopecia, Scars, Stretch marks</textarea></div><div class="copy-section"><label class="copy-label">📞 CTA</label><textarea class="copy-field cta-field" id="cta_25" rows="3">📲 Find your perfect microneedling tier. Book a consult.
-📍 Cielo Vista Mall, El Paso TX | 📞 (915) 209-2060</textarea></div><div class="copy-section"><label class="copy-label">🏷️ Hashtags</label><div class="hashtag-display"></div></div></div><div class="card-actions"><button class="btn-approve" onclick="approvePost(25)">✅ Aprobar</button><button class="btn-edit" onclick="editPost(25)">✏️ Editar</button><button class="btn-skip" onclick="skipPost(25)">⏭️ Omitir</button></div><div class="card-note"><label class="copy-label">📝 Notas</label><textarea class="copy-field" id="note_25" rows="2" placeholder="Agregar observaciones..."></textarea></div></div><div class="post-card" data-day="26"><div class="card-header"><div class="card-day-info"><span class="day-number">DIA 26</span><span class="day-date">Sabado 18 Jul</span></div><div class="card-badges"><span class="type-badge" style="background:#F9731622;color:#F97316;border:1px solid #F9731655">🔥 Promo Spotlight</span><span class="time-badge">⏰ 09:00</span><span class="time-badge" style="background:#F9731622;color:#f97316;border:1px solid #F9731655;">🆕 CLIENTE</span></div></div><div class="card-image"><img src="images/day26_microneedling_pigmentation.jpg" alt="" class="post-image" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><div class=\'placeholder-icon\'>🖼️</div><div class=\'placeholder-text\'>Imagen pendiente</div></div>'"></div><div class="card-copy"><div class="copy-section"><label class="copy-label">🎣 Hook</label><textarea class="copy-field hook-field" id="hook_26" rows="2">Uneven tone can make your skin look dull, tired, or textured.</textarea></div><div class="copy-section"><label class="copy-label">📝 Cuerpo</label><textarea class="copy-field body-field" id="body_26" rows="5">Microneedling may help improve the appearance of discoloration and uneven skin tone as part of a personalized skin treatment plan.\n\nLet's build the right plan for your skin.</textarea></div><div class="copy-section"><label class="copy-label">📞 CTA</label><textarea class="copy-field cta-field" id="cta_26" rows="3">Message us 'GLOW' for a complimentary consultation!\nCielo Vista Mall, El Paso TX | (915) 209-2060</textarea></div><div class="copy-section"><label class="copy-label">🏷️ Hashtags</label><div class="hashtag-display">#Pigmentation #Microneedling #SkinTone #SolaceSkinLab #ElPasoBeauty #MedSpa #EvenSkin</div></div></div><div class="card-actions"><button class="btn-approve" onclick="approvePost(26)">✅ Aprobar</button><button class="btn-edit" onclick="editPost(26)">✏️ Editar</button><button class="btn-skip" onclick="skipPost(26)">⏭️ Omitir</button></div><div class="card-note"><label class="copy-label">📝 Notas</label><textarea class="copy-field" id="note_26" rows="2" placeholder="Agregar observaciones..."></textarea></div></div><div class="post-card" data-day="27"><div class="card-header"><div class="card-day-info"><span class="day-number">DIA 27</span><span class="day-date">Domingo 19 Jul</span></div><div class="card-badges"><span class="type-badge" style="background:#F9731622;color:#F97316;border:1px solid #F9731655">🔥 Promo Spotlight</span><span class="time-badge">⏰ 09:00</span></div></div><div class="card-image"><img src="images/day27_promo_spotlight.jpg" alt="" class="post-image" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><div class=\'placeholder-icon\'>🖼️</div><div class=\'placeholder-text\'>Imagen pendiente</div></div>'"></div><div class="card-copy"><div class="copy-section"><label class="copy-label">🎣 Hook</label><textarea class="copy-field hook-field" id="hook_27" rows="2">3 ways to microneedle. 1 goal: your best skin ever.</textarea></div><div class="copy-section"><label class="copy-label">📝 Cuerpo</label><textarea class="copy-field body-field" id="body_27" rows="5">SAFE FOR ALL SKIN TYPES | MINIMAL DOWNTIME | LONG-LASTING GLOW
-
-💎 HYLA ACTIVE (Hyaluronic Acid) — Start at $250
-Boosts collagen &amp; elastin
-
-💎 COLLAGEN BOOST — Start at $299
-Improves texture, tone &amp; firmness | Enhances skin healing
-
-💎 ELITE REGENERATIVE — Start at $349
-Minimal downtime. Maximum results. Natural glow.
-
-Areas: Face | Body | Scalp
-
-Treats: Acne, Pigmentation, Anti-ageing, Rosacea, Alopecia, Scars, Stretch marks</textarea></div><div class="copy-section"><label class="copy-label">📞 CTA</label><textarea class="copy-field cta-field" id="cta_27" rows="3">📲 Find your perfect microneedling tier. Book a consult.
-📍 Cielo Vista Mall, El Paso TX | 📞 (915) 209-2060</textarea></div><div class="copy-section"><label class="copy-label">🏷️ Hashtags</label><div class="hashtag-display"></div></div></div><div class="card-actions"><button class="btn-approve" onclick="approvePost(27)">✅ Aprobar</button><button class="btn-edit" onclick="editPost(27)">✏️ Editar</button><button class="btn-skip" onclick="skipPost(27)">⏭️ Omitir</button></div><div class="card-note"><label class="copy-label">📝 Notas</label><textarea class="copy-field" id="note_27" rows="2" placeholder="Agregar observaciones..."></textarea></div></div><div class="post-card" data-day="28"><div class="card-header"><div class="card-day-info"><span class="day-number">DIA 28</span><span class="day-date">Lunes 20 Jul</span></div><div class="card-badges"><span class="type-badge" style="background:#8B5CF622;color:#8B5CF6;border:1px solid #8B5CF655">💆‍♀️ Servicio Spotlight</span><span class="time-badge">⏰ 09:00</span><span class="time-badge" style="background:#F9731622;color:#f97316;border:1px solid #F9731655;">🆕 CLIENTE</span></div></div><div class="card-image"><img src="images/day28_prp_hair.jpg" alt="" class="post-image" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><div class=\'placeholder-icon\'>🖼️</div><div class=\'placeholder-text\'>Imagen pendiente</div></div>'"></div><div class="card-copy"><div class="copy-section"><label class="copy-label">🎣 Hook</label><textarea class="copy-field hook-field" id="hook_28" rows="2">Seeing more hair in the shower or noticing thinning areas?</textarea></div><div class="copy-section"><label class="copy-label">📝 Cuerpo</label><textarea class="copy-field body-field" id="body_28" rows="5">PRP Hair Restoration uses your body's own natural growth factors to help support healthier, fuller-looking hair and improve the appearance of thinning hair over time.</textarea></div><div class="copy-section"><label class="copy-label">📞 CTA</label><textarea class="copy-field cta-field" id="cta_28" rows="3">Message us 'GLOW' for a complimentary consultation!\nCielo Vista Mall, El Paso TX | (915) 209-2060</textarea></div><div class="copy-section"><label class="copy-label">🏷️ Hashtags</label><div class="hashtag-display">#PRP #HairRestoration #HairGrowth #SolaceSkinLab #ElPasoBeauty #MedSpa #HealthyHair</div></div></div><div class="card-actions"><button class="btn-approve" onclick="approvePost(28)">✅ Aprobar</button><button class="btn-edit" onclick="editPost(28)">✏️ Editar</button><button class="btn-skip" onclick="skipPost(28)">⏭️ Omitir</button></div><div class="card-note"><label class="copy-label">📝 Notas</label><textarea class="copy-field" id="note_28" rows="2" placeholder="Agregar observaciones..."></textarea></div></div>
-</div>
-<div class="week-header"><span class="week-badge" style="border-color:#EC4899;color:#EC4899">SEMANA 5</span><span class="week-theme">Cierre</span></div>
-<div class="week-grid"><div class="post-card" data-day="29"><div class="card-header"><div class="card-day-info"><span class="day-number">DIA 29</span><span class="day-date">Martes 21 Jul</span></div><div class="card-badges"><span class="type-badge" style="background:#C9A84C22;color:#C9A84C;border:1px solid #C9A84C55">✨ Antes y Después</span><span class="time-badge">⏰ 09:00</span></div></div><div class="card-image"><img src="images/day28_antes_y_después.jpg" alt="" class="post-image" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><div class=\'placeholder-icon\'>🖼️</div><div class=\'placeholder-text\'>Imagen pendiente</div></div>'"></div><div class="card-copy"><div class="copy-section"><label class="copy-label">🎣 Hook</label><textarea class="copy-field hook-field" id="hook_29" rows="2">Real results. Real people. Real confidence. ✨</textarea></div><div class="copy-section"><label class="copy-label">📝 Cuerpo</label><textarea class="copy-field body-field" id="body_29" rows="5">Nothing speaks louder than results you can see. Our clients come to Solace Skin Lab with goals — and leave with transformations.
-
-Every before &amp; after you see represents a customized treatment plan, expert hands, and a client who trusted us with their skin.</textarea></div><div class="copy-section"><label class="copy-label">📞 CTA</label><textarea class="copy-field cta-field" id="cta_29" rows="3">📲 Ready to start your transformation? DM us or book a consultation.
-📍 Cielo Vista Mall, El Paso TX | 📞 (915) 209-2060</textarea></div><div class="copy-section"><label class="copy-label">🏷️ Hashtags</label><div class="hashtag-display"></div></div></div><div class="card-actions"><button class="btn-approve" onclick="approvePost(29)">✅ Aprobar</button><button class="btn-edit" onclick="editPost(29)">✏️ Editar</button><button class="btn-skip" onclick="skipPost(29)">⏭️ Omitir</button></div><div class="card-note"><label class="copy-label">📝 Notas</label><textarea class="copy-field" id="note_29" rows="2" placeholder="Agregar observaciones..."></textarea></div></div><div class="post-card" data-day="30"><div class="card-header"><div class="card-day-info"><span class="day-number">DIA 30</span><span class="day-date">Miercoles 22 Jul</span></div><div class="card-badges"><span class="type-badge" style="background:#F9731622;color:#F97316;border:1px solid #F9731655">🔥 Promo Spotlight</span><span class="time-badge">⏰ 09:00</span><span class="time-badge" style="background:#F9731622;color:#f97316;border:1px solid #F9731655;">🆕 CLIENTE</span></div></div><div class="card-image"><img src="images/day30_prp_hair_loss.jpg" alt="" class="post-image" onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><div class=\'placeholder-icon\'>🖼️</div><div class=\'placeholder-text\'>Imagen pendiente</div></div>'"></div><div class="card-copy"><div class="copy-section"><label class="copy-label">🎣 Hook</label><textarea class="copy-field hook-field" id="hook_30" rows="2">Hair loss can affect both men and women. Start here.</textarea></div><div class="copy-section"><label class="copy-label">📝 Cuerpo</label><textarea class="copy-field body-field" id="body_30" rows="5">Our PRP Hair Restoration treatments are designed to support healthier-looking hair, improve the appearance of density, and help you feel more confident about your look.</textarea></div><div class="copy-section"><label class="copy-label">📞 CTA</label><textarea class="copy-field cta-field" id="cta_30" rows="3">Message us 'GLOW' for a complimentary consultation!\nCielo Vista Mall, El Paso TX | (915) 209-2060</textarea></div><div class="copy-section"><label class="copy-label">🏷️ Hashtags</label><div class="hashtag-display">#HairLoss #PRPTherapy #HairRestoration #SolaceSkinLab #ElPasoBeauty #MedSpa #Confidence</div></div></div><div class="card-actions"><button class="btn-approve" onclick="approvePost(30)">✅ Aprobar</button><button class="btn-edit" onclick="editPost(30)">✏️ Editar</button><button class="btn-skip" onclick="skipPost(30)">⏭️ Omitir</button></div><div class="card-note"><label class="copy-label">📝 Notas</label><textarea class="copy-field" id="note_30" rows="2" placeholder="Agregar observaciones..."></textarea></div></div>
-</div></main>
+<div id="app"></div>
 <script>
-let a={};
-function approvePost(n){a[n]={status:'approved'};document.querySelector(`[data-day="${n}"]`).classList.add('approved');document.querySelector(`[data-day="${n}"]`).classList.remove('skipped');u();}
-function skipPost(n){a[n]={status:'skipped'};document.querySelector(`[data-day="${n}"]`).classList.add('skipped');document.querySelector(`[data-day="${n}"]`).classList.remove('approved');u();}
-function editPost(n){document.getElementById('note_'+n).focus();a[n]={status:'edited'};}
-function approveAll(){for(let i=1;i<=30;i++)approvePost(i);}
-function u(){let d=Object.values(a).filter(v=>v.status==='approved').length;document.getElementById('pFill').style.width=(d/30*100)+'%';document.getElementById('pCount').textContent=d+' / 30';}
-function exportJSON(){let b=new Blob([JSON.stringify({date:new Date().toISOString(),approvals:a},null,2)],{type:'application/json'});let x=document.createElement('a');x.href=URL.createObjectURL(b);x.download='solace_approvals.json';x.click();}
+// ═══ SOLACE SKIN LAB — Content Review Portal ═══
+const APPROVED_DAYS = [4,5,6,10,12,13,15,17,19,20,21,24,26,27,28];
+const START_DATE = new Date(2026,5,23);
+const DAYS_ES = ['Domingo','Lunes','Martes','Miercoles','Jueves','Viernes','Sabado'];
+const MONTHS_ES = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+
+// 15 client-approved posts
+const clientPosts = [
+  {title:"Personalized Facial + Skin Consultation",hook:"Not sure what your skin really needs?",copy:"Our Personalized Facial + Skin Consultation is designed to analyze your skin, identify your concerns, and create a treatment plan tailored specifically to you. Whether you're dealing with dryness, acne-prone skin, sensitivity, texture, or signs of aging, we'll help you start with the right plan. Healthy, glowing skin starts here.\n\nOnly $64.99",cta:'Message us "GLOW"',price:"$64.99",type:"Servicio",img:"facial_consultation.jpg",isClient:true},
+  {title:"Dermaplaning + Complete Facial",hook:"Instantly smoother, brighter-looking skin.",copy:"Our Dermaplaning + Complete Facial removes built-up dead skin cells and fine facial hair while deeply cleansing, hydrating, and refreshing your complexion. Perfect before vacations, weddings, special events, or anytime your skin needs a reset.\n\nStarting at $99+",cta:'Message us "GLOW"',price:"$99+",type:"Servicio",img:"dermaplaning_99.jpg",isClient:true},
+  {title:"BOTOX® Cosmetic Treatments",hook:"Look refreshed. Feel confident.",copy:"BOTOX® Cosmetic treatments help soften the appearance of fine lines and wrinkles while maintaining natural-looking results. Consultation available. Treatment plans customized to your goals.",cta:'Message us "GLOW"',price:"$399+",type:"Servicio",img:"botox_cosmetic.jpg",isClient:true},
+  {title:"JUVÉDERM® Lip Fillers",hook:"Enhance your natural beauty with fuller, balanced-looking lips.",copy:"Whether you're looking for subtle definition or added volume, our customized JUVÉDERM® lip filler treatments are designed to complement your unique features. Natural-looking results. Personalized treatment plans.",cta:'Message us "GLOW"',price:"$599+",type:"Servicio",img:"juvederm_lip.jpg",isClient:true},
+  {title:"LED Light Therapy",hook:"Give your skin the high-tech glow treatment it deserves.",copy:"LED Light Therapy helps support a brighter, refreshed, healthy-looking complexion and can be added to your personalized skin plan. Perfect for clients looking for a gentle glow-boosting treatment.",cta:'Message us "GLOW"',type:"Servicio",img:"led_therapy.jpg",isClient:true},
+  {title:"Microneedling + Skin Regeneration",hook:"Ready to take your skin rejuvenation to the next level?",copy:"Our advanced Microneedling + Skin Regeneration treatment helps improve the appearance of fine lines, acne scars, uneven skin texture, enlarged pores, and dull-looking skin. This treatment supports your skin's natural renewal process to help reveal a smoother, brighter, more refreshed-looking complexion.\n\nMinimal downtime. Customized treatment plan. Suitable for most skin types.",cta:'Message us "GLOW"',type:"Servicio",img:"microneedling_regeneration.jpg",isClient:true},
+  {title:"Microneedling for Acne Scars",hook:"Acne may be gone, but the scars don't have to stay.",copy:"Microneedling helps improve the appearance of acne scars, uneven texture, and rough skin by supporting your skin's natural collagen production. Smoother-looking skin starts here.",cta:'Message us "GLOW"',type:"Servicio",img:"microneedling_acne.jpg",isClient:true},
+  {title:"Microneedling for Stretch Marks",hook:"Stretch marks don't have to define your skin.",copy:"Microneedling helps stimulate your skin's natural renewal process, improving the appearance of stretch marks and helping skin look smoother and more even over time. Discover if microneedling is right for your skin goals.",cta:'Message us "GLOW"',type:"Servicio",img:"microneedling_stretch.jpg",isClient:true},
+  {title:"Microneedling for Scars",hook:"Whether from surgery, injury, or acne, scars can affect your confidence.",copy:"Microneedling is a minimally invasive treatment designed to improve the appearance of scars and help create a smoother, more refined-looking complexion. Let's create a personalized plan for your skin.",cta:'Message us "GLOW"',type:"Servicio",img:"microneedling_scars.jpg",isClient:true},
+  {title:"Microneedling for Uneven Texture",hook:"Rough texture? Enlarged pores? Dull-looking skin?",copy:"Microneedling helps support collagen production and improve the appearance of uneven texture, helping your skin look smoother, fresher, and more refined over time. Your skin reset starts here.",cta:'Message us "GLOW"',type:"Servicio",img:"microneedling_texture.jpg",isClient:true},
+  {title:"Microneedling for Fine Lines",hook:"Fine lines, texture, and dullness can make your skin look tired.",copy:"Microneedling helps support your skin's natural renewal process and collagen production for a smoother, healthier-looking complexion. A natural-looking approach to refreshed skin.",cta:'Message us "GLOW"',type:"Servicio",img:"microneedling_fine_lines.jpg",isClient:true},
+  {title:"Microneedling for Problematic Skin",hook:"Dealing with acne-prone skin, uneven tone, or rough texture?",copy:"Microneedling is one of the most versatile treatments in aesthetics, helping improve the appearance of multiple skin concerns through a customized treatment plan. Your skin is unique. Your treatment should be too.",cta:'Message us "GLOW"',type:"Servicio",img:"microneedling_problematic.jpg",isClient:true},
+  {title:"Microneedling for Pigmentation Concerns",hook:"Uneven tone can make your skin look dull, tired, or textured.",copy:"Microneedling may help improve the appearance of discoloration and uneven skin tone as part of a personalized skin treatment plan. Let's build the right plan for your skin.",cta:'Message us "GLOW"',type:"Servicio",img:"microneedling_pigmentation.jpg",isClient:true},
+  {title:"PRP Hair Restoration",hook:"Seeing more hair in the shower or noticing thinning areas?",copy:"PRP Hair Restoration uses your body's own natural growth factors to help support healthier, fuller-looking hair and improve the appearance of thinning hair over time. Consultation available. Treatment plans customized to your goals.",cta:'Message us "GLOW"',type:"Servicio",img:"prp_hair.jpg",isClient:true},
+  {title:"Thinning Hair? Start Here.",hook:"Hair loss can affect both men and women.",copy:"Our PRP Hair Restoration treatments are designed to support healthier-looking hair, improve the appearance of density, and help you feel more confident about your look. Find out if you're a candidate for treatment.",cta:'Message us "GLOW"',type:"Servicio",img:"prp_hair_loss.jpg",isClient:true}
+];
+
+// 15 original approved posts
+const approvedPosts = [
+  {day:4,title:"2x1 Tuesday",hook:"Bring a Friend, Get TWO Free Facials! 🥂",copy:"This Tuesday, treat yourself AND your bestie. Both of you get a complimentary facial with any service booked together.",cta:"BOOK YOUR PAIR NOW",type:"Promo",img:"day04_2x1_tuesday.jpg",isClient:false},
+  {day:5,title:"Botox Results",hook:"Subtle. Natural. Stunning.",copy:"See the difference personalized Botox treatments can make. Natural results that let the real you shine through.",cta:"SCHEDULE YOUR CONSULTATION",type:"Servicio",img:"day05_servicio_spotlight.jpg",isClient:false},
+  {day:6,title:"Neurotoxin Menu",hook:"Your Custom Neurotoxin Plan Starts at $99",copy:"Botox, Dysport, Xeomin — choose what works best for YOUR skin goals.",cta:"EXPLORE OPTIONS",type:"Servicio",img:"day06_promo_spotlight.jpg",isClient:false},
+  {day:10,title:"Microneedling 3 Tiers",hook:"Collagen Boost Without Downtime",copy:"Choose your level: Express, Advanced, or Premium microneedling. Which one is right for your skin?",cta:"BOOK YOUR SESSION",type:"Servicio",img:"day10_servicio_promo_spotlight.jpg",isClient:false},
+  {day:12,title:"Botox Party Weekend 🎉",hook:"Botox Party Weekend!",copy:"Bring your crew, get treated together. Group discounts available this weekend only.",cta:"INVITE YOUR CREW",type:"Promo",img:"day12_servicio_spotlight.jpg",isClient:false},
+  {day:13,title:"Skincare Tip: SPF",hook:"The #1 Anti-Aging Secret You're Skipping",copy:"SPF isn't optional — it's your best investment. Learn why dermatologists swear by daily sun protection.",cta:"LEARN MORE",type:"Educativo",img:"day13_promo_spotlight.jpg",isClient:false},
+  {day:15,title:"Consultation Process",hook:"Your Skin Journey Starts With a Conversation",copy:"Every great result starts with understanding your unique skin. Book a complimentary consultation today.",cta:"BOOK FREE CONSULT",type:"Educativo",img:"day15_engagement.jpg",isClient:false},
+  {day:17,title:"Prepping the Facial",hook:"Behind Every Great Facial Is Great Preparation",copy:"See how our estheticians prepare your skin for maximum results. It's all in the details.",cta:"SEE THE PROCESS",type:"BTS",img:"day17_servicio_promo_spotlight.jpg",isClient:false},
+  {day:19,title:"Botox $399.99",hook:"Natural Botox Results You Can Actually See",copy:"Look refreshed, not frozen. Customized treatment plans starting at $399.99.",cta:"BOOK NOW",type:"Servicio",img:"day19_servicio_spotlight.jpg",isClient:false},
+  {day:20,title:"Myth vs Fact",hook:"Myth: Botox Makes You Look Frozen",copy:"Fact: When done right, Botox looks completely natural. Let our experts show you the difference.",cta:"LEARN THE TRUTH",type:"Educativo",img:"day20_promo_spotlight.jpg",isClient:false},
+  {day:21,title:"Client Review",hook:"Real Clients. Real Results. Real Trust.",copy:"Don't just take our word for it. Hear from clients who've transformed their skin with us.",cta:"READ REVIEWS",type:"Social",img:"day21_antes_y_despues.jpg",isClient:false},
+  {day:24,title:"Medical Grade Skincare",hook:"Medical-Grade vs. Over-the-Counter: What's the Difference?",copy:"Not all skincare is created equal. Learn why medical-grade products deliver real results.",cta:"LEARN MORE",type:"Educativo",img:"day24_servicio_promo_spotlight.jpg",isClient:false},
+  {day:26,title:"Facial Rejuvenation",hook:"Real Results. Natural Enhancement.",copy:"See the before & after transformations that speak for themselves.",cta:"BOOK CONSULTATION",type:"Social",img:"day26_servicio_spotlight.jpg",isClient:false},
+  {day:27,title:"Facial vs Botox Poll",hook:"Which Would You Choose? 🤔",copy:"Deep cleansing facial OR Botox refresh? Vote below and tell us why!",cta:"CAST YOUR VOTE",type:"Engagement",img:"day27_promo_spotlight.jpg",isClient:false},
+  {day:28,title:"Meet Our Estheticians",hook:"The Faces Behind Your Glow ✨",copy:"Get to know the talented team that makes Solace Skin Lab special.",cta:"MEET THE TEAM",type:"BTS",img:"day28_antes_y_despues.jpg",isClient:false}
+];
+
+// Facebook Ads
+const FB_ADS = [
+  {id:1,title:"2x1 Tuesday",hook:"Bring a Friend, Get TWO Free Facials! 🥂",copy:"This Tuesday only: book any service with a friend and BOTH receive a complimentary facial plus a glass of wine on us. Double the glow, double the fun.",cta:"BOOK NOW",img:"ad_2x1_tuesday.jpg",tag:"VALUE",adSet:1},
+  {id:2,title:"Botox Results",hook:"Subtle. Natural. Stunning.",copy:"See real before & after results from our Botox treatments. Natural-looking outcomes that let your true beauty shine. Starting at $399.99.",cta:"SCHEDULE CONSULTATION",img:"ad_botox_results.jpg",tag:"RESULTS",adSet:1},
+  {id:3,title:"Neurotoxin Menu",hook:"Your Custom Neurotoxin Plan Starts at $99",copy:"Botox, Dysport, Xeomin — three options, one goal: your best skin. Our experts help you pick the right one.",cta:"EXPLORE OPTIONS",img:"ad_neurotoxin_menu.jpg",tag:"$99+",adSet:2},
+  {id:4,title:"Microneedling 3 Tiers",hook:"Collagen Boost Without Downtime",copy:"Express, Advanced, or Premium — three tiers of microneedling tailored to your skin goals and budget.",cta:"BOOK YOUR SESSION",img:"ad_microneedling_tiers.jpg",tag:"3 TIERS",adSet:2},
+  {id:5,title:"Dermaplaning + Facial",hook:"Glow Deeper This Week ✨",copy:"Remove dead skin + peach fuzz + deep cleanse + hydrate. All in one session. Your skin's secret layer is waiting to shine.",cta:"$149.99 — BOOK NOW",img:"ad_dermaplaning_facial.jpg",tag:"GLOW",adSet:3},
+  {id:6,title:"Botox Party Weekend 🎉",hook:"Botox Party Weekend!",copy:"Bring your crew, get treated together. Group discounts available this weekend only. Champagne included!",cta:"INVITE YOUR CREW",img:"ad_botox_party_weekend.jpg",tag:"GROUP",adSet:3}
+];
+
+// Build 30-day calendar
+const allDays = [];
+let clientIdx = 0;
+for (let d = 1; d <= 30; d++) {
+  const dt = new Date(START_DATE);
+  dt.setDate(dt.getDate() + d - 1);
+  const dayName = DAYS_ES[dt.getDay()];
+  const dateStr = dayName + ' ' + dt.getDate() + ' ' + MONTHS_ES[dt.getMonth()];
+  if (APPROVED_DAYS.includes(d)) {
+    const post = approvedPosts.find(p => p.day === d);
+    if (post) allDays.push(Object.assign({}, post, {day:d, dateStr, scheduledTime:"09:00"}));
+  } else {
+    if (clientIdx < clientPosts.length) {
+      const cp = clientPosts[clientIdx++];
+      allDays.push(Object.assign({}, cp, {day:d, dateStr, scheduledTime:"09:00"}));
+    }
+  }
+}
+
+// State
+const state = {approved:{}, skipped:{}, notes:{}, filter:'all'};
+APPROVED_DAYS.forEach(d => state.approved[d] = true);
+
+function save(){
+  try{localStorage.setItem('ssl_state',JSON.stringify({approved:state.approved,skipped:state.skipped,notes:state.notes}))}catch(e){}
+}
+function load(){
+  try{
+    const s=JSON.parse(localStorage.getItem('ssl_state'));
+    if(s){Object.assign(state.approved,s.approved||{});Object.assign(state.skipped,s.skipped||{});Object.assign(state.notes,s.notes||{})}
+  }catch(e){}
+}
+function countByStatus(){
+  let a=0,sk=0,pe=0;
+  allDays.forEach(p=>{if(state.approved[p.day])a++;else if(state.skipped[p.day])sk++;else pe++});
+  return{approved:a,skipped:sk,pending:pe,total:allDays.length};
+}
+
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+
+function render(){
+  const c=countByStatus();
+  const pct=Math.round((c.approved/c.total)*100);
+  const app=document.getElementById('app');
+
+  let cards='';
+  allDays.filter(p=>{
+    if(state.filter==='approved')return state.approved[p.day];
+    if(state.filter==='skipped')return state.skipped[p.day];
+    if(state.filter==='pending')return!state.approved[p.day]&&!state.skipped[p.day];
+    if(state.filter==='client')return p.isClient;
+    return true;
+  }).forEach((p,i)=>{
+    const isApp=state.approved[p.day];
+    const isSkip=state.skipped[p.day];
+    const sc=isApp?'approved':isSkip?'skipped':'';
+    const bt=p.type==='Promo'?'badge-promo':p.type==='Educativo'?'badge-edu':(p.type==='Social'||p.type==='BTS'||p.type==='Engagement')?'badge-social':'badge-type';
+    const nv=state.notes[p.day]||'';
+    cards+=`
+    <div class="post-card ${sc}" id="card-${p.day}" style="animation-delay:${i*0.04}s">
+      <div class="card-header">
+        <div><div class="card-day">DIA ${p.day}</div><div class="card-date">${p.dateStr}</div></div>
+        <div class="card-badges">
+          <span class="badge ${bt}">${p.type}</span>
+          <span class="badge badge-time">🕐 ${p.scheduledTime}</span>
+          ${p.isClient?'<span class="badge badge-client">👤 CLIENTE</span>':''}
+          ${isApp?'<span class="badge badge-approved">✅</span>':''}
+          ${isSkip?'<span class="badge badge-skipped">⏭️</span>':''}
+        </div>
+      </div>
+      <div class="card-image-wrap">
+        <img class="card-image" src="images/${p.img}" alt="${esc(p.title)}" loading="lazy" onerror="this.style.display='none';this.insertAdjacentHTML('afterend','<div class=\\'image-placeholder\\'>🖼️ Loading...</div>')">
+        ${isApp?'<div class="status-indicator status-approved">✓</div>':''}
+        ${isSkip?'<div class="status-indicator status-skipped">⏭</div>':''}
+      </div>
+      <div class="card-body">
+        <div class="card-hook">${esc(p.hook)}</div>
+        <div class="card-copy">${esc(p.copy)}</div>
+        <div class="card-cta">${esc(p.cta)}</div>
+      </div>
+      <div class="card-notes">
+        <textarea class="notes-field" placeholder="Add notes..." onchange="addNote(${p.day},this.value)">${esc(nv)}</textarea>
+      </div>
+      <div class="card-actions">
+        <button class="btn btn-approve" onclick="approveDay(${p.day})">✓ Approve</button>
+        <button class="btn btn-skip" onclick="skipDay(${p.day})">⏭ Skip</button>
+        <button class="btn btn-edit" onclick="editDay(${p.day})">✎ Edit</button>
+      </div>
+    </div>`;
+  });
+
+  let adCards='';
+  FB_ADS.forEach((ad,i)=>{
+    adCards+=`
+    <div class="ad-card" style="animation-delay:${i*0.08}s">
+      <img class="ad-image" src="images/${ad.img}" alt="${esc(ad.title)}" loading="lazy">
+      <div class="ad-body">
+        <div class="ad-headline">Ad ${ad.id} — ${esc(ad.title)}</div>
+        <div class="ad-hook">${esc(ad.hook)}</div>
+        <div class="ad-copy">${esc(ad.copy)}</div>
+        <div class="ad-cta-tag">📞 ${esc(ad.cta)}</div>
+        <div class="ad-tags">
+          <span class="badge badge-promo">${ad.tag}</span>
+          <span class="badge badge-type">Ad Set ${ad.adSet}</span>
+        </div>
+      </div>
+    </div>`;
+  });
+
+  app.innerHTML=`
+  <div class="loader" id="loader"><div class="loader-ring"></div><div class="loader-text">SOLACE SKIN LAB</div></div>
+  <header class="header"><div class="header-inner">
+    <div class="brand"><div class="brand-logo">S</div><div><h1>Solace Skin Lab Med Spa</h1><span>Content Review Portal</span></div></div>
+    <span style="font-size:12px;color:var(--text-dim)">23 Jun — 22 Jul 2026</span>
+  </div></header>
+  <div class="progress-wrap"><div class="progress-header"><span class="progress-label">Approval Progress</span><span class="progress-count">${c.approved}/${c.total} Approved (${pct}%)</span></div><div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div></div>
+  <div class="stats-bar">
+    <div class="stat-chip"><div class="stat-dot" style="background:var(--green)"></div> Approved: ${c.approved}</div>
+    <div class="stat-chip"><div class="stat-dot" style="background:var(--orange)"></div> Skipped: ${c.skipped}</div>
+    <div class="stat-chip"><div class="stat-dot" style="background:var(--text-dim)"></div> Pending: ${c.pending}</div>
+    <div class="stat-chip"><div class="stat-dot" style="background:var(--gold)"></div> Client: 15</div>
+    <div class="stat-chip"><div class="stat-dot" style="background:var(--blue)"></div> Ads: 6</div>
+  </div>
+  <div class="filter-bar">
+    <button class="filter-btn ${state.filter==='all'?'active':''}" onclick="setFilter('all')">All (${c.total})</button>
+    <button class="filter-btn ${state.filter==='approved'?'active':''}" onclick="setFilter('approved')">✅ Approved (${c.approved})</button>
+    <button class="filter-btn ${state.filter==='pending'?'active':''}" onclick="setFilter('pending')">⏳ Pending (${c.pending})</button>
+    <button class="filter-btn ${state.filter==='skipped'?'active':''}" onclick="setFilter('skipped')">⏭️ Skipped (${c.skipped})</button>
+    <button class="filter-btn ${state.filter==='client'?'active':''}" onclick="setFilter('client')">👤 Client Posts</button>
+  </div>
+  <div class="main">
+    <div class="section-title">📅 Content Calendar — 30 Days</div>
+    <div class="post-grid">${cards}</div>
+    <div class="section-title">📱 Facebook Ads Campaign — 6 Ads</div>
+    <div class="ads-section">
+      <p style="color:var(--text-dim);margin-bottom:4px">Campaign: Engagement & Page Growth | Budget: $100/day | CTR: 2.25%</p>
+      <p style="color:var(--text-dim);font-size:12px">Target: Women 25-55, El Paso TX (10-25mi radius)</p>
+      <div class="ads-grid">${adCards}</div>
+    </div>
+    <div class="export-section">
+      <h3 style="font-family:'Playfair Display',serif;color:var(--gold);font-size:20px;margin-bottom:4px">Export & Share</h3>
+      <p style="color:var(--text-dim);font-size:13px">Download approvals or share with the client via WhatsApp</p>
+      <div class="export-btns">
+        <button class="btn-export btn-json" onclick="exportJSON()">📥 Export JSON</button>
+        <button class="btn-export btn-whatsapp" onclick="shareWhatsApp()">💬 WhatsApp</button>
+        <button class="btn-export btn-clear" onclick="clearAll()">🗑️ Clear All</button>
+      </div>
+    </div>
+    <div class="feedback-section">
+      <h3 style="font-family:'Playfair Display',serif;color:var(--gold);font-size:20px;margin-bottom:16px">💬 Feedback del Cliente — Jeny & Rick</h3>
+      <div class="feedback-item"><span class="feedback-icon">🚨</span><span class="feedback-text"><strong>Lip Filler service missing</strong> — Need JUVÉDERM Lip Filler added to the calendar</span></div>
+      <div class="feedback-item"><span class="feedback-icon">🚨</span><span class="feedback-text"><strong>$64.99 promo missing</strong> — Daily promo: Facial + Consultation for $64.99</span></div>
+      <div class="feedback-item"><span class="feedback-icon">💡</span><span class="feedback-text"><strong>Replace omitted posts</strong> — Fill gaps with service promo posts</span></div>
+      <div class="feedback-item"><span class="feedback-icon">💡</span><span class="feedback-text"><strong>More promos & services</strong> — Rick wants 80% of content to be promos/services</span></div>
+      <div class="feedback-item"><span class="feedback-icon">📝</span><span class="feedback-text"><strong>Day 4 note:</strong> "Post from Saturday 20th preferably before Tuesday 🙏"</span></div>
+      <div class="feedback-item"><span class="feedback-icon">⚠️</span><span class="feedback-text"><strong>Real photos needed</strong> — Need real client before/after photos, especially Microneedling</span></div>
+    </div>
+  </div>
+  <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0})">↑</button>`;
+
+  setTimeout(()=>{const l=document.getElementById('loader');if(l)l.classList.add('hidden')},600);
+  window.onscroll=()=>{const b=document.getElementById('scrollTop');if(b)b.classList.toggle('visible',window.scrollY>400)};
+}
+
+function setFilter(f){state.filter=f;render()}
+function approveDay(d){state.approved[d]=true;delete state.skipped[d];save();render()}
+function skipDay(d){state.skipped[d]=true;delete state.approved[d];save();render()}
+function addNote(d,v){state.notes[d]=v;save()}
+function editDay(d){
+  const card=document.getElementById('card-'+d);if(!card)return;
+  const hook=card.querySelector('.card-hook');
+  const copy=card.querySelector('.card-copy');
+  if(hook.contentEditable==='true'){
+    hook.contentEditable='false';copy.contentEditable='false';
+    hook.style.border='none';copy.style.border='none';
+    const post=allDays.find(p=>p.day===d);
+    if(post){post.hook=hook.textContent;post.copy=copy.textContent}
+  }else{
+    hook.contentEditable='true';copy.contentEditable='true';
+    hook.style.border='1px dashed var(--gold)';copy.style.border='1px dashed var(--gold)';
+    hook.focus();
+  }
+}
+function exportJSON(){
+  const data=allDays.map(p=>({day:p.day,title:p.title,hook:p.hook,copy:p.copy,cta:p.cta,image:p.img,date:p.dateStr,status:state.approved[p.day]?'approved':state.skipped[p.day]?'skipped':'pending',notes:state.notes[p.day]||'',isClient:p.isClient||false}));
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');a.href=url;a.download='solace_approved_2026_06.json';a.click();URL.revokeObjectURL(url);
+}
+function shareWhatsApp(){
+  const c=countByStatus();
+  const t=encodeURIComponent(`✨ *Solace Skin Lab — Content Review*\n\n📅 Calendar: 23 Jun - 22 Jul\n✅ Approved: ${c.approved}/${c.total}\n⏭️ Skipped: ${c.skipped}\n⏳ Pending: ${c.pending}\n\n🔗 Review: https://bunkercreativomx-maker.github.io/solace-skin-lab/`);
+  window.open('https://wa.me/526564535107?text='+t,'_blank');
+}
+function clearAll(){
+  if(confirm('Clear all approvals and notes?')){
+    state.approved={};state.skipped={};state.notes={};
+    localStorage.removeItem('ssl_state');
+    APPROVED_DAYS.forEach(d=>state.approved[d]=true);
+    render();
+  }
+}
+
+load();render();
+
 </script>
-<style>
-    .facebook-ads-section {
-        margin-top: 60px; padding: 40px;
-        background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
-        border-radius: 16px; border-left: 5px solid #C9A84C;
-    }
-    .facebook-ads-section h2 {
-        color: #C9A84C; font-size: 24px; font-weight: 800;
-        margin-bottom: 8px;
-    }
-    .facebook-ads-section p {
-        color: #888; margin-bottom: 24px;
-    }
-    .ads-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 20px;
-    }
-    .ad-card {
-        background: #1a1a1a;
-        border: 1px solid #333;
-        border-radius: 12px;
-        overflow: hidden;
-        transition: border-color 0.2s, transform 0.2s;
-    }
-    .ad-card:hover {
-        border-color: #C9A84C55;
-        transform: translateY(-4px);
-    }
-    .ad-image {
-        width: 100%; aspect-ratio: 1/1;
-        object-fit: contain;
-        display: block;
-        background: #111;
-    }
-    .ad-card h4 {
-        color: #C9A84C; font-size: 15px; font-weight: 700;
-        padding: 12px 14px 4px;
-    }
-    .ad-card p {
-        color: #ccc; font-size: 13px;
-        padding: 0 14px 14px;
-    }
-</style>
-
-    <main class="main" style="max-width:1200px;margin:0 auto;padding:0 24px 40px;"><section class="facebook-ads-section"><h2>📱 CAMPAÑA FACEBOOK ADS — JULIO 2026</h2><p>6 anuncios diferentes con ángulos diversos para atraer clientes</p><div class="ads-grid"><div class="ad-card"><img src="images/ad_2x1_tuesday.jpg" alt="Ad 1 - 2x1 Tuesday" class="ad-image"><h4>Ad 1 - 2x1 Tuesday</h4><p>Bring a Friend, Get TWO Free Facials! 🥂</p><div style="padding:0 14px 14px;display:flex;gap:6px;flex-wrap:wrap;"><span style="background:#C9A84C22;color:#C9A84C;border:1px solid #C9A84C55;border-radius:4px;padding:2px 6px;font-size:10px;">🎯 VALUE</span><span style="background:#22c55e22;color:#22c55e;border:1px solid #22c55e55;border-radius:4px;padding:2px 6px;font-size:10px;">📞 Book Now</span></div></div><div class="ad-card"><img src="images/ad_botox_results.jpg" alt="Ad 2 - Botox Results" class="ad-image"><h4>Ad 2 - Botox Results</h4><p>Natural Botox Results You Can Actually See</p><div style="padding:0 14px 14px;display:flex;gap:6px;flex-wrap:wrap;"><span style="background:#8B5CF622;color:#8B5CF6;border:1px solid #8B5CF655;border-radius:4px;padding:2px 6px;font-size:10px;">💉 RESULTS</span><span style="background:#22c55e22;color:#22c55e;border:1px solid #22c55e55;border-radius:4px;padding:2px 6px;font-size:10px;">📞 Consult</span></div></div><div class="ad-card"><img src="images/ad_neurotoxin_menu.jpg" alt="Ad 3 - Neurotoxin Menu" class="ad-image"><h4>Ad 3 - Neurotoxin Menu</h4><p>Botox Menu: Pick YOUR Area. Starting at $99.</p><div style="padding:0 14px 14px;display:flex;gap:6px;flex-wrap:wrap;"><span style="background:#F9731622;color:#F97316;border:1px solid #F9731655;border-radius:4px;padding:2px 6px;font-size:10px;">💰 $99+</span><span style="background:#22c55e22;color:#22c55e;border:1px solid #22c55e55;border-radius:4px;padding:2px 6px;font-size:10px;">📞 Book</span></div></div><div class="ad-card"><img src="images/ad_microneedling_tiers.jpg" alt="Ad 4 - Microneedling Tiers" class="ad-image"><h4>Ad 4 - Microneedling Tiers</h4><p>Microneedling: 3 Tiers. Which Is Right For You?</p><div style="padding:0 14px 14px;display:flex;gap:6px;flex-wrap:wrap;"><span style="background:#06B6D422;color:#06B6D4;border:1px solid #06B6D455;border-radius:4px;padding:2px 6px;font-size:10px;">💎 3 TIERS</span><span style="background:#22c55e22;color:#22c55e;border:1px solid #22c55e55;border-radius:4px;padding:2px 6px;font-size:10px;">📞 Consult</span></div></div><div class="ad-card"><img src="images/ad_dermaplaning_facial.jpg" alt="Ad 5 - Dermaplaning + Facial" class="ad-image"><h4>Ad 5 - Dermaplaning + Facial</h4><p>Your Skin Has a Secret Layer Waiting to Shine ✨</p><div style="padding:0 14px 14px;display:flex;gap:6px;flex-wrap:wrap;"><span style="background:#EC489922;color:#EC4899;border:1px solid #EC489955;border-radius:4px;padding:2px 6px;font-size:10px;">✨ GLOW</span><span style="background:#22c55e22;color:#22c55e;border:1px solid #22c55e55;border-radius:4px;padding:2px 6px;font-size:10px;">📞 $149.99</span></div></div><div class="ad-card"><img src="images/ad_botox_party_weekend.jpg" alt="Ad 6 - Botox Party Weekend" class="ad-image"><h4>Ad 6 - Botox Party Weekend</h4><p>Botox Party 🎉 Bring Your Crew!</p><div style="padding:0 14px 14px;display:flex;gap:6px;flex-wrap:wrap;"><span style="background:#F9731622;color:#F97316;border:1px solid #F9731655;border-radius:4px;padding:2px 6px;font-size:10px;">🎉 GROUP</span><span style="background:#22c55e22;color:#22c55e;border:1px solid #22c55e55;border-radius:4px;padding:2px 6px;font-size:10px;">📞 Reserve</span></div></div></div></section></main>
-
-</body></html>
+</body>
+</html>
