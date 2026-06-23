@@ -59,7 +59,7 @@
 .image-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--text-muted);font-size:13px}
 .card-body{padding:14px 16px}
 .card-hook{font-size:14px;font-weight:600;color:var(--text);line-height:1.4;margin-bottom:6px}
-.card-copy{font-size:12px;color:var(--text-dim);line-height:1.5;margin-bottom:8px;white-space:pre-line;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.card-copy{font-size:12px;color:var(--text-dim);line-height:1.5;margin-bottom:8px;white-space:pre-line;max-height:200px;overflow-y:auto}
 .card-cta{font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:1px}
 .card-notes{padding:0 16px 12px}
 .notes-field{width:100%;background:var(--dark);border:1px solid var(--dark4);border-radius:var(--radius-sm);padding:8px 10px;font-size:11px;color:var(--text-dim);font-family:'Inter',sans-serif;resize:none;min-height:36px;transition:border-color .3s}
@@ -104,7 +104,8 @@
 .scroll-top{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;border:none;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--dark);font-size:20px;cursor:pointer;z-index:90;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(20px);transition:all .3s;box-shadow:var(--shadow-gold)}
 .scroll-top.visible{opacity:1;transform:translateY(0)}
 .scroll-top:hover{transform:translateY(-3px) scale(1.05)}
-@media(max-width:768px){.post-grid{grid-template-columns:1fr}.ads-grid{grid-template-columns:1fr}.header-inner{flex-direction:column;align-items:flex-start}.section-title{font-size:20px}}</style>
+@media(max-width:768px){.post-grid{grid-template-columns:1fr}.ads-grid{grid-template-columns:1fr}.header-inner{flex-direction:column;align-items:flex-start}.section-title{font-size:20px}}.card-copy::-webkit-scrollbar{width:4px}.card-copy::-webkit-scrollbar-track{background:var(--dark3)}.card-copy::-webkit-scrollbar-thumb{background:var(--dark4);border-radius:4px}.card-copy::-webkit-scrollbar-thumb:hover{background:var(--gold)}
+</style>
 </head>
 <body>
 <div id="app"></div>
