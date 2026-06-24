@@ -241,7 +241,7 @@ function render(){
         </div>
       </div>
       <div class="card-image-wrap">
-        <img class="card-image" src="images/${p.img}?v=2" alt="${esc(p.title)}" loading="lazy" onerror="this.style.display='none';this.insertAdjacentHTML('afterend','<div class=\\'image-placeholder\\'>🖼️ Loading...</div>')">
+        <img class="card-image" src="images/${p.img}?v=3" alt="${esc(p.title)}" loading="lazy" onerror="this.style.display='none';this.insertAdjacentHTML('afterend','<div class=\\'image-placeholder\\'>🖼️ Loading...</div>')">
         ${isApp?'<div class="status-indicator status-approved">✓</div>':''}
         ${isSkip?'<div class="status-indicator status-skipped">⏭</div>':''}
       </div>
@@ -266,7 +266,7 @@ function render(){
   FB_ADS.forEach((ad,i)=>{
     adCards+=`
     <div class="ad-card" style="animation-delay:${i*0.08}s">
-      <img class="ad-image" src="images/${ad.img}?v=2" alt="${esc(ad.title)}" loading="lazy" onerror="this.style.display='none';this.insertAdjacentHTML('afterend','<div style=\\'width:100%;aspect-ratio:1;display:flex;align-items:center;justify-content:center;background:var\(--dark\);color:var\(--text-muted\);font-size:13px\\'>📷 Image not available</div>')">
+      <img class="ad-image" src="images/${ad.img}?v=3" alt="${esc(ad.title)}" loading="lazy" onerror="this.style.display='none';this.insertAdjacentHTML('afterend','<div style=\\'width:100%;aspect-ratio:1;display:flex;align-items:center;justify-content:center;background:var\(--dark\);color:var\(--text-muted\);font-size:13px\\'>📷 Image not available</div>')">
       <div class="ad-body">
         <div class="ad-headline">Ad ${ad.id} — ${esc(ad.title)}</div>
         ${ad.price?'<div class="price-tag">'+esc(ad.price)+'</div>':''}
