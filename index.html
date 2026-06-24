@@ -248,7 +248,7 @@ function render(){
         <div class="card-cta">${esc(p.cta)}</div>
       </div>
       <div class="card-notes">
-        <textarea class="notes-field" placeholder="Add notes..." onchange="addNote(${p.day},this.value)">${esc(nv)}</textarea>
+        <textarea class="notes-field" placeholder="Add notes..." onchange="addNote(${p.day},this.value)" onblur="addNote(${p.day},this.value)">${esc(nv)}</textarea>
       </div>
       <div class="card-actions">
         <button class="btn btn-approve" onclick="approveDay(${p.day})">✓ Approve</button>
@@ -352,15 +352,40 @@ function editDay(d){
   }
 }
 function exportJSON(){
-  const data=allDays.map(p=>({day:p.day,title:p.title,hook:p.hook,copy:p.copy,cta:p.cta,image:p.img,date:p.dateStr,status:state.approved[p.day]?'approved':state.skipped[p.day]?'skipped':'pending',notes:state.notes[p.day]||'',isClient:p.isClient||false}));
+  // First, collect all notes from DOM
+  document.querySelectorAll('.notes-field').forEach(function(el){
+    var dayNum = parseInt(el.closest('.post-card').id.replace('card-',''));
+    if(dayNum) state.notes[dayNum] = el.value;
+  });
+  save();
+  // Also export hook/copy edits
+  document.querySelectorAll('.card-hook[contenteditable],.card-copy[contenteditable]').forEach(function(el){
+    el.contentEditable='false';el.style.border='none';
+  });
+  const data=allDays.map(p=>({day:p.day,title:p.title,hook:p.hook,copy:p.copy,cta:p.cta,image:p.img,date:p.dateStr,price:p.price||'',status:state.approved[p.day]?'approved':state.skipped[p.day]?'skipped':'pending',notes:state.notes[p.day]||'',isClient:p.isClient||false}));
   const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
   const url=URL.createObjectURL(blob);
   const a=document.createElement('a');a.href=url;a.download='solace_approved_2026_06.json';a.click();URL.revokeObjectURL(url);
 }
 function shareWhatsApp(){
+  // Collect notes from DOM first
+  document.querySelectorAll('.notes-field').forEach(function(el){
+    var dayNum = parseInt(el.closest('.post-card').id.replace('card-',''));
+    if(dayNum) state.notes[dayNum] = el.value;
+  });
+  save();
   const c=countByStatus();
-  const t=encodeURIComponent(`✨ *Solace Skin Lab — Content Review*\n\n📅 Calendar: 23 Jun - 22 Jul\n✅ Approved: ${c.approved}/${c.total}\n⏭️ Skipped: ${c.skipped}\n⏳ Pending: ${c.pending}\n\n🔗 Review: https://bunkercreativomx-maker.github.io/solace-skin-lab/`);
-  window.open('https://wa.me/526564535107?text='+t,'_blank');
+  // Build detailed message
+  var msg = '*✨ Solace Skin Lab — Content Review*\n📅 23 Jun - 22 Jul\n✅ Approved: ' + c.approved + '/' + c.total + '\n⏭️ Skipped: ' + c.skipped + '\n⏳ Pending: ' + c.pending;
+  // Add notes for approved + skipped
+  allDays.forEach(function(p){
+    if(state.approved[p.day]||state.skipped[p.day]){
+      var note = state.notes[p.day];
+      if(note) msg += '\n📝 D' + p.day + ': ' + note;
+    }
+  });
+  msg += '\n\n🔗 ' + 'https://bunkercreativomx-maker.github.io/solace-skin-lab/';
+  window.open('https://wa.me/526564535107?text=' + encodeURIComponent(msg), '_blank');
 }
 function clearAll(){
   if(confirm('Clear all approvals and notes?')){
