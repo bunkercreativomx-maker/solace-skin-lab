@@ -29,32 +29,32 @@ h1{font-size:28px;color:#C9A84C;margin-bottom:4px}
 <body>
 
 <h1>📱 Solace Skin Lab — Facebook Ads</h1>
-<p class="sub">6 creatividades listas para Meta Ads Manager. Haz clic en "Copiar" para cada campo.</p>
+<p class="sub">6 creatividades con hooks mejorados para Meta Ads Manager. Haz clic en "Copiar" para cada campo.</p>
 
 <div id="ads-container"></div>
 
 <script>
 const ADS = [
-  {id:1,title:"2x1 Tuesday 🥂",image:"ad_2x1_tuesday.jpg",hook:"Bring a Friend, Get TWO Free Facials! 🥂",body:"This Tuesday only: book any service with a friend and BOTH receive a complimentary facial plus a glass of wine on us. Double the glow, double the fun.",cta:"BOOK NOW",headline:"2x1 Tuesday — Book With a Friend",tag:"VALUE",target:"Women 25-55, El Paso TX",budget:"$100/day"},
-  {id:2,title:"Botox Results",image:"ad_botox_results.jpg",hook:"Natural. Refreshed. Confident.",body:"BOTOX\u00ae Cosmetic helps soften the appearance of fine lines and wrinkles. Starting at $99 for glabellar lines. Natural-looking results. Customized treatment plans.",cta:"SCHEDULE CONSULTATION",headline:"BOTOX\u00ae Cosmetic — Natural Results",tag:"BOTOX\u00ae",target:"Women 25-55, El Paso TX",budget:"$100/day"},
-  {id:3,title:"BOTOX Cosmetic Menu",image:"ad_neurotoxin_menu.jpg",hook:"Your Custom BOTOX Plan Starts at $99",body:"BOTOX\u00ae Cosmetic \u2014 glabellar lines $99, forehead $99, crow's feet $120, neck bands $179. Choose your treatment area. Our experts help you build the right plan.",cta:"EXPLORE OPTIONS",headline:"BOTOX\u00ae Cosmetic \u2014 Starting at $99",tag:"$99+",target:"Women 25-55, El Paso TX",budget:"$100/day"},
-  {id:4,title:"Microneedling 3 Tiers",image:"ad_microneedling_tiers.jpg",hook:"Collagen Boost Without Downtime",body:"Express, Advanced, or Premium \u2014 three tiers of microneedling tailored to your skin goals and budget.",cta:"BOOK YOUR SESSION",headline:"Microneedling \u2014 3 Tiers From $250",tag:"3 TIERS",target:"Women 25-55, El Paso TX",budget:"$100/day"},
-  {id:5,title:"Dermaplaning + Facial",image:"ad_dermaplaning_facial.jpg",hook:"Glow Deeper This Week \u2728",body:"Remove dead skin + peach fuzz + deep cleanse + hydrate. All in one session. Your skin's secret layer is waiting to shine.",cta:"$149.99 \u2014 BOOK NOW",headline:"Dermaplaning + Complete Facial $149.99",tag:"GLOW",target:"Women 25-55, El Paso TX",budget:"$100/day"},
-  {id:6,title:"Botox Party Weekend 🎉",image:"ad_botox_party_weekend.jpg",hook:"Botox Party Weekend!",body:"Bring your crew, get treated together. Group discounts available this weekend only. Champagne included!",cta:"INVITE YOUR CREW",headline:"Botox Party \u2014 Group Discounts",tag:"GROUP",target:"Women 25-55, El Paso TX",budget:"$100/day"}
+  {id:1,title:"2x1 Tuesday 🥂",image:"ad_2x1_tuesday.jpg",hook:"Why glow alone when your bestie needs a reset too? 👯‍♀️",body:"This Tuesday only: book any service with a friend and BOTH receive a complimentary facial plus a glass of wine on us. Double the glow, double the fun.",cta:"BOOK NOW",headline:"2x1 Tuesday — Book With a Friend",tag:"VALUE",target:"Women 25-55, El Paso TX",budget:"$100/day"},
+  {id:2,title:"Botox Results",image:"ad_botox_results.jpg",hook:"Still scared of the 'frozen face' look? 🙅‍♀️",body:"Real BOTOX® Cosmetic results, zero frozen-face. See why El Paso keeps coming back for outcomes so natural, your friends will just think you slept well.",cta:"SCHEDULE CONSULTATION",headline:"BOTOX® Cosmetic — Natural Results",tag:"BOTOX®",target:"Women 25-55, El Paso TX",budget:"$100/day"},
+  {id:3,title:"BOTOX Cosmetic Menu",image:"ad_neurotoxin_menu.jpg",hook:"Forehead lines? Crow's feet? Neck bands? 🤔",body:"There's a BOTOX® Cosmetic plan for each one. Choose your treatment area and let our experts build the right plan for your face.",cta:"EXPLORE OPTIONS",headline:"BOTOX® Cosmetic — Starting at $99",tag:"$99+",target:"Women 25-55, El Paso TX",budget:"$100/day"},
+  {id:4,title:"Microneedling 3 Tiers",image:"ad_microneedling_tiers.jpg",hook:"Your skin doesn't need surgery. It needs this. 💉",body:"Express, Advanced, or Premium — three tiers of microneedling that boost collagen with zero downtime. Pick the level that matches your goals and budget.",cta:"BOOK YOUR SESSION",headline:"Microneedling — 3 Tiers From $250",tag:"3 TIERS",target:"Women 25-55, El Paso TX",budget:"$100/day"},
+  {id:5,title:"Dermaplaning + Facial",image:"ad_dermaplaning_facial.jpg",hook:"That dull layer on your face? Gone in one session. ✨",body:"Dead skin + peach fuzz + deep cleanse + hydrate — all in 60 minutes. Your skin's secret glow is closer than you think.",cta:"$149.99 — BOOK NOW",headline:"Dermaplaning + Complete Facial $149.99",tag:"GLOW",target:"Women 25-55, El Paso TX",budget:"$100/day"},
+  {id:6,title:"Botox Party Weekend 🎉",image:"ad_botox_party_weekend.jpg",hook:"Who said anti-aging can't be a party? 🍾",body:"Bring your crew, get treated together. Group discounts available this weekend only. Champagne included!",cta:"INVITE YOUR CREW",headline:"Botox Party — Group Discounts",tag:"GROUP",target:"Women 25-55, El Paso TX",budget:"$100/day"}
 ];
 
 async function copyText(text, btn) {
   try {
     await navigator.clipboard.writeText(text);
-    btn.textContent = '\u2705 Copiado!';
+    btn.textContent = '✅ Copiado!';
     btn.classList.add('copied');
-    setTimeout(() => { btn.textContent = '\U0001f4cb Copiar'; btn.classList.remove('copied'); }, 2000);
+    setTimeout(() => { btn.textContent = '📋 Copiar'; btn.classList.remove('copied'); }, 2000);
   } catch(e) {
     const ta = document.createElement('textarea');
     ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand('copy');
     document.body.removeChild(ta);
-    btn.textContent = '\u2705 Copiado!';
-    setTimeout(() => { btn.textContent = '\U0001f4cb Copiar'; }, 2000);
+    btn.textContent = '✅ Copiado!';
+    setTimeout(() => { btn.textContent = '📋 Copiar'; }, 2000);
   }
 }
 
@@ -65,7 +65,7 @@ ADS.forEach(ad => {
   card.className = 'ad-card';
   card.innerHTML = `
     <div class="ad-card-header">
-      Ad ${ad.id} \u2014 ${ad.title}
+      Ad ${ad.id} — ${ad.title}
       <span style="float:right;font-size:11px;color:#666;font-weight:400">
         <span class="tag tag-target">${ad.target}</span>
         <span class="tag tag-budget">${ad.budget}</span>
@@ -75,24 +75,23 @@ ADS.forEach(ad => {
       <img class="ad-image" src="${imgUrl}" alt="${ad.title}" onerror="this.alt='Image not available'">
       <div class="ad-details">
         <div class="field">
-          <div class="field-label">\U0001f4e2 HOOK (Primary Text)</div>
-          <div class="field-value">${ad.hook}\n\n${ad.body}</div>
-          <button class="copy-btn" onclick="copyText('${ad.hook}\\n\\n${ad.body.replace(/\n/g,"\\n")}', this)">\U0001f4cb Copiar</button>
+          <div class="field-label">📢 HOOK + BODY (Primary Text)</div>
+          <div class="field-value">${ad.hook}<br><br>${ad.body}<br><br>📍 Cielo Vista Mall, El Paso TX | 📞 (915) 209-2060</div>
+          <button class="copy-btn" onclick="copyText('${ad.hook.replace(/'/g, "\\'")}\\n\\n${ad.body.replace(/'/g, "\\'")}\\n\\n📍 Cielo Vista Mall, El Paso TX | 📞 (915) 209-2060', this)">📋 Copiar</button>
         </div>
         <div class="field">
-          <div class="field-label">\U0001f517 HEADLINE</div>
+          <div class="field-label">🔗 HEADLINE</div>
           <div class="field-value">${ad.headline}</div>
-          <button class="copy-btn" onclick="copyText('${ad.headline}', this)">\U0001f4cb Copiar</button>
+          <button class="copy-btn" onclick="copyText('${ad.headline.replace(/'/g, "\\'")}', this)">📋 Copiar</button>
         </div>
         <div class="field">
-          <div class="field-label">\U0001f5b1\ufe0f CALL TO ACTION</div>
+          <div class="field-label">🖱️ CALL TO ACTION</div>
           <div class="field-value" style="font-weight:700;color:#C9A84C">${ad.cta}</div>
-          <button class="copy-btn" onclick="copyText('${ad.cta}', this)">\U0001f4cb Copiar</button>
         </div>
         <div class="field" style="background:rgba(201,168,76,.05);border-color:rgba(201,168,76,.2)">
-          <div class="field-label">\U0001f4f8 IMAGE URL</div>
+          <div class="field-label">📸 IMAGE URL</div>
           <div class="field-value" style="font-size:11px;color:#888;word-break:break-all">${imgUrl}</div>
-          <button class="copy-btn" onclick="copyText('${imgUrl}', this)">\U0001f4cb Copiar URL</button>
+          <button class="copy-btn" onclick="copyText('${imgUrl}', this)">📋 Copiar URL</button>
         </div>
       </div>
     </div>`;
