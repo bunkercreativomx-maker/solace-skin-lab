@@ -1,174 +1,54 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solace Skin Lab Med Spa | July–August 2026 Content Review</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"><style>
-:root{--bg:#f5f0eb;--panel:#fdfbf7;--gold:#C4A882;--cream:#1a1a1a;--dim:#8b7966;--green:#62d990;--orange:#f5ae59}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--cream);font-family:Inter,Arial,sans-serif}.loader{position:fixed;inset:0;background:var(--bg);z-index:5;display:grid;place-items:center;color:var(--gold);letter-spacing:2px;transition:.4s}.loader.hidden{opacity:0;visibility:hidden}header{position:sticky;top:0;z-index:3;padding:18px 5%;background:#fdfbf7ee;border-bottom:1px solid #C4A88244;backdrop-filter:blur(12px)}h1,h2,h3{font-family:'Playfair Display',serif}h1{color:var(--gold);font-size:clamp(23px,4vw,34px);margin:0}header p{color:var(--dim);margin:5px 0 0;font-size:13px}main{max-width:1400px;margin:auto;padding:25px}.progress{height:6px;background:#e0d6cc;border-radius:5px;margin:16px 0}.progress b{display:block;height:100%;width:0;background:var(--gold);border-radius:5px;transition:.4s}.stats,.filters,.actions{display:flex;gap:9px;flex-wrap:wrap;margin:14px 0}.chip,button{padding:8px 12px;border:1px solid #C4A88255;border-radius:20px;background:#fdfbf7;color:var(--cream);font:600 12px Inter;cursor:pointer}button:hover,.active{border-color:var(--gold);color:var(--gold)}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(295px,1fr));gap:18px}.card{background:var(--panel);border:1px solid #00000013;border-radius:14px;overflow:hidden;transition:.25s}.card:hover{transform:translateY(-4px);border-color:#C4A88277;box-shadow:0 12px 35px #00000022}.card.approved{border-color:#62d99088}.card.skipped{opacity:.55;border-color:#f5ae5988}img{display:block;width:100%;aspect-ratio:1;object-fit:cover;background:#f5f0eb}.meta,.body,.card-actions{padding:13px 15px}.meta{display:flex;justify-content:space-between;color:var(--gold);font-size:12px;border-bottom:1px solid #00000012}.badge{color:#fdfbf7;background:var(--gold);padding:3px 7px;border-radius:10px;font-weight:700}h3{margin:0 0 8px;color:var(--gold);font-size:19px}.hook{font-weight:700;margin-bottom:8px;color:var(--cream)}.copy{font-size:14px;line-height:1.5;color:var(--dim);margin-bottom:10px;max-height:200px;overflow-y:auto;white-space:pre-line}.cta{font-size:13px;font-weight:600;color:var(--gold)}.card-actions{display:flex;gap:8px;flex-wrap:wrap}.card-actions button{flex:1;min-width:90px}.notes-field{width:100%;min-height:60px;padding:8px;border:1px solid #C4A88233;border-radius:8px;background:#fff;font:13px Inter;color:#333;margin-top:8px;resize:vertical}.notes-field:focus{outline:none;border-color:var(--gold)}.notes-label{font-size:11px;color:var(--dim);margin-bottom:4px}@media(max-width:640px){.grid{grid-template-columns:1fr}}.ad-card{background:var(--panel);border:1px solid #00000013;border-radius:12px;overflow:hidden}.ad-card h3{padding:12px 15px;background:#f5f0eb;border-bottom:1px solid #00000012;margin:0;font-size:16px}.ad-body{padding:15px}.ad-field{font-size:12px;margin-bottom:10px}.ad-label{font-weight:700;color:var(--gold);font-size:10px;text-transform:uppercase;letter-spacing:1px}.ad-value{color:var(--dim);font-size:13px;line-height:1.5}.copy-btn{background:var(--gold);color:#fdfbf7;border:none;padding:5px 12px;border-radius:6px;font-size:10px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:.5px;margin-top:4px;transition:.2s}.copy-btn:hover{opacity:.8}.tag{display:inline-block;padding:3px 8px;border-radius:6px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;background:#f5f0eb;color:var(--gold);margin-right:4px}.notice{background:#f5f0eb;padding:20px;border-radius:12px;margin-top:30px;line-height:1.6;color:var(--dim);font-size:13px}.notice strong{color:var(--cream)}
-</style></head><body><div class="loader" id="loader">SOLACE SKIN LAB MED SPA</div><header><h1>Solace Skin Lab Med Spa</h1><p>30-day content review • July 23 – August 21, 2026 • Cielo Vista Mall, El Paso TX</p></header><main><div class="progress"><b id="bar"></b></div><div class="stats" id="stats"></div><div class="filters"><button class="active" onclick="filter('all',this)">All</button><button onclick="filter('pending',this)">Pending</button><button onclick="filter('approved',this)">Approved</button><button onclick="filter('skipped',this)">Skipped</button></div><div class="actions"><button onclick="exportJSON()">Export JSON</button><button onclick="shareWhatsApp()">Share approval summary via WhatsApp</button><button onclick="clearAll()">Clear local status</button></div><section><h2>30-Day Content Calendar</h2><div class="grid" id="posts"></div></section><section><h2>Facebook Ad Concepts</h2><div class="grid" id="ads"></div></section><section class="notice"><strong>Client review:</strong> All new post copy is in English, uses the GLOW CTA, and omits prices from copy. Creative uses the current branded image set. Images are lazy loaded with an unavailable-image fallback.</section></main><script>
-const DATA = {
-  "startDate": "2026-07-23",
-  "posts": [
-    {"day":1,"date":"Thu, Jul 23","scheduledAt":"2026-07-23T15:00:00Z","title":"Personalized Facial + Skin Consultation","hook":"Not sure what your skin really needs?","copy":"Our personalized consultation begins with a thoughtful skin analysis, a tailored facial treatment, and a plan built around your unique goals.","cta":"Message us 'GLOW' for a complimentary consultation!","footer":"Cielo Vista Mall, El Paso TX | (915) 209-2060","img":"day02_facial_consultation.jpg","type":"Service","client":true},
-    {"day":2,"date":"Fri, Jul 24","scheduledAt":"2026-07-24T15:00:00Z","title":"BOTOX Cosmetic","hook":"Look refreshed. Feel confident.","copy":"BOTOX Cosmetic can soften the appearance of fine lines while keeping your expression natural. Your treatment plan is customized to your goals.","cta":"Message us 'GLOW' for a complimentary consultation!","footer":"Cielo Vista Mall, El Paso TX | (915) 209-2060","img":"day06_botox_cosmetic.jpg","type":"Service","client":true},
-    {"day":3,"date":"Sat, Jul 25","scheduledAt":"2026-07-25T15:00:00Z","title":"Dermaplaning + Complete Facial","hook":"Instantly smoother, brighter-looking skin.","copy":"This complete facial removes built-up dead skin cells and fine facial hair, then deeply cleanses and refreshes your complexion.","cta":"Message us 'GLOW' for a complimentary consultation!","footer":"Cielo Vista Mall, El Paso TX | (915) 209-2060","img":"day04_dermaplaning_99.jpg","type":"Service","client":true},
-    {"day":4,"date":"Sun, Jul 26","scheduledAt":"2026-07-26T15:00:00Z","title":"Bring Your Glow Partner","hook":"A treatment day is better with your favorite person.","copy":"Bring a friend for a shared facial experience and a relaxed glass of wine. Our 2x1 facial celebration is made for connection and glow.","cta":"Message us 'GLOW' for a complimentary consultation!","footer":"Cielo Vista Mall, El Paso TX | (915) 209-2060","img":"day04_2x1_tuesday.jpg","type":"Promotion","client":true},
-    {"day":5,"date":"Mon, Jul 27","scheduledAt":"2026-07-27T15:00:00Z","title":"JUVEDERM Lip Fillers","hook":"Natural definition, beautifully balanced.","copy":"Our customized JUVEDERM lip filler plans are designed to complement your features whether you want subtle definition or added volume.","cta":"Message us 'GLOW' for a complimentary consultation!","footer":"Cielo Vista Mall, El Paso TX | (915) 209-2060","img":"day08_juvederm_lip.jpg","type":"Service","client":true},
-    {"day":6,"date":"Tue, Jul 28","scheduledAt":"2026-07-28T15:00:00Z","title":"LED Light Therapy","hook":"A gentle boost for your glow.","copy":"LED Light Therapy supports a brighter, refreshed, healthy-looking complexion and can be added to your personalized facial plan.","cta":"Message us 'GLOW' for a complimentary consultation!","footer":"Cielo Vista Mall, El Paso TX | (915) 209-2060","img":"day10_led_therapy.jpg","type":"Service","client":true},
-    {"day":7,"date":"Wed, Jul 29","scheduledAt":"2026-07-29T15:00:00Z","title":"Microneedling: Skin Regeneration","hook":"Help your skin renew from within.","copy":"Microneedling supports your skin's natural renewal process for a smoother, brighter, more refreshed-looking complexion.","cta":"Message us 'GLOW' for a complimentary consultation!","footer":"Cielo Vista Mall, El Paso TX | (915) 209-2060","img":"day12_microneedling_regeneration.jpg","type":"Service","client":true},
-    {"day":8,"date":"Thu, Jul 30","scheduledAt":"2026-07-30T15:00:00Z","title":"BOTOX Cosmetic: Forehead Lines","hook":"Refreshed, never overdone.","copy":"A personalized BOTOX Cosmetic consultation can help you explore a natural-looking approach to smoothing the appearance of forehead lines.","cta":"Message us 'GLOW' for a complimentary consultation!","footer":"Cielo Vista Mall, El Paso TX | (915) 209-2060","img":"day05_servicio_spotlight.jpg","type":"Service","client":true},
-    {"day":9,"date":"Fri, Jul 31","scheduledAt":"2026-07-31T15:00:00Z","title":"Microneedling: Texture Renewal","hook":"Smoother-looking skin starts with a plan.","copy":"A customized microneedling plan can support a more refined-looking texture and a fresh, healthy-looking glow over time.","cta":"Message us 'GLOW' for a complimentary consultation!","footer":"Cielo Vista Mall, El Paso TX | (915) 209-2060","img":"day20_microneedling_texture.jpg","type":"Service","client":true},
-    {"day":10,"date":"Sat, Aug 1","scheduledAt":"2026-08-01T15:00:00Z","title":"Botox Party","hook":"Bring your crew. Celebrate your glow.","copy":"Gather a group of three or more for a BOTOX Cosmetic party with champagne and a welcoming, personalized experience.","cta":"Message us 'GLOW' for a complimentary consultation!","footer":"Cielo Vista Mall, El Paso TX | (915) 209-2060","img":"day12_servicio_spotlight.jpg","type":"Promotion","client":true},
-    {"day":11,"date":"Sun, Aug 2","scheduledAt":"2026-08-02T15:00:00Z","title":"Microneedling: Confidence Care","hook":"Your skin goals deserve personalized care.","copy":"Microneedling is a versatile treatment that can be tailored around your skin concerns and your comfort.","cta":"Message us 'GLOW' for a complimentary consultation!","footer":"Cielo Vista Mall, El Paso TX | (915) 209-2060","img":"day14_microneedling_acne.jpg","type":"Service","client":true},
-    {"day":12,"date":"Mon, Aug 3","scheduledAt":"2026-08-03T15:00:00Z","title":"Deep Cleansing Facial","hook":"When your skin needs a true reset.","copy":"Our Deep Cleansing Facial is a refreshing way to clear away buildup and give your complexion the care it deserves.","cta":"Message us 'GLOW' for a complimentary consultation!","footer":"Cielo Vista Mall, El Paso TX | (915) 209-2060","img":"day17_servicio_promo_spotlight.jpg","type":"Service","client":true},
-    {"day":13,"date":"Tue, Aug 4","scheduledAt":"2026-08-04T15:00:00Z","title":"Microneedling: Body Confidence","hook":"Support your skin's natural renewal.","copy":"A personalized microneedling consultation can help you explore skin-renewal options for areas beyond the face.","cta":"Message us 'GLOW' for a complimentary consultation!","footer":"Cielo Vista Mall, El Paso TX | (915) 209-2060","img":"day16_microneedling_stretch.jpg","type":"Service","client":true},
-    {"day":14,"date":"Wed, Aug 5","scheduledAt":"2026-08-05T15:00:00Z","title":"JUVEDERM Lip Fillers","hook":"A soft, confident finishing touch.","copy":"Discover a personalized JUVEDERM lip filler plan designed around your features and your ideal level of definition.","cta":"Message us 'GLOW' for a complimentary consultation!","footer":"Cielo Vista Mall, El Paso TX | (915) 209-2060","img":"day08_juvederm_lip.jpg","type":"Service","client":true},
-    {"day":15,"date":"Thu, Aug 6","scheduledAt":"2026-08-06T15:00:00Z","title":"Microneedling: Scar Appearance","hook":"A thoughtful approach to smoother-looking skin.","copy":"Microneedling can be part of a customized plan to improve the appearance of visible skin texture concerns.","cta":"Message us 'GLOW' for a complimentary consultation!","footer":"Cielo Vista Mall, El Paso TX | (915) 209-2060","img":"day18_microneedling_scars.jpg","type":"Service","client":true},
-    {"day":16,"date":"Fri, Aug 7","scheduledAt":"2026-08-07T15:00:00Z","title":"2x1 Facial Celebration","hook":"Make room for a little self-care together.","copy":"Choose a day to bring a friend and enjoy a shared facial experience with wine in a warm, welcoming setting.","cta":"Message us 'GLOW' for a complimentary consultation!","footer":"Cielo Vista Mall, El Paso TX | (915) 209-2060","img":"day04_2x1_tuesday.jpg","type":"Promotion","client":true},
-    {"day":17,"date":"Sat, Aug 8","scheduledAt":"2026-08-08T15:00:00Z","title":"Microneedling: Fine Lines","hook":"Refresh the look of tired skin.","copy":"Microneedling supports collagen and your skin's natural renewal process for a smoother, healthier-looking complexion.","cta":"Message us 'GLOW' for a complimentary consultation!","footer":"Cielo Vista Mall, El Paso TX | (915) 209-2060","img":"day22_microneedling_fine_lines.jpg","type":"Service","client":true},
-    {"day":18,"date":"Sun, Aug 9","scheduledAt":"2026-08-09T15:00:00Z","title":"BOTOX Cosmetic: Crow's Feet","hook":"Keep the joy. Soften the lines.","copy":"Ask about a BOTOX Cosmetic plan that can help soften the appearance of crow's feet while preserving your natural expressions.","cta":"Message us 'GLOW' for a complimentary consultation!","footer":"Cielo Vista Mall, El Paso TX | (915) 209-2060","img":"day19_servicio_spotlight.jpg","type":"Service","client":true},
-    {"day":19,"date":"Mon, Aug 10","scheduledAt":"2026-08-10T15:00:00Z","title":"Microneedling: Personalized Skin Plan","hook":"Your skin is unique. Your treatment should be too.","copy":"Let's build a personalized microneedling plan around your goals for texture, tone, and a refreshed-looking complexion.","cta":"Message us 'GLOW' for a complimentary consultation!","footer":"Cielo Vista Mall, El Paso TX | (915) 209-2060","img":"day24_microneedling_problematic.jpg","type":"Service","client":true},
-    {"day":20,"date":"Tue, Aug 11","scheduledAt":"2026-08-11T15:00:00Z","title":"PRP Hair Restoration","hook":"Explore a path toward healthier-looking hair.","copy":"PRP Hair Restoration uses your body's own growth factors to support healthier-looking hair and the appearance of density.","cta":"Message us 'GLOW' for a complimentary consultation!","footer":"Cielo Vista Mall, El Paso TX | (915) 209-2060","img":"day28_prp_hair.jpg","type":"Service","client":true},
-    {"day":21,"date":"Wed, Aug 12","scheduledAt":"2026-08-12T15:00:00Z","title":"Dermaplaning + Complete Facial","hook":"Polished skin begins with intentional care.","copy":"Enjoy smooth, refreshed-looking skin with a complete facial treatment that deeply cleanses, hydrates, and renews.","cta":"Message us 'GLOW' for a complimentary consultation!","footer":"Cielo Vista Mall, El Paso TX | (915) 209-2060","img":"day04_dermaplaning_99.jpg","type":"Service","client":true},
-    {"day":22,"date":"Thu, Aug 13","scheduledAt":"2026-08-13T15:00:00Z","title":"LED Light Therapy","hook":"Your add-on for a softer glow.","copy":"Add LED Light Therapy to your facial plan for a gentle, high-tech complexion boost.","cta":"Message us 'GLOW' for a complimentary consultation!","footer":"Cielo Vista Mall, El Paso TX | (915) 209-2060","img":"day10_led_therapy.jpg","type":"Service","client":true},
-    {"day":23,"date":"Fri, Aug 14","scheduledAt":"2026-08-14T15:00:00Z","title":"BOTOX Cosmetic: Neck Bands","hook":"Explore a natural-looking refresh.","copy":"A personalized BOTOX Cosmetic consultation can help you learn whether treatment for the appearance of neck bands is right for your goals.","cta":"Message us 'GLOW' for a complimentary consultation!","footer":"Cielo Vista Mall, El Paso TX | (915) 209-2060","img":"day06_botox_cosmetic.jpg","type":"Service","client":true},
-    {"day":24,"date":"Sat, Aug 15","scheduledAt":"2026-08-15T15:00:00Z","title":"Microneedling: Pigmentation","hook":"Help your complexion look more even and renewed.","copy":"A personalized microneedling plan may support the appearance of a more even-looking skin tone and smoother texture.","cta":"Message us 'GLOW' for a complimentary consultation!","footer":"Cielo Vista Mall, El Paso TX | (915) 209-2060","img":"day26_microneedling_pigmentation.jpg","type":"Service","client":true},
-    {"day":25,"date":"Sun, Aug 16","scheduledAt":"2026-08-16T15:00:00Z","title":"Personalized Facial + Skin Consultation","hook":"The best facial plan starts with listening.","copy":"We'll analyze your skin, deliver a personalized facial treatment, and map out a simple plan for your goals.","cta":"Message us 'GLOW' for a complimentary consultation!","footer":"Cielo Vista Mall, El Paso TX | (915) 209-2060","img":"day02_facial_consultation.jpg","type":"Service","client":true},
-    {"day":26,"date":"Mon, Aug 17","scheduledAt":"2026-08-17T15:00:00Z","title":"PRP Hair Restoration","hook":"Thinning hair? Start with a conversation.","copy":"PRP Hair Restoration is available for women and men seeking support for healthier-looking hair and confidence.","cta":"Message us 'GLOW' for a complimentary consultation!","footer":"Cielo Vista Mall, El Paso TX | (915) 209-2060","img":"day30_prp_hair_loss.jpg","type":"Service","client":true},
-    {"day":27,"date":"Tue, Aug 18","scheduledAt":"2026-08-18T15:00:00Z","title":"BOTOX Cosmetic","hook":"Natural-looking results are always the goal.","copy":"Every BOTOX Cosmetic plan is tailored to your unique features, comfort, and desired level of refresh.","cta":"Message us 'GLOW' for a complimentary consultation!","footer":"Cielo Vista Mall, El Paso TX | (915) 209-2060","img":"day05_servicio_spotlight.jpg","type":"Service","client":true},
-    {"day":28,"date":"Wed, Aug 19","scheduledAt":"2026-08-19T15:00:00Z","title":"Microneedling: Skin Renewal","hook":"Give your skin's natural renewal process support.","copy":"Microneedling is a professional option for clients seeking a smoother, brighter, more refreshed-looking complexion.","cta":"Message us 'GLOW' for a complimentary consultation!","footer":"Cielo Vista Mall, El Paso TX | (915) 209-2060","img":"day12_microneedling_regeneration.jpg","type":"Service","client":true},
-    {"day":29,"date":"Thu, Aug 20","scheduledAt":"2026-08-20T15:00:00Z","title":"Deep Cleansing Facial","hook":"A clean slate for your complexion.","copy":"Our Deep Cleansing Facial offers a restorative moment of care and a fresh, healthy-looking reset.","cta":"Message us 'GLOW' for a complimentary consultation!","footer":"Cielo Vista Mall, El Paso TX | (915) 209-2060","img":"day17_servicio_promo_spotlight.jpg","type":"Service","client":true},
-    {"day":30,"date":"Fri, Aug 21","scheduledAt":"2026-08-21T15:00:00Z","title":"Your Next Glow Day","hook":"Your skin goals are worth prioritizing.","copy":"From personalized facials to BOTOX Cosmetic, JUVEDERM lip fillers, microneedling, LED therapy, and PRP Hair Restoration, we are here to help you choose your next step.","cta":"Message us 'GLOW' for a complimentary consultation!","footer":"Cielo Vista Mall, El Paso TX | (915) 209-2060","img":"day15_engagement.jpg","type":"Engagement","client":true}
-  ],
-  "ads": [
-    {"id":1,"title":"2x1 Tuesday","image":"ad_2x1_tuesday.jpg","hook":"Why glow alone when your bestie needs a reset too?","body":"This Tuesday only: book any service with a friend and BOTH receive a complimentary facial plus a glass of wine on us. Double the glow, double the fun.","cta":"BOOK NOW","headline":"2x1 Tuesday - Book With a Friend","tag":"VALUE","target":"Women 25-55, El Paso TX","budget":"$100/day"},
-    {"id":2,"title":"Botox Results","image":"ad_botox_results.jpg","hook":"Still scared of the frozen face look?","body":"Real BOTOX Cosmetic results, zero frozen-face. See why El Paso keeps coming back for outcomes so natural, your friends will just think you slept well.","cta":"SCHEDULE CONSULTATION","headline":"BOTOX Cosmetic - Natural Results","tag":"BOTOX","target":"Women 25-55, El Paso TX","budget":"$100/day"},
-    {"id":3,"title":"BOTOX Cosmetic Menu","image":"ad_neurotoxin_menu.jpg","hook":"Forehead lines? Crow's feet? Neck bands?","body":"There's a BOTOX Cosmetic plan for each one. Choose your treatment area and let our experts build the right plan for your face.","cta":"EXPLORE OPTIONS","headline":"BOTOX Cosmetic - Starting at $99","tag":"$99+","target":"Women 25-55, El Paso TX","budget":"$100/day"},
-    {"id":4,"title":"Microneedling 3 Tiers","image":"ad_microneedling_tiers.jpg","hook":"Your skin doesn't need surgery. It needs this.","body":"Express, Advanced, or Premium - three tiers of microneedling that boost collagen with zero downtime. Pick the level that matches your goals and budget.","cta":"BOOK YOUR SESSION","headline":"Microneedling - 3 Tiers From $250","tag":"3 TIERS","target":"Women 25-55, El Paso TX","budget":"$100/day"},
-    {"id":5,"title":"Dermaplaning + Facial","image":"ad_dermaplaning_facial.jpg","hook":"That dull layer on your face? Gone in one session.","body":"Dead skin + peach fuzz + deep cleanse + hydrate - all in 60 minutes. Your skin's secret glow is closer than you think.","cta":"$149.99 - BOOK NOW","headline":"Dermaplaning + Complete Facial $149.99","tag":"GLOW","target":"Women 25-55, El Paso TX","budget":"$100/day"},
-    {"id":6,"title":"Botox Party Weekend","image":"ad_botox_party_weekend.jpg","hook":"Who said anti-aging can't be a party?","body":"Bring your crew, get treated together. Group discounts available this weekend only. Champagne included!","cta":"INVITE YOUR CREW","headline":"Botox Party - Group Discounts","tag":"GROUP","target":"Women 25-55, El Paso TX","budget":"$100/day"}
-  ]
-};
-
-const API_BASE = 'https://bunkercreativomx-maker.github.io/solace-skin-lab/images/';
-let state = { approved: {}, skipped: {}, notes: {} };
-
-(function load(){
-  try{ const s=JSON.parse(localStorage.getItem('ssl_state')); if(s) state=s; }catch(e){}
-  // Pre-loaded notes
-  state.notes = {};
-})();
-
-function save(){
-  localStorage.setItem('ssl_state', JSON.stringify(state));
-  render();
-}
-
-function filter(f,btn){
-  document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active'));
-  if(btn) btn.classList.add('active');
-  render(f);
-}
-
-function getActiveFilter(){
-  const a=document.querySelector('.filters .active');
-  return a?a.textContent.toLowerCase():'all';
-}
-
-function render(f){
-  f=f||getActiveFilter();
-  const posts=DATA.posts;
-  const grid=document.getElementById('posts');
-  let approved=0, skipped=0, pending=0, client=0;
-  let htmlc='';
-  let v=null;
-  try{ v=+(document.querySelector('img[src*=\"?v=\"]')?.src?.match(/v=(\d+)/)?.[1]||7); }catch(e){ v=7; }
-
-  posts.forEach((p,i)=>{
-    const d=p.day||(i+1);
-    const st = state.approved[d] ? 'approved' : state.skipped[d] ? 'skipped' : '';
-    if(st==='approved') approved++;
-    else if(st==='skipped') skipped++;
-    else pending++;
-    if(p.client) client++;
-    if(f!=='all'&&st!==f&&!(f==='pending'&&!st)) return;
-
-    htmlc+='<div class="card '+st+'" id="card-'+d+'">';
-    htmlc+='<div class="meta"><span>Day '+d+'</span><span>'+p.date+'</span><span class="badge">'+p.type+'</span></div>';
-    htmlc+='<img src="'+API_BASE+p.img+'?v='+v+'" alt="'+p.title+'" loading="lazy" onerror="this.alt=\'Image not available\'">';
-    htmlc+='<div class="body">';
-    htmlc+='<h3>'+p.title+'</h3>';
-    htmlc+='<div class="hook">'+p.hook+'</div>';
-    htmlc+='<div class="copy">'+p.copy+'</div>';
-    htmlc+='<div class="cta">'+p.cta+'</div>';
-    htmlc+='<div style="font-size:11px;color:var(--dim);margin-top:6px">'+p.footer+'</div>';
-    htmlc+='</div>';
-    htmlc+='<div class="card-actions">';
-    htmlc+='<button onclick="approve('+d+')" '+(st==='approved'?'style="background:var(--green);color:#fff"':'')+'>Approve</button>';
-    htmlc+='<button onclick="skip('+d+')" '+(st==='skipped'?'style="background:var(--orange);color:#fff"':'')+'>Skip</button>';
-    htmlc+='<button onclick="resetDay('+d+')" '+(st?'':'style="opacity:.4"')+'>Reset</button>';
-    htmlc+='</div>';
-    htmlc+='<div class="body" style="padding-top:0"><div class="notes-label">Notes</div><textarea class="notes-field" data-day="'+d+'">'+(state.notes[d]||'')+'</textarea></div>';
-    htmlc+='</div>';
-  });
-
-  grid.innerHTML=htmlc;
-  document.getElementById('bar').style.width=Math.round(approved/30*100)+'%';
-  document.getElementById('stats').innerHTML=
-    '<span class="chip" style="border-color:var(--green)">'+approved+' Approved</span>'+
-    '<span class="chip" style="border-color:var(--orange)">'+skipped+' Skipped</span>'+
-    '<span class="chip">'+pending+' Pending</span>'+
-    '<span class="chip">'+client+' Client Posts</span>';
-
-  // Render ads
-  const ag=document.getElementById('ads');
-  let adh='';
-  DATA.ads.forEach(a=>{
-    adh+='<div class="ad-card">';
-    adh+='<h3>Ad '+a.id+' — '+a.title+'</h3>';
-    adh+='<div class="ad-body">';
-    adh+='<img src="'+API_BASE+a.image+'?v='+v+'" alt="'+a.title+'" style="border-radius:8px;margin-bottom:10px" loading="lazy">';
-    adh+='<div class="ad-field"><div class="ad-label">Hook + Body</div><div class="ad-value">'+a.hook+'<br><br>'+a.body+'</div></div>';
-    adh+='<div class="ad-field"><div class="ad-label">Headline</div><div class="ad-value">'+a.headline+'</div></div>';
-    adh+='<div class="ad-field"><div class="ad-label">CTA</div><div class="ad-value" style="font-weight:700;color:var(--gold)">'+a.cta+'</div></div>';
-    adh+='<div class="ad-field"><div class="ad-label">Target / Budget</div><div class="ad-value"><span class="tag">'+a.target+'</span> <span class="tag">'+a.budget+'</span> <span class="tag">'+a.tag+'</span></div></div>';
-    adh+='</div></div>';
-  });
-  ag.innerHTML=adh;
-
-  // Re-attach note listeners
-  document.querySelectorAll('.notes-field').forEach(el=>{
-    el.onchange=function(){ const d=parseInt(this.dataset.day); if(d) state.notes[d]=this.value; save(); };
-    el.onblur=function(){ const d=parseInt(this.dataset.day); if(d) state.notes[d]=this.value; save(); };
-  });
-}
-
-function approve(d){ state.approved[d]=true; delete state.skipped[d]; save(); }
-function skip(d){ state.skipped[d]=true; delete state.approved[d]; save(); }
-function resetDay(d){ delete state.approved[d]; delete state.skipped[d]; save(); }
-function clearAll(){ state.approved={}; state.skipped={}; state.notes={}; save(); }
-
-function exportJSON(){
-  document.querySelectorAll('.notes-field').forEach(function(el){
-    var d=parseInt(el.dataset.day); if(d) state.notes[d]=el.value;
-  });
-  save();
-  var data=JSON.stringify({exportedAt:new Date().toISOString(),posts:DATA.posts.map(function(p){
-    var d=p.day||(DATA.posts.indexOf(p)+1);
-    return Object.assign({},p,{status:state.approved[d]?'approved':state.skipped[d]?'skipped':'pending',notes:state.notes[d]||''});
-  }),ads:DATA.ads},null,2);
-  var blob=new Blob([data],{type:'application/json'}); var url=URL.createObjectURL(blob);
-  var a=document.createElement('a'); a.href=url; a.download='solace_calendar_export.json'; a.click();
-  URL.revokeObjectURL(url);
-}
-
-function shareWhatsApp(){
-  document.querySelectorAll('.notes-field').forEach(function(el){
-    var d=parseInt(el.dataset.day); if(d) state.notes[d]=el.value;
-  });
-  save();
-  var a=Object.keys(state.approved).length, s=Object.keys(state.skipped).length;
-  var p=30-a-s;
-  var msg='Solace Skin Lab - Approval Summary\nApproved: '+a+'\nSkipped: '+s+'\nPending: '+p+'\n\nReview: https://bunkercreativomx-maker.github.io/solace-skin-lab/';
-  window.open('https://wa.me/526564535107?text='+encodeURIComponent(msg));
-}
-
-// Init
-document.getElementById('loader').classList.add('hidden');
-render();
-</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f8f3ed">
+<title>Solace Skin Lab Med Spa — August 2026 Content Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ivory:#f8f3ed;--paper:#fffdf9;--ink:#342e2a;--muted:#756d67;--rose:#a76550;--sage:#88a093;--blue:#7d9cad;--peach:#e5b3a3;--line:#e6ddd5;--ok:#4f8569;--skip:#b66c5d;--shadow:0 18px 50px rgba(72,54,44,.10)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(135deg,#fbf7f2 0%,#f4eee7 100%);color:var(--ink);font-family:Inter,system-ui,sans-serif}.loader{position:fixed;inset:0;z-index:99;display:grid;place-items:center;background:var(--ivory);font:600 22px 'Playfair Display',serif;letter-spacing:.16em;color:var(--rose);transition:.35s}.loader.hide{opacity:0;visibility:hidden}.top{position:sticky;top:0;z-index:20;background:rgba(255,253,249,.92);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.top-inner{max-width:1500px;margin:auto;padding:16px 24px;display:flex;gap:20px;align-items:center;justify-content:space-between}.brand{font:600 clamp(20px,3vw,30px) 'Playfair Display',serif;letter-spacing:.04em}.brand small{display:block;font:600 10px Inter;letter-spacing:.32em;color:var(--rose);margin-top:4px}.campaign{text-align:right;color:var(--muted);font-size:12px;line-height:1.5}.campaign strong{color:var(--rose)}main{max-width:1500px;margin:auto;padding:28px 24px 70px}.hero{display:grid;grid-template-columns:1.4fr .9fr;gap:28px;align-items:end;background:linear-gradient(120deg,#fffdf9,#f6eee8);border:1px solid var(--line);border-radius:24px;padding:clamp(24px,5vw,54px);box-shadow:var(--shadow)}.eyebrow{color:var(--sage);font-size:11px;font-weight:700;letter-spacing:.22em}.hero h1{font:600 clamp(38px,7vw,78px)/.95 'Playfair Display',serif;margin:12px 0;color:var(--ink)}.hero h1 em{display:block;color:var(--rose);font-style:italic;font-weight:500}.hero p{max-width:720px;color:var(--muted);line-height:1.7}.hero-side{display:grid;grid-template-columns:1fr 1fr;gap:10px}.metric{background:rgba(255,255,255,.7);border:1px solid var(--line);border-radius:16px;padding:18px}.metric b{display:block;font:600 28px 'Playfair Display',serif;color:var(--rose)}.metric span{font-size:11px;color:var(--muted)}.progress-wrap{margin:25px 0}.progress{height:9px;background:#e9e0d8;border-radius:20px;overflow:hidden}.progress i{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--sage),var(--rose));transition:.3s}.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:18px 0 25px}.toolbar button,.toolbar select,.toolbar input{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:10px 15px;font:600 12px Inter}.toolbar button{cursor:pointer}.toolbar button:hover,.toolbar button.active{border-color:var(--rose);color:var(--rose)}.toolbar input{min-width:210px;font-weight:400}.spacer{flex:1}.status{display:flex;gap:8px;flex-wrap:wrap}.pill{padding:7px 11px;border-radius:99px;border:1px solid var(--line);background:#fff;font-size:11px;font-weight:700}.pill.ok{color:var(--ok);border-color:#9ac0aa}.pill.skip{color:var(--skip);border-color:#d7a198}.section-head{display:flex;justify-content:space-between;align-items:end;margin:34px 0 16px}.section-head h2{font:600 30px 'Playfair Display',serif;margin:0}.section-head p{margin:0;color:var(--muted);font-size:12px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:22px}.card{background:var(--paper);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 8px 26px rgba(72,54,44,.06);transition:.2s}.card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}.card.approved{border-color:#7fae91;box-shadow:0 0 0 2px rgba(79,133,105,.1)}.card.skipped{border-color:#cb8b7f;opacity:.72}.image-wrap{position:relative;background:#eee7df}.image-wrap img{display:block;width:100%;aspect-ratio:1;object-fit:cover;cursor:zoom-in}.image-status{position:absolute;left:12px;top:12px;padding:7px 10px;border-radius:99px;background:rgba(255,253,249,.92);font-size:10px;font-weight:700;letter-spacing:.08em}.meta{display:flex;align-items:center;gap:8px;padding:14px 17px;border-bottom:1px solid var(--line);font-size:11px;color:var(--muted)}.meta .day{font-weight:700;color:var(--rose)}.meta .type{margin-left:auto;background:#eef3ef;color:#5f7869;border-radius:99px;padding:5px 9px}.content{padding:18px}.content h3{font:600 22px 'Playfair Display',serif;margin:0 0 13px}.aida{display:grid;gap:10px}.field{border-left:3px solid var(--line);padding-left:11px}.field b{display:block;font-size:9px;letter-spacing:.16em;color:var(--rose);margin-bottom:3px}.field textarea{width:100%;border:0;resize:vertical;min-height:43px;background:transparent;color:var(--ink);font:400 13px/1.55 Inter;padding:0;outline:0}.field textarea:focus{background:#fbf6f1}.hashtags{font-size:11px;line-height:1.5;color:var(--blue);margin:12px 0}.footer{font-size:11px;color:var(--muted);padding-top:10px;border-top:1px solid var(--line)}.actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:0 18px 18px}.actions button{border:1px solid var(--line);background:#fff;border-radius:11px;padding:10px 6px;font:700 11px Inter;cursor:pointer}.actions .approve:hover,.card.approved .approve{background:var(--ok);border-color:var(--ok);color:#fff}.actions .skip:hover,.card.skipped .skip{background:var(--skip);border-color:var(--skip);color:#fff}.notes{padding:0 18px 18px}.notes textarea{width:100%;min-height:62px;border:1px solid var(--line);border-radius:10px;padding:10px;font:12px Inter;background:#fbf8f4}.promo-note{margin:25px 0;background:#f3ebe5;border:1px solid #dbc5b8;border-radius:18px;padding:20px;line-height:1.6;font-size:13px}.modal{position:fixed;inset:0;z-index:50;background:rgba(35,28,24,.88);display:none;align-items:center;justify-content:center;padding:24px}.modal.open{display:flex}.modal img{max-width:min(94vw,900px);max-height:92vh;border-radius:14px}.modal button{position:absolute;right:22px;top:18px;border:0;background:#fff;color:#222;border-radius:50%;width:42px;height:42px;font-size:20px;cursor:pointer}.empty{grid-column:1/-1;text-align:center;padding:60px;color:var(--muted)}
+@media(max-width:800px){.hero{grid-template-columns:1fr}.campaign{display:none}.grid{grid-template-columns:1fr}.toolbar input{width:100%}.spacer{display:none}.top-inner{padding:13px 16px}main{padding:18px 14px 50px}.hero-side{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="loader" id="loader">SOLACE SKIN LAB</div>
+<header class="top"><div class="top-inner"><div class="brand">Solace Skin Lab<small>MED SPA</small></div><div class="campaign"><strong>CLIENT APPROVAL PORTAL</strong><br>July 24 – August 22, 2026 · Cielo Vista Mall, El Paso TX</div></div></header>
+<main>
+<section class="hero"><div><div class="eyebrow">AUGUST 2026 · 30-DAY CAMPAIGN</div><h1>August Skin Reset<em>Real skin. Smart care.</em></h1><p>A brighter, more human campaign built around education, realistic treatment photography, four promotional creatives, and personalized care. Review every image and AIDA copy below.</p></div><div class="hero-side"><div class="metric"><b>30</b><span>unique posts</span></div><div class="metric"><b>4</b><span>promotion creatives</span></div><div class="metric"><b>4</b><span>microneedling concerns</span></div><div class="metric"><b>1K</b><span>GPT Image 2 visuals</span></div></div></section>
+<div class="progress-wrap"><div class="status" id="stats"></div><div class="progress"><i id="bar"></i></div></div>
+<div class="toolbar">
+<button class="active" data-filter="all">All</button><button data-filter="pending">Pending</button><button data-filter="approved">Approved</button><button data-filter="skipped">Changes requested</button>
+<select id="typeFilter"><option value="all">All content types</option></select><input id="search" placeholder="Search content…">
+<div class="spacer"></div><button id="approveAll">Approve all visible</button><button id="export">Export review JSON</button><button id="whatsapp">WhatsApp summary</button><button id="reset">Reset review</button>
+</div>
+<div class="promo-note"><strong>Campaign requirements included:</strong> two different creatives for “FREE facial with any luxury skincare product — only $64.99”; two different Tuesday 2×1 creatives with wine + two FREE facials; microneedling content for acne scars, scar appearance, fine lines/wrinkles, and scalp/hair; official phone <strong>(915) 995-9524</strong>. No numbered 01–04 labels appear in final artwork.</div>
+<div class="section-head"><div><h2>Content Calendar</h2><p>Click any image to enlarge. Copy fields are editable before export.</p></div></div>
+<section class="grid" id="grid"></section>
+</main>
+<div class="modal" id="modal"><button aria-label="Close">×</button><img alt="Full creative"></div>
+<script>
+const DATA_URL='calendar_2026-07-24_to_2026-08-22.json';
+const PHONE='(915) 995-9524';
+let posts=[];let filter='all';let state={approved:{},skipped:{},notes:{},edits:{}};
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function loadState(){try{state=Object.assign(state,JSON.parse(localStorage.getItem('solace_august_review')||'{}'))}catch(e){}}
+function save(){localStorage.setItem('solace_august_review',JSON.stringify(state));updateStats()}
+function statusOf(d){return state.approved[d]?'approved':state.skipped[d]?'skipped':'pending'}
+function updateStats(){const a=posts.filter(p=>statusOf(p.day)==='approved').length,s=posts.filter(p=>statusOf(p.day)==='skipped').length,n=posts.length-a-s;$('#stats').innerHTML=`<span class="pill ok">${a} approved</span><span class="pill skip">${s} changes requested</span><span class="pill">${n} pending</span>`;$('#bar').style.width=`${posts.length?a/posts.length*100:0}%`}
+function edited(p,k){return state.edits[p.day]?.[k]??p[k]}
+function visiblePosts(){const type=$('#typeFilter').value,q=$('#search').value.toLowerCase().trim();return posts.filter(p=>(filter==='all'||statusOf(p.day)===filter)&&(type==='all'||p.type===type)&&(!q||JSON.stringify(p).toLowerCase().includes(q)))}
+function field(p,key,label){return `<div class="field"><b>${label}</b><textarea data-day="${p.day}" data-key="${key}">${esc(edited(p,key))}</textarea></div>`}
+function render(){const list=visiblePosts();$('#grid').innerHTML=list.length?list.map(p=>{const st=statusOf(p.day);return `<article class="card ${st}" id="card-${p.day}"><div class="image-wrap"><span class="image-status">${st==='approved'?'APPROVED':st==='skipped'?'CHANGES REQUESTED':'PENDING'}</span><img loading="lazy" src="images/august-2026/day${String(p.day).padStart(2,'0')}.png" alt="Day ${p.day}: ${esc(p.title)}" data-full="images/august-2026/day${String(p.day).padStart(2,'0')}.png"></div><div class="meta"><span class="day">DAY ${p.day}</span><span>${esc(p.date)}</span><span class="type">${esc(p.type)}</span></div><div class="content"><h3>${esc(p.title)}</h3><div class="aida">${field(p,'hook','ATTENTION')}${field(p,'body','INTEREST')}${field(p,'desire','DESIRE')}${field(p,'cta','ACTION')}</div><div class="hashtags">${esc(p.hashtags)}</div><div class="footer">📍 Cielo Vista Mall, El Paso TX · 📞 ${PHONE}</div></div><div class="actions"><button class="approve" data-action="approve" data-day="${p.day}">Approve</button><button class="skip" data-action="skip" data-day="${p.day}">Request changes</button><button data-action="reset" data-day="${p.day}">Reset</button></div><div class="notes"><textarea data-note="${p.day}" placeholder="Client notes for this post…">${esc(state.notes[p.day]||'')}</textarea></div></article>`}).join(''):'<div class="empty">No posts match this filter.</div>';bindCards();updateStats()}
+function bindCards(){$$('#grid [data-action]').forEach(b=>b.onclick=()=>{const d=+b.dataset.day,a=b.dataset.action;if(a==='approve'){state.approved[d]=true;delete state.skipped[d]}else if(a==='skip'){state.skipped[d]=true;delete state.approved[d]}else{delete state.approved[d];delete state.skipped[d]}save();render()});$$('#grid textarea[data-key]').forEach(t=>t.onchange=()=>{const d=+t.dataset.day;(state.edits[d]??={})[t.dataset.key]=t.value;save()});$$('#grid textarea[data-note]').forEach(t=>t.onchange=()=>{state.notes[t.dataset.note]=t.value;save()});$$('#grid img[data-full]').forEach(i=>i.onclick=()=>{$('#modal img').src=i.dataset.full;$('#modal').classList.add('open')})}
+$$('[data-filter]').forEach(b=>b.onclick=()=>{$$('[data-filter]').forEach(x=>x.classList.remove('active'));b.classList.add('active');filter=b.dataset.filter;render()});$('#typeFilter').onchange=render;$('#search').oninput=render;$('#approveAll').onclick=()=>{visiblePosts().forEach(p=>{state.approved[p.day]=true;delete state.skipped[p.day]});save();render()};$('#reset').onclick=()=>{if(confirm('Clear all approvals, requested changes, notes, and copy edits?')){state={approved:{},skipped:{},notes:{},edits:{}};save();render()}};
+$('#export').onclick=()=>{const result={campaign:'August Skin Reset',period:'2026-07-24 to 2026-08-22',exportedAt:new Date().toISOString(),posts:posts.map(p=>({...p,hook:edited(p,'hook'),body:edited(p,'body'),desire:edited(p,'desire'),cta:edited(p,'cta'),status:statusOf(p.day),notes:state.notes[p.day]||'',image:`images/august-2026/day${String(p.day).padStart(2,'0')}.png`,phone:PHONE}))};const blob=new Blob([JSON.stringify(result,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='solace-august-2026-client-review.json';a.click();URL.revokeObjectURL(a.href)};
+$('#whatsapp').onclick=()=>{const a=posts.filter(p=>statusOf(p.day)==='approved').length,s=posts.filter(p=>statusOf(p.day)==='skipped').length,msg=`Solace Skin Lab — August Content Review\nApproved: ${a}\nChanges requested: ${s}\nPending: ${posts.length-a-s}\n\nReview portal: ${location.href}`;window.open('https://wa.me/526564535107?text='+encodeURIComponent(msg),'_blank')};$('#modal button').onclick=()=>$('#modal').classList.remove('open');$('#modal').onclick=e=>{if(e.target.id==='modal')$('#modal').classList.remove('open')};document.onkeydown=e=>{if(e.key==='Escape')$('#modal').classList.remove('open')};
+fetch(DATA_URL).then(r=>{if(!r.ok)throw Error(`HTTP ${r.status}`);return r.json()}).then(data=>{posts=data;loadState();[...new Set(posts.map(p=>p.type))].sort().forEach(t=>$('#typeFilter').insertAdjacentHTML('beforeend',`<option>${esc(t)}</option>`));render();$('#loader').classList.add('hide')}).catch(e=>{$('#loader').textContent='Unable to load campaign data: '+e.message});
+</script>
+</body>
+</html>

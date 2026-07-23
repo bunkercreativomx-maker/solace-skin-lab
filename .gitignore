@@ -1,0 +1,6 @@
+.generated-backgrounds/
+.generated-text/
+generation-report.json
+generate_august_images.py
+__pycache__/
+*.pyc
