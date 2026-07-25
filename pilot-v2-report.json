@@ -1,0 +1,9 @@
+{
+  "success": true,
+  "provider": "openai-codex",
+  "model": "gpt-image-2-high",
+  "size": "1024x1024",
+  "quality": "high",
+  "image": "/opt/data/solace-skin-lab/images/pilot-v2-free-facial.png",
+  "source_image": "/opt/data/profiles/creative/cache/images/openai_codex_gpt-image-2-high_20260723_203356_24a7bda2.png"
+}

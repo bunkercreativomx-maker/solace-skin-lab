@@ -1,0 +1,290 @@
+{
+  "summary": {
+    "total": 30,
+    "successful": 30,
+    "failed": [],
+    "provider": "openai-codex",
+    "model": "gpt-image-2-high",
+    "quality": "high",
+    "physical_size": "1024x1024",
+    "flux_used": false
+  },
+  "results": [
+    {
+      "day": 1,
+      "status": "existing",
+      "provider": "openai-codex",
+      "model": "gpt-image-2-high",
+      "size": "1024x1024",
+      "quality": "high",
+      "path": "/opt/data/solace-skin-lab/images/august-2026-v2/day01.png"
+    },
+    {
+      "day": 2,
+      "status": "existing",
+      "provider": "openai-codex",
+      "model": "gpt-image-2-high",
+      "size": "1024x1024",
+      "quality": "high",
+      "path": "/opt/data/solace-skin-lab/images/august-2026-v2/day02.png"
+    },
+    {
+      "day": 3,
+      "status": "existing",
+      "provider": "openai-codex",
+      "model": "gpt-image-2-high",
+      "size": "1024x1024",
+      "quality": "high",
+      "path": "/opt/data/solace-skin-lab/images/august-2026-v2/day03.png"
+    },
+    {
+      "day": 4,
+      "status": "existing",
+      "provider": "openai-codex",
+      "model": "gpt-image-2-high",
+      "size": "1024x1024",
+      "quality": "high",
+      "path": "/opt/data/solace-skin-lab/images/august-2026-v2/day04.png"
+    },
+    {
+      "day": 5,
+      "status": "existing",
+      "provider": "openai-codex",
+      "model": "gpt-image-2-high",
+      "size": "1024x1024",
+      "quality": "high",
+      "path": "/opt/data/solace-skin-lab/images/august-2026-v2/day05.png"
+    },
+    {
+      "day": 6,
+      "status": "generated",
+      "attempt": 1,
+      "provider": "openai-codex",
+      "model": "gpt-image-2-high",
+      "size_reported": "1024x1024",
+      "size": "1024x1024",
+      "quality": "high",
+      "sourceAsset": "/opt/data/images/upload_20260723_162825_6.jpeg",
+      "path": "/opt/data/solace-skin-lab/images/august-2026-v2/day06.png"
+    },
+    {
+      "day": 7,
+      "status": "existing",
+      "provider": "openai-codex",
+      "model": "gpt-image-2-high",
+      "size": "1024x1024",
+      "quality": "high",
+      "path": "/opt/data/solace-skin-lab/images/august-2026-v2/day07.png"
+    },
+    {
+      "day": 8,
+      "status": "existing",
+      "provider": "openai-codex",
+      "model": "gpt-image-2-high",
+      "size": "1024x1024",
+      "quality": "high",
+      "path": "/opt/data/solace-skin-lab/images/august-2026-v2/day08.png"
+    },
+    {
+      "day": 9,
+      "status": "existing",
+      "provider": "openai-codex",
+      "model": "gpt-image-2-high",
+      "size": "1024x1024",
+      "quality": "high",
+      "path": "/opt/data/solace-skin-lab/images/august-2026-v2/day09.png"
+    },
+    {
+      "day": 10,
+      "status": "generated",
+      "attempt": 1,
+      "provider": "openai-codex",
+      "model": "gpt-image-2-high",
+      "size_reported": "1024x1024",
+      "size": "1024x1024",
+      "quality": "high",
+      "sourceAsset": "/opt/data/images/upload_20260723_162825_7.jpeg",
+      "path": "/opt/data/solace-skin-lab/images/august-2026-v2/day10.png"
+    },
+    {
+      "day": 11,
+      "status": "existing",
+      "provider": "openai-codex",
+      "model": "gpt-image-2-high",
+      "size": "1024x1024",
+      "quality": "high",
+      "path": "/opt/data/solace-skin-lab/images/august-2026-v2/day11.png"
+    },
+    {
+      "day": 12,
+      "status": "existing",
+      "provider": "openai-codex",
+      "model": "gpt-image-2-high",
+      "size": "1024x1024",
+      "quality": "high",
+      "path": "/opt/data/solace-skin-lab/images/august-2026-v2/day12.png"
+    },
+    {
+      "day": 13,
+      "status": "existing",
+      "provider": "openai-codex",
+      "model": "gpt-image-2-high",
+      "size": "1024x1024",
+      "quality": "high",
+      "path": "/opt/data/solace-skin-lab/images/august-2026-v2/day13.png"
+    },
+    {
+      "day": 14,
+      "status": "existing",
+      "provider": "openai-codex",
+      "model": "gpt-image-2-high",
+      "size": "1024x1024",
+      "quality": "high",
+      "path": "/opt/data/solace-skin-lab/images/august-2026-v2/day14.png"
+    },
+    {
+      "day": 15,
+      "status": "existing",
+      "provider": "openai-codex",
+      "model": "gpt-image-2-high",
+      "size": "1024x1024",
+      "quality": "high",
+      "path": "/opt/data/solace-skin-lab/images/august-2026-v2/day15.png"
+    },
+    {
+      "day": 16,
+      "status": "existing",
+      "provider": "openai-codex",
+      "model": "gpt-image-2-high",
+      "size": "1024x1024",
+      "quality": "high",
+      "path": "/opt/data/solace-skin-lab/images/august-2026-v2/day16.png"
+    },
+    {
+      "day": 17,
+      "status": "existing",
+      "provider": "openai-codex",
+      "model": "gpt-image-2-high",
+      "size": "1024x1024",
+      "quality": "high",
+      "path": "/opt/data/solace-skin-lab/images/august-2026-v2/day17.png"
+    },
+    {
+      "day": 18,
+      "status": "existing",
+      "provider": "openai-codex",
+      "model": "gpt-image-2-high",
+      "size": "1024x1024",
+      "quality": "high",
+      "path": "/opt/data/solace-skin-lab/images/august-2026-v2/day18.png"
+    },
+    {
+      "day": 19,
+      "status": "existing",
+      "provider": "openai-codex",
+      "model": "gpt-image-2-high",
+      "size": "1024x1024",
+      "quality": "high",
+      "path": "/opt/data/solace-skin-lab/images/august-2026-v2/day19.png"
+    },
+    {
+      "day": 20,
+      "status": "existing",
+      "provider": "openai-codex",
+      "model": "gpt-image-2-high",
+      "size": "1024x1024",
+      "quality": "high",
+      "path": "/opt/data/solace-skin-lab/images/august-2026-v2/day20.png"
+    },
+    {
+      "day": 21,
+      "status": "existing",
+      "provider": "openai-codex",
+      "model": "gpt-image-2-high",
+      "size": "1024x1024",
+      "quality": "high",
+      "path": "/opt/data/solace-skin-lab/images/august-2026-v2/day21.png"
+    },
+    {
+      "day": 22,
+      "status": "existing",
+      "provider": "openai-codex",
+      "model": "gpt-image-2-high",
+      "size": "1024x1024",
+      "quality": "high",
+      "path": "/opt/data/solace-skin-lab/images/august-2026-v2/day22.png"
+    },
+    {
+      "day": 23,
+      "status": "existing",
+      "provider": "openai-codex",
+      "model": "gpt-image-2-high",
+      "size": "1024x1024",
+      "quality": "high",
+      "path": "/opt/data/solace-skin-lab/images/august-2026-v2/day23.png"
+    },
+    {
+      "day": 24,
+      "status": "existing",
+      "provider": "openai-codex",
+      "model": "gpt-image-2-high",
+      "size": "1024x1024",
+      "quality": "high",
+      "path": "/opt/data/solace-skin-lab/images/august-2026-v2/day24.png"
+    },
+    {
+      "day": 25,
+      "status": "existing",
+      "provider": "openai-codex",
+      "model": "gpt-image-2-high",
+      "size": "1024x1024",
+      "quality": "high",
+      "path": "/opt/data/solace-skin-lab/images/august-2026-v2/day25.png"
+    },
+    {
+      "day": 26,
+      "status": "existing",
+      "provider": "openai-codex",
+      "model": "gpt-image-2-high",
+      "size": "1024x1024",
+      "quality": "high",
+      "path": "/opt/data/solace-skin-lab/images/august-2026-v2/day26.png"
+    },
+    {
+      "day": 27,
+      "status": "existing",
+      "provider": "openai-codex",
+      "model": "gpt-image-2-high",
+      "size": "1024x1024",
+      "quality": "high",
+      "path": "/opt/data/solace-skin-lab/images/august-2026-v2/day27.png"
+    },
+    {
+      "day": 28,
+      "status": "existing",
+      "provider": "openai-codex",
+      "model": "gpt-image-2-high",
+      "size": "1024x1024",
+      "quality": "high",
+      "path": "/opt/data/solace-skin-lab/images/august-2026-v2/day28.png"
+    },
+    {
+      "day": 29,
+      "status": "existing",
+      "provider": "openai-codex",
+      "model": "gpt-image-2-high",
+      "size": "1024x1024",
+      "quality": "high",
+      "path": "/opt/data/solace-skin-lab/images/august-2026-v2/day29.png"
+    },
+    {
+      "day": 30,
+      "status": "existing",
+      "provider": "openai-codex",
+      "model": "gpt-image-2-high",
+      "size": "1024x1024",
+      "quality": "high",
+      "path": "/opt/data/solace-skin-lab/images/august-2026-v2/day30.png"
+    }
+  ]
+}
