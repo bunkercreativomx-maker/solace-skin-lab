@@ -4,3 +4,4 @@ generation-report.json
 generate_august_images.py
 __pycache__/
 *.pyc
+.git-askpass-hermes.sh
