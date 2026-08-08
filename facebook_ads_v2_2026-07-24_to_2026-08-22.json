@@ -1,16 +1,31 @@
 {
   "campaign": "Solace Skin Lab — August Meta Ads V2",
   "period": "2026-07-24 to 2026-08-22",
-  "platforms": ["Facebook", "Instagram"],
+  "platforms": [
+    "Facebook",
+    "Instagram"
+  ],
   "status": "Client review required before activation",
   "officialPhone": "(915) 995-9524",
   "location": "Cielo Vista Mall, El Paso, TX",
   "monthlyStrategy": {
     "primaryGoal": "Generate qualified calls and consultation inquiries while building a reusable local retargeting audience.",
     "budgetAllocation": [
-      {"segment": "Local prospecting", "percent": 50, "purpose": "Introduce facials, LED and the Solace consultation-first approach to new local audiences."},
-      {"segment": "Offer conversion", "percent": 30, "purpose": "Promote the approved luxury-skincare/free-facial and Tuesday 2×1 offers without inventing terms."},
-      {"segment": "Retargeting", "percent": 20, "purpose": "Re-engage recent page, profile, video and website visitors with consultation and booking messages."}
+      {
+        "segment": "Local prospecting",
+        "percent": 50,
+        "purpose": "Introduce facials, LED and the Solace consultation-first approach to new local audiences."
+      },
+      {
+        "segment": "Offer conversion",
+        "percent": 30,
+        "purpose": "Promote the approved luxury-skincare/free-facial and Tuesday 2×1 offers without inventing terms."
+      },
+      {
+        "segment": "Retargeting",
+        "percent": 20,
+        "purpose": "Re-engage recent page, profile, video and website visitors with consultation and booking messages."
+      }
     ],
     "audienceFramework": [
       "Prospecting: broad local adults within a practical service radius of Cielo Vista Mall; avoid targeting or copy that infers sensitive health conditions.",
@@ -20,10 +35,30 @@
       "Use English copy for the approved campaign; create a separate Spanish test only after client approval rather than mixing languages in one ad."
     ],
     "weeklyFlight": [
-      {"week": 1, "dates": "Jul 24–30", "focus": "Trust and audience building", "actions": "Launch brand/facial and LED ads. Build engaged-video and profile audiences. Establish baseline creative and message performance."},
-      {"week": 2, "dates": "Jul 31–Aug 6", "focus": "First conversion push", "actions": "Run the skincare/free-facial offer and Tuesday 2×1 ad. Add BOTOX® Cosmetic consultation messaging only after regulatory review."},
-      {"week": 3, "dates": "Aug 7–13", "focus": "Consultation intent", "actions": "Introduce microneedling and JUVÉDERM® consultation ads. Retarget people who engaged during weeks 1–2."},
-      {"week": 4, "dates": "Aug 14–22", "focus": "Retargeting and final opportunity", "actions": "Rotate the second offer creative, the final Tuesday creative and the general consultation ad. Shift allocation toward ads producing qualified inquiries—not clicks alone."}
+      {
+        "week": 1,
+        "dates": "Jul 24–30",
+        "focus": "Trust and audience building",
+        "actions": "Launch brand/facial and LED ads. Build engaged-video and profile audiences. Establish baseline creative and message performance."
+      },
+      {
+        "week": 2,
+        "dates": "Jul 31–Aug 6",
+        "focus": "First conversion push",
+        "actions": "Run the skincare/free-facial offer and Tuesday 2×1 ad. Add BOTOX® Cosmetic consultation messaging only after regulatory review."
+      },
+      {
+        "week": 3,
+        "dates": "Aug 7–13",
+        "focus": "Consultation intent",
+        "actions": "Introduce microneedling and JUVÉDERM® consultation ads. Retarget people who engaged during weeks 1–2."
+      },
+      {
+        "week": 4,
+        "dates": "Aug 14–22",
+        "focus": "Retargeting and final opportunity",
+        "actions": "Rotate the second offer creative, the final Tuesday creative and the general consultation ad. Shift allocation toward ads producing qualified inquiries—not clicks alone."
+      }
     ],
     "measurement": [
       "Primary: qualified phone calls, consultation inquiries and confirmed bookings.",
@@ -42,11 +77,11 @@
   "ads": [
     {
       "id": "META-01",
-      "name": "Real Skin — Local Awareness",
+      "name": "Real Skin — Local Awareness (August Skin Reset)",
       "week": "1–4 evergreen",
       "objective": "Awareness / engaged audience building",
       "funnel": "Prospecting",
-      "creativeDay": 1,
+      "creativeDay": 9,
       "audience": "Broad local adults around Cielo Vista Mall; exclude confirmed recent customers when appropriate.",
       "primaryTextA": "Real skin deserves thoughtful care—not a one-size-fits-all promise. Solace Skin Lab begins with your goals and a conversation about the next step that may fit. Call (915) 995-9524 to learn more.",
       "primaryTextB": "Smart skincare starts with clarity. Explore personalized facials, LED Light Therapy and consultation-led aesthetic care at Solace Skin Lab in El Paso. Call (915) 995-9524.",
@@ -83,7 +118,6 @@
       "objective": "Leads / calls",
       "funnel": "Offer conversion",
       "creativeDay": 4,
-      "alternateCreativeDay": 25,
       "audience": "Local prospecting plus recent engagers; exclude converted offer leads when possible.",
       "primaryTextA": "GET A FREE FACIAL. WITH THE PURCHASE OF ANY LUXURY SKINCARE PRODUCT • ONLY $64.99. Call Solace Skin Lab at (915) 995-9524 to confirm eligible products, availability and complete offer terms.",
       "primaryTextB": "Bring your skincare routine and in-spa care together. GET A FREE FACIAL. WITH THE PURCHASE OF ANY LUXURY SKINCARE PRODUCT • ONLY $64.99. Call (915) 995-9524 for eligible products and complete terms.",
@@ -93,7 +127,11 @@
       "cta": "CALL_NOW",
       "destination": "Phone call",
       "optimization": "Qualified offer calls and confirmed redemptions.",
-      "compliance": "Do not launch until the client confirms what $64.99 covers, eligible products, limits, dates and exclusions."
+      "compliance": "Do not launch until the client confirms what $64.99 covers, eligible products, limits, dates and exclusions.",
+      "alternateCreativeDays": [
+        25,
+        1
+      ]
     },
     {
       "id": "META-04",
@@ -101,7 +139,12 @@
       "week": "All four Tuesdays",
       "objective": "Calls / offer redemption",
       "funnel": "Offer conversion",
-      "creativeDays": [5, 12, 19, 26],
+      "creativeDays": [
+        5,
+        12,
+        19,
+        26
+      ],
       "audience": "Local age 21+ prospecting and retargeting; schedule around the eligible Tuesday window.",
       "primaryTextA": "TUESDAY 2×1 + WINE + 2 FREE FACIALS. Call Solace Skin Lab at (915) 995-9524 for complete offer terms, eligibility, restrictions and availability. Wine available only to guests age 21+.",
       "primaryTextB": "Make Tuesday the self-care plan. TUESDAY 2×1 + WINE + 2 FREE FACIALS. Call (915) 995-9524 to verify eligibility, restrictions, availability and complete terms. Wine available only to guests age 21+.",
@@ -119,8 +162,12 @@
       "week": "2–4 after approval",
       "objective": "Leads / consultation inquiries",
       "funnel": "High-intent prospecting and retargeting",
-      "creativeDay": 10,
-      "alternateCreativeDays": [6, 14, 22],
+      "creativeDay": 6,
+      "alternateCreativeDays": [
+        14,
+        10,
+        22
+      ],
       "audience": "Local adults in an appropriate age range; broad targeting without inferring insecurity or a medical condition.",
       "primaryTextA": "Considering BOTOX® Cosmetic starts with an informed consultation. Discuss suitability, potential risks, natural movement and realistic expectations before deciding whether treatment is appropriate. Individual results vary. Call (915) 995-9524.",
       "primaryTextB": "Questions should come before treatment. A Solace consultation can cover BOTOX® Cosmetic suitability, potential risks and realistic expectations. Individual results vary. Call (915) 995-9524.",
@@ -139,7 +186,11 @@
       "objective": "Leads / consultation inquiries",
       "funnel": "Prospecting and retargeting",
       "creativeDay": 13,
-      "alternateCreativeDays": [18, 20, 27],
+      "alternateCreativeDays": [
+        18,
+        20,
+        27
+      ],
       "audience": "Broad local adults interested in aesthetic skincare; never target or address someone as having a sensitive condition.",
       "primaryTextA": "Microneedling may be considered as part of a personalized approach to the appearance of certain acne scars, healed scar texture, fine lines or scalp concerns. Suitability and individual results vary. Call (915) 995-9524 to request an evaluation.",
       "primaryTextB": "A microneedling plan should begin with an individual evaluation—not a promise. Ask whether the service may be appropriate for specific texture, fine-line or scalp goals. Individual results vary. Call (915) 995-9524.",
