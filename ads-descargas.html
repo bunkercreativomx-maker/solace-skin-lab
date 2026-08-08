@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solace Skin Lab — Descargar Imágenes Ads</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<style>
+  :root{--rose:#b76e79;--dark:#2b2b2b;--soft:#faf6f4;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--soft);color:var(--dark);padding:24px}
+  header{text-align:center;margin-bottom:24px}
+  h1{font-size:1.5rem;color:var(--rose)}
+  p.sub{color:#666;margin-top:6px;font-size:.95rem}
+  .btn{display:inline-block;background:var(--rose);color:#fff;border:none;padding:14px 28px;font-size:1.05rem;
+       border-radius:10px;cursor:pointer;font-weight:600;text-decoration:none;transition:transform .1s}
+  .btn:hover{transform:scale(1.03)}
+  .btn:active{transform:scale(.98)}
+  .btn:disabled{opacity:.5;cursor:wait}
+  #status{margin-top:12px;font-size:.9rem;color:#666;min-height:1.2em}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-top:24px}
+  .card{background:#fff;border-radius:12px;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,.06);text-align:center}
+  .card img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:8px;background:#eee}
+  .card .name{font-size:.78rem;font-weight:600;margin:8px 0 4px;word-break:break-all}
+  .card .tag{font-size:.7rem;color:#888;margin-bottom:8px}
+  .card a{display:inline-block;background:#f0e4e2;color:var(--rose);padding:6px 14px;border-radius:6px;
+          text-decoration:none;font-size:.8rem;font-weight:600}
+  .card a:hover{background:#e6d3d0}
+  .note{max-width:640px;margin:20px auto 0;background:#fff;border-left:4px solid var(--rose);
+        padding:12px 16px;border-radius:8px;font-size:.85rem;color:#555;line-height:1.5}
+</style>
+</head>
+<body>
+<header>
+  <h1>📸 Solace Skin Lab — Imágenes Facebook Ads</h1>
+  <p class="sub">18 imágenes · renombradas en orden · listas para Ads Manager</p>
+  <div style="margin-top:16px">
+    <button class="btn" id="zipBtn" onclick="downloadAll()">⬇️ Descargar todo (ZIP de 18 imágenes)</button>
+  </div>
+  <div id="status"></div>
+</header>
+
+<div class="grid" id="grid"></div>
+
+<div class="note">
+  <b>¿Cómo funciona?</b> El botón arma el ZIP en tu navegador (no se sube nada a ningún servidor) y descarga
+  <code>solace_facebook_ads.zip</code> con las 18 imágenes ya renombradas en orden:
+  <code>01_META-01_day01.png</code> … <code>08_META-08_day30.png</code>.
+  Si prefieres una por una, usa el botón individual de cada tarjeta.
+</div>
+
+<script>
+const IMG_BASE = "images/august-2026-v2/";
+const FILES = [
+  {name:"01_META-01_day01.png",        file:"day01.png", tag:"META-01 · Awareness"},
+  {name:"02_META-02_day28.png",        file:"day28.png", tag:"META-02 · Facial + LED"},
+  {name:"03_META-03_day04.png",        file:"day04.png", tag:"META-03 · Free Facial $64.99"},
+  {name:"03b_META-03_alt_day25.png",   file:"day25.png", tag:"META-03 · Alterna semana 4"},
+  {name:"04_META-04_sem1_day05.png",   file:"day05.png", tag:"META-04 · Tuesday sem 1"},
+  {name:"04b_META-04_sem2_day12.png",  file:"day12.png", tag:"META-04 · Tuesday sem 2"},
+  {name:"04c_META-04_sem3_day19.png",  file:"day19.png", tag:"META-04 · Tuesday sem 3"},
+  {name:"04d_META-04_sem4_day26.png",  file:"day26.png", tag:"META-04 · Tuesday sem 4"},
+  {name:"05_META-05_day10.png",        file:"day10.png", tag:"META-05 · BOTOX®"},
+  {name:"05b_META-05_alt1_day06.png",  file:"day06.png", tag:"META-05 · Alterna 1"},
+  {name:"05c_META-05_alt2_day14.png",  file:"day14.png", tag:"META-05 · Alterna 2"},
+  {name:"05d_META-05_alt3_day22.png",  file:"day22.png", tag:"META-05 · Alterna 3"},
+  {name:"06_META-06_day13.png",        file:"day13.png", tag:"META-06 · Microneedling"},
+  {name:"06b_META-06_alt1_day18.png",  file:"day18.png", tag:"META-06 · Alterna 1"},
+  {name:"06c_META-06_alt2_day20.png",  file:"day20.png", tag:"META-06 · Alterna 2"},
+  {name:"06d_META-06_alt3_day27.png",  file:"day27.png", tag:"META-06 · Alterna 3"},
+  {name:"07_META-07_day21.png",        file:"day21.png", tag:"META-07 · JUVÉDERM®"},
+  {name:"08_META-08_day30.png",        file:"day30.png", tag:"META-08 · Remarketing"}
+];
+
+const grid = document.getElementById('grid');
+FILES.forEach(f => {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `
+    <img src="${IMG_BASE}${f.file}" alt="${f.name}" loading="lazy">
+    <div class="name">${f.name}</div>
+    <div class="tag">${f.tag}</div>
+    <a href="${IMG_BASE}${f.file}" download="${f.name}">Descargar</a>`;
+  grid.appendChild(card);
+});
+
+async function downloadAll() {
+  const btn = document.getElementById('zipBtn');
+  const status = document.getElementById('status');
+  btn.disabled = true;
+  status.textContent = "Descargando imágenes…";
+  try {
+    const zip = new JSZip();
+    for (let i = 0; i < FILES.length; i++) {
+      const f = FILES[i];
+      const resp = await fetch(IMG_BASE + f.file);
+      if (!resp.ok) throw new Error("Error con " + f.file + " (HTTP " + resp.status + ")");
+      const blob = await resp.blob();
+      zip.file(f.name, blob);
+      status.textContent = `Descargando… ${i + 1}/${FILES.length}`;
+    }
+    status.textContent = "Armando ZIP…";
+    const content = await zip.generateAsync({type:"blob"});
+    const url = URL.createObjectURL(content);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = "solace_facebook_ads.zip";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+    status.textContent = "✅ ¡Listo! ZIP descargado con las 18 imágenes.";
+  } catch (e) {
+    status.textContent = "❌ Error: " + e.message;
+  } finally {
+    btn.disabled = false;
+  }
+}
+</script>
+</body>
+</html>
