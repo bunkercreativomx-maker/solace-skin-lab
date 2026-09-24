@@ -1,0 +1,277 @@
+{
+ "campaign": "Solace Skin Lab — October 2026 (Dark Luxury Autumn)",
+ "period": "2026-10-01 to 2026-10-31",
+ "platforms": [
+  "Facebook",
+  "Instagram"
+ ],
+ "status": "Draft — client review required before activation",
+ "officialPhone": "(915) 995-9524",
+ "location": "Cielo Vista Mall, El Paso TX",
+ "monthlyStrategy": {
+  "primaryGoal": "Qualified calls, messages and booked consults; grow a warm retargeting audience for November/holidays.",
+  "budgetAllocation": [
+   {
+    "percent": "30",
+    "segment": "2×1 Tuesdays + wine",
+    "purpose": "Core booker, 4 Tuesdays."
+   },
+   {
+    "percent": "20",
+    "segment": "$64.99 luxury product + FREE facial",
+    "purpose": "Value-stack offer, highest intent."
+   },
+   {
+    "percent": "15",
+    "segment": "Microneedling for men",
+    "purpose": "Differentiated audience."
+   },
+   {
+    "percent": "10",
+    "segment": "Salmon DNA 2×1 $89.99",
+    "purpose": "Tuesday Oct 13 flight."
+   },
+   {
+    "percent": "10",
+    "segment": "FREE DpSCAN",
+    "purpose": "Low-friction lead capture via Messenger."
+   },
+   {
+    "percent": "5",
+    "segment": "BOTOX® holiday plan",
+    "purpose": "Consult pipeline for Nov–Dec."
+   },
+   {
+    "percent": "5",
+    "segment": "Facial + LED $64.99",
+    "purpose": "Offer variant."
+   },
+   {
+    "percent": "5",
+    "segment": "Retargeting close",
+    "purpose": "Last Tuesday + Halloween weekend."
+   }
+  ],
+  "audienceFramework": "Local El Paso adults near Cielo Vista Mall; broad targeting with creative-led delivery (Advantage+); men's creatives separate; 21+ for wine.",
+  "weeklyFlight": [
+   {
+    "week": 1,
+    "dates": "Oct 1–4",
+    "focus": "$64.99 launch + DpSCAN",
+    "actions": "Launch META-02, META-05."
+   },
+   {
+    "week": 2,
+    "dates": "Oct 5–11",
+    "focus": "2×1 + Salmon DNA build-up + LED",
+    "actions": "META-01, META-03, META-07; start META-04."
+   },
+   {
+    "week": 3,
+    "dates": "Oct 12–18",
+    "focus": "Salmon DNA Tuesday + men",
+    "actions": "Close META-03 after Oct 13; scale best of META-04/05."
+   },
+   {
+    "week": 4,
+    "dates": "Oct 19–25",
+    "focus": "2×1 + BOTOX® holiday plan",
+    "actions": "Launch META-06."
+   },
+   {
+    "week": 5,
+    "dates": "Oct 26–31",
+    "focus": "Urgency close",
+    "actions": "META-08 retargeting; keep META-02 on through Oct 31."
+   }
+  ],
+  "measurement": [
+   "Calls & messages (primary)",
+   "Booked appointments / cost per booking",
+   "Tuesday fill rate",
+   "Men vs women cost per consult",
+   "Retargeting pool size"
+  ],
+  "testingRules": [
+   "2–3 headlines + 2 primary texts per ad (Advantage+ creative)",
+   "Keep value-stack framing; no % off",
+   "Hold 21+ for wine creatives",
+   "Pause any ad with no messages/calls after 3 days at stable spend"
+  ]
+ },
+ "ads": [
+  {
+   "id": "META-OCT-01",
+   "name": "2×1 Tuesdays + Wine — Glow Partner",
+   "week": "Tuesdays Oct 6/13/20",
+   "objective": "Conversions (calls / bookings)",
+   "funnel": "Prospecting + retargeting",
+   "creativeDay": 6,
+   "alternateCreativeDays": [
+    20
+   ],
+   "audience": "Women 25–55, 21+, within 10 mi of Cielo Vista Mall; exclude recent 2×1 converters.",
+   "primaryTextA": "Two facials. A glass of wine. The friend who always says \"next time.\" Every Tuesday at Solace Skin Lab is 2×1 facials — bring your glow partner and make it a real plan.",
+   "primaryTextB": "Skip the same old dinner plans. Tuesdays at Solace Skin Lab: 2×1 facials and a glass of wine with your favorite person. Cielo Vista Mall, El Paso.",
+   "headlineA": "Fall Tuesdays Are for Two",
+   "headlineB": "2×1 Facials + Wine",
+   "description": "Cielo Vista Mall • Call (915) 995-9524",
+   "cta": "CALL_NOW",
+   "destination": "Call (915) 995-9524 or Messenger",
+   "optimization": "Conversions; run Mon–Tue.",
+   "compliance": "21+ for wine imagery/messaging; confirm 2×1 terms before live.",
+   "status": "pending"
+  },
+  {
+   "id": "META-OCT-02",
+   "name": "Luxury Product + FREE Facial · $64.99",
+   "week": "All month (Fri push)",
+   "objective": "Conversions",
+   "funnel": "Prospecting",
+   "creativeDay": 2,
+   "alternateCreativeDays": [
+    16,
+    30
+   ],
+   "audience": "Skincare-aware women 28–55, El Paso metro.",
+   "primaryTextA": "Fall is when your skin needs better products — not more of them. Pick any luxury skincare product for $64.99 and your facial is on us.",
+   "primaryTextB": "No tricks, just a real treat: any luxury skincare product for $64.99 and your facial is free. We'll show you how to use it at home.",
+   "headlineA": "Your Fall Shelf, Upgraded",
+   "headlineB": "$64.99 + a FREE Facial",
+   "description": "Cielo Vista Mall • Call (915) 995-9524",
+   "cta": "CALL_NOW",
+   "destination": "Call (915) 995-9524 or Messenger",
+   "optimization": "Conversions; value-stack messaging (not discount).",
+   "compliance": "Confirm eligible products and terms.",
+   "status": "pending"
+  },
+  {
+   "id": "META-OCT-03",
+   "name": "Salmon DNA Tuesday · 2×1 $89.99",
+   "week": "Oct 9–13",
+   "objective": "Conversions",
+   "funnel": "Prospecting + retargeting",
+   "creativeDay": 13,
+   "alternateCreativeDays": [],
+   "audience": "Women 30–60 interested in skincare/anti-aging; retarget Salmon DNA post engagers (Oct 8).",
+   "primaryTextA": "Today is all about our Salmon DNA line. 2×1 Salmon DNA facials for just $89.99 — bring a friend and try the regenerative treatment everyone's asking about.",
+   "primaryTextB": "Curious about Salmon DNA (PDRN)? Try it with a friend: 2×1 Salmon DNA facials for $89.99 this Tuesday at Solace Skin Lab.",
+   "headlineA": "Salmon DNA 2×1 · $89.99",
+   "headlineB": "Try Salmon DNA With a Friend",
+   "description": "Cielo Vista Mall • Call (915) 995-9524",
+   "cta": "CALL_NOW",
+   "destination": "Call (915) 995-9524 or Messenger",
+   "optimization": "Conversions; short 5-day flight.",
+   "compliance": "No clinical-result claims; confirm 2×1 terms.",
+   "status": "pending"
+  },
+  {
+   "id": "META-OCT-04",
+   "name": "Microneedling for Men — Acne Scars & Scalp",
+   "week": "Oct 10–25",
+   "objective": "Leads / messages",
+   "funnel": "Prospecting",
+   "creativeDay": 10,
+   "alternateCreativeDays": [
+    21
+   ],
+   "audience": "Men 25–55, El Paso metro (broad; creative-led targeting).",
+   "primaryTextA": "Acne doesn't always leave when you turn 30 — and the scars can stick around longer. Microneedling may help improve the look of acne scarring over a series of sessions. Honest consult, no judgment.",
+   "primaryTextB": "Thinning hair is something a lot of men think about but don't talk about. Scalp microneedling may help support a healthier-looking scalp. Book a private consult.",
+   "headlineA": "Guys, Your Skin Counts Too",
+   "headlineB": "Hair Talk, No Judgment",
+   "description": "Cielo Vista Mall • Call (915) 995-9524",
+   "cta": "SEND_MESSAGE",
+   "destination": "Call (915) 995-9524 or Messenger",
+   "optimization": "Messages / consult requests.",
+   "compliance": "No guarantees; avoid personal-attribute phrasing ('your acne').",
+   "status": "pending"
+  },
+  {
+   "id": "META-OCT-05",
+   "name": "FREE DpSCAN Skin & Scalp Analysis",
+   "week": "Oct 5–18",
+   "objective": "Messages (lead capture)",
+   "funnel": "Prospecting",
+   "creativeDay": 5,
+   "alternateCreativeDays": [],
+   "audience": "Adults 25–60 near Cielo Vista Mall.",
+   "primaryTextA": "Your mirror shows the surface. Our DpSCAN goes deeper — a visual analysis of your skin, scalp and hair with recommendations based on what we actually see. It's free.",
+   "primaryTextB": "Not sure what your skin really needs? Get a free DpSCAN analysis at Solace Skin Lab and leave with a clear plan. No pushy upsell.",
+   "headlineA": "See What Your Mirror Can't",
+   "headlineB": "Free Skin & Scalp Analysis",
+   "description": "Cielo Vista Mall • Call (915) 995-9524",
+   "cta": "SEND_MESSAGE",
+   "destination": "Call (915) 995-9524 or Messenger",
+   "optimization": "Messages; feeds retargeting pool.",
+   "compliance": "Analysis is informational; no diagnosis claims.",
+   "status": "pending"
+  },
+  {
+   "id": "META-OCT-06",
+   "name": "BOTOX® Cosmetic — Holiday Plan / First Time",
+   "week": "Oct 20–31",
+   "objective": "Leads (consult requests)",
+   "funnel": "Prospecting + retargeting",
+   "creativeDay": 22,
+   "alternateCreativeDays": [
+    29
+   ],
+   "audience": "Adults 30–60; retarget BOTOX® post engagers (Oct 7, 22).",
+   "primaryTextA": "Most first-timers tell us the same thing: \"That was it?\" A BOTOX® Cosmetic appointment is quick and guided by a real conversation. Let's talk it through first.",
+   "primaryTextB": "Holiday photos are closer than you think. BOTOX® Cosmetic and facial series work best with some lead time — book a consult and plan your glow now.",
+   "headlineA": "First Time? Let's Talk",
+   "headlineB": "Plan Your Holiday Glow",
+   "description": "Cielo Vista Mall • Call (915) 995-9524",
+   "cta": "BOOK_NOW",
+   "destination": "Call (915) 995-9524 or Messenger",
+   "optimization": "Consult requests.",
+   "compliance": "Include Important Safety Information per Allergan guidelines; results vary; no before/after.",
+   "status": "pending"
+  },
+  {
+   "id": "META-OCT-07",
+   "name": "Facial + LED · Face & Neck · $64.99",
+   "week": "Oct 9–23",
+   "objective": "Conversions",
+   "funnel": "Prospecting",
+   "creativeDay": 23,
+   "alternateCreativeDays": [
+    9
+   ],
+   "audience": "Women 25–55 interested in skincare/wellness.",
+   "primaryTextA": "Our favorite pairing: a tailored facial finished with LED light therapy on face and neck. Add a luxury skincare product and it's $64.99 — facial included.",
+   "primaryTextB": "Red, blue, green... we have 7 LED lights and combining them changes what your skin gets. Find your light: facial + LED for $64.99.",
+   "headlineA": "The Full Glow · $64.99",
+   "headlineB": "7 Lights. Which One Is Yours?",
+   "description": "Cielo Vista Mall • Call (915) 995-9524",
+   "cta": "CALL_NOW",
+   "destination": "Call (915) 995-9524 or Messenger",
+   "optimization": "Conversions.",
+   "compliance": "Confirm eligible products and terms.",
+   "status": "pending"
+  },
+  {
+   "id": "META-OCT-08",
+   "name": "Retargeting — Last 2×1 Tuesday + Treat, Not Trick",
+   "week": "Oct 26–31",
+   "objective": "Conversions (urgency)",
+   "funnel": "Retargeting",
+   "creativeDay": 27,
+   "alternateCreativeDays": [
+    30
+   ],
+   "audience": "Warm audience: page/IG engagers 60 days, video viewers, message senders; 21+.",
+   "primaryTextA": "Last chance this month: 2×1 facials and a glass of wine, just in time for Halloween weekend. After this Tuesday, you wait until November.",
+   "primaryTextB": "No tricks, just a treat: any luxury skincare product for $64.99 plus a free facial. Book before October ends.",
+   "headlineA": "Last 2×1 Tuesday of October",
+   "headlineB": "Treat, Not Trick · $64.99",
+   "description": "Cielo Vista Mall • Call (915) 995-9524",
+   "cta": "CALL_NOW",
+   "destination": "Call (915) 995-9524 or Messenger",
+   "optimization": "Conversions; last-week flight.",
+   "compliance": "21+ for wine; urgency must reflect real availability.",
+   "status": "pending"
+  }
+ ]
+}
