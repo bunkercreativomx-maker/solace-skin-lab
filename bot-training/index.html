@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Solace Skin Lab · Messenger Assistant Questionnaire</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#342e2a;--ivory:#f8f3ed;--paper:#fffdf9;--line:#e6ddd5;--muted:#6b635d;--rose:#9a5a46;--sage:#5f7a6b;--ok:#4f8569;--warn:#a5643a;--shadow:0 18px 50px rgba(72,54,44,.11)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(135deg,#fbf7f2 0%,#f4eee7 100%);color:var(--ink);font:400 15px/1.55 Inter,system-ui,sans-serif}
+.top{position:sticky;top:0;z-index:20;background:rgba(255,253,249,.94);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.top-inner{max-width:980px;margin:auto;padding:14px 20px;display:flex;gap:16px;align-items:center;justify-content:space-between}
+.brand{font:600 24px 'Playfair Display',serif;letter-spacing:.03em}.brand small{display:block;font:600 10px Inter;letter-spacing:.3em;color:var(--rose);margin-top:3px}
+.save{font-size:12px;color:var(--muted);text-align:right}.save b{color:var(--ok)}.save.err b{color:#b3402f}
+.bar{height:5px;background:#e9e0d8}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--sage),var(--rose));transition:width .3s}
+main{max-width:980px;margin:auto;padding:26px 20px 120px}
+.hero{background:linear-gradient(120deg,#fffdf9,#f6eee8);border:1px solid var(--line);border-radius:22px;padding:clamp(22px,5vw,46px);box-shadow:var(--shadow)}
+.eyebrow{color:var(--sage);font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase}
+.hero h1{font:600 clamp(32px,6vw,56px)/1 'Playfair Display',serif;margin:10px 0 14px}.hero h1 em{color:var(--rose);font-weight:500}
+.hero p{color:var(--muted);max-width:700px;margin:8px 0}.es{color:var(--muted);font-style:italic;font-size:.92em}
+.who{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.who input{flex:1;min-width:220px}
+nav.toc{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 4px}
+nav.toc a{font:600 12px Inter;color:var(--ink);text-decoration:none;border:1px solid var(--line);background:var(--paper);border-radius:99px;padding:8px 13px}
+nav.toc a span{color:var(--rose);margin-left:6px}
+section.block{margin-top:30px;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:clamp(18px,4vw,32px);box-shadow:0 8px 26px rgba(72,54,44,.05)}
+section.block>h2{font:600 28px 'Playfair Display',serif;margin:0}section.block>p.lead{color:var(--muted);margin:6px 0 4px}
+.q{padding:18px 0;border-top:1px solid var(--line)}.q:first-of-type{border-top:0}
+.q label.t{display:block;font-weight:600}.q .help{font-size:13px;color:var(--muted);margin:3px 0 9px}
+.q .now{font-size:12px;background:#f3ebe5;border:1px solid #e3d2c7;border-radius:10px;padding:8px 11px;margin:4px 0 10px;color:#5d4a40}
+.q.done label.t::after{content:" ✓";color:var(--ok)}
+textarea,input[type=text],input[type=number],select{width:100%;border:1px solid var(--line);border-radius:11px;padding:11px 12px;font:15px Inter;background:#fbf8f4;color:var(--ink)}
+textarea{min-height:76px;resize:vertical}textarea:focus,input:focus,select:focus{outline:2px solid #d8b8a8;background:#fff}
+.opts{display:flex;gap:8px;flex-wrap:wrap}.opts label{display:flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px 13px;background:#fff;cursor:pointer;min-height:44px;font-size:14px}
+.opts input{accent-color:var(--rose);width:18px;height:18px}.opts label:has(input:checked){border-color:var(--rose);background:#f8eee9}
+.svc{display:grid;grid-template-columns:1.4fr .8fr .7fr 1.4fr;gap:8px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
+.svc.head{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border-top:0}
+.svc .n b{display:block}.svc .n small{color:var(--muted);font-size:12px}
+.faq{display:grid;gap:8px;padding:14px;border:1px solid var(--line);border-radius:14px;margin-top:12px;background:#fdfaf6}
+.faq .row{display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:700;color:var(--rose)}
+.faq button{border:0;background:none;color:var(--muted);cursor:pointer;font-size:12px;text-decoration:underline}
+.btn{border:1px solid var(--rose);background:#fff;color:var(--rose);border-radius:12px;padding:12px 16px;font:700 13px Inter;cursor:pointer;min-height:44px}
+.btn.primary{background:var(--rose);color:#fff}.btn:disabled{opacity:.5}
+.foot{position:fixed;left:0;right:0;bottom:0;z-index:20;background:rgba(255,253,249,.96);border-top:1px solid var(--line);backdrop-filter:blur(14px)}
+.foot-inner{max-width:980px;margin:auto;padding:12px 20px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.foot-inner span{font-size:13px;color:var(--muted)}
+.thanks{display:none;margin-top:24px;background:#eef5f0;border:1px solid #b8d3c3;border-radius:16px;padding:18px;color:#2f5a44}
+@media(max-width:720px){.svc{grid-template-columns:1fr 1fr}.svc .n,.svc .note{grid-column:1/-1}.svc.head{display:none}.top-inner{padding:12px 14px}main{padding:18px 14px 120px}.save{font-size:11px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-inner"><div class="brand">Solace Skin Lab<small>MESSENGER ASSISTANT</small></div><div class="save" id="save">Your answers save automatically</div></div><div class="bar"><i id="bar"></i></div></header>
+<main>
+  <div class="hero">
+    <div class="eyebrow">Owner questionnaire · 15–20 min</div>
+    <h1>Teach your assistant <em>to sound like Solace.</em></h1>
+    <p>Your Facebook Messenger assistant already answers with your real hours, services and promotions. These questions fill in what only you know: prices, policies, how you explain each treatment and what it must never say.</p>
+    <p class="es">Su asistente de Messenger ya contesta con horarios, servicios y promociones reales. Estas preguntas son para lo que solo usted sabe: precios, políticas, cómo explica cada tratamiento y lo que nunca debe decir. Puede contestar en inglés o en español.</p>
+    <p>Answer what you can, skip what you don't know. Everything saves as you type, so you can close this page and come back later. When you're done, press <b>Send to Bunker</b>.</p>
+    <div class="who"><input type="text" id="who" placeholder="Your name / Su nombre" aria-label="Your name"></div>
+  </div>
+  <nav class="toc" id="toc"></nav>
+  <div id="form"></div>
+  <div class="thanks" id="thanks"><b>Thank you!</b> We received your answers. We'll load them into the assistant and test it before it goes live. You can still edit anything here and press Send again. <span class="es">¡Gracias! Recibimos sus respuestas.</span></div>
+</main>
+<div class="foot"><div class="foot-inner"><span id="count">0 answered</span><button class="btn primary" id="send">Send to Bunker</button></div></div>
+
+<script>
+const PB_URL='https://aprovaciones.bunkeragent.cloud';
+const CLIENT='solace', CAMPAIGN='bot-training-2026', ROLE='owner';
+const LS='solace-bot-training-v1';
+
+const SERVICES=[
+ ["39zmr6kovjb58fr","Botox® Cosmetic","Injectables"],["git70fm5jyj2hec","Juvéderm® Lips","Injectables"],
+ ["5ckw3rjqsgvhxr3","Luxury Facials","Facials & LED"],["pi27w3efuxx14je","Facial + LED, Face & Neck","Facials & LED"],
+ ["qvw6xx9tbwtw3ib","LED Light Therapy","Facials & LED"],["0bibbt1rf23tycq","Salmon DNA","Facials & LED"],
+ ["xhvlatn9do9gwhf","DpSCAN Analysis","Skin & Eye Care"],["dq6c861ksgf4m32","Derma Jade Eye Solution","Skin & Eye Care"],
+ ["ej3itjqsdefpd1i","D'OR24K Neck & Décolleté","Skin & Eye Care"],["y0wlkuiwftzxh2l","Microneedling (men)","Men's Skin & Scalp"],
+ ["9d9nnfunqlpnog1","Acne Scar Evaluation for Men","Men's Skin & Scalp"],["d8jzlr6539blou1","Scalp Care for Men","Men's Skin & Scalp"]];
+
+// [id, question, help (es), type, options|current]
+const SECTIONS=[
+ {id:'business',title:'Your business',lead:'Basics the assistant repeats every day.',qs:[
+  ['hours_ok','Are these opening hours correct?','¿Este horario es correcto? Si no, escriba el correcto.','choice+text',['Yes, correct','No, see correction'],'Mon–Thu 10am–8pm · Fri–Sat 10am–9pm · Sun 12pm–6pm'],
+  ['location','How should a customer find you inside Cielo Vista Mall? (nearest entrance, store, parking)','¿Cómo encuentran el local dentro del mall? Entrada más cercana, tienda de al lado, estacionamiento.','text'],
+  ['walkins','Do you accept walk-ins?','¿Aceptan clientes sin cita?','choice',['Yes, anytime','Yes, if there is space','No, appointment only']],
+  ['languages','Which languages does your team speak with clients?','¿Qué idiomas habla su equipo?','choice',['English','Spanish','Both']],
+  ['providers','Who performs the treatments, and what are their credentials? (e.g. RN injector, licensed esthetician)','¿Quién aplica los tratamientos y qué certificación tiene? (enfermera, esteticista con licencia, etc.)','text'],
+  ['payment','Which payment methods do you accept?','Formas de pago aceptadas.','multi',['Cash','Credit / debit card','Affirm','Apple Pay / Google Pay','Zelle','Gift cards']],
+  ['affirm','How should the assistant explain Affirm? (minimum amount, which treatments, how to apply)','¿Cómo explicar Affirm? Monto mínimo, qué tratamientos, cómo se solicita.','text'],
+ ]},
+ {id:'services',title:'Prices & durations',lead:'The assistant never invents a price. Fill in a "starting at" price only if it may share it; leave it blank and it will say the price is given at consultation.',special:'services'},
+ {id:'pricing',title:'Pricing, promos & policies',lead:'What the assistant may promise, and what it must not.',qs:[
+  ['share_prices','May the assistant share the prices above in Messenger?','¿El asistente puede dar los precios de arriba por Messenger?','choice',['Yes, share them','Only say "starting at"','No, always invite to a consultation']],
+  ['consult_fee','Is the first consultation free? If not, how much and is it credited to the treatment?','¿La primera consulta es gratis? Si no, ¿cuánto cuesta y se descuenta del tratamiento?','text'],
+  ['deposit','Do you require a deposit to book? How much?','¿Piden depósito para apartar? ¿De cuánto?','text'],
+  ['cancel','Cancellation, late-arrival and no-show policy','Política de cancelación, llegadas tarde y no presentarse.','text'],
+  ['packages','Do you offer packages, memberships or gift cards? Describe them.','¿Tienen paquetes, membresías o tarjetas de regalo?','text'],
+  ['discounts','Discounts the assistant may mention (military, first visit, referrals, etc.)','Descuentos que sí puede mencionar (militares, primera visita, referidos…).','text'],
+  ['no_discount','Anything the assistant must NEVER offer or promise? (price matching, extra discounts, guaranteed results…)','¿Qué NUNCA debe ofrecer o prometer?','text'],
+ ]},
+ {id:'treatments',title:'How you explain treatments',lead:'Write it the way you would explain it to a client in person. Short is fine.',qs:[
+  ['botox','Botox®: how long does it last, when are results visible, any downtime?','Botox: cuánto dura, cuándo se ven resultados, tiempo de recuperación.','text'],
+  ['lips','Juvéderm® Lips: how long does it last, swelling/downtime, what makes results look natural?','Labios: duración, inflamación, cómo logran un resultado natural.','text'],
+  ['facials','Luxury Facials: what is included and who are they best for?','Faciales de lujo: qué incluye y para quién es ideal.','text'],
+  ['salmon','Salmon DNA: how do you describe it in simple words? How many sessions?','Salmon DNA: cómo lo explica en palabras simples, cuántas sesiones.','text'],
+  ['led','LED therapy: what does it help with, how often?','LED: para qué sirve, cada cuánto.','text'],
+  ['men','Microneedling / acne scars / scalp care for men: what results can men expect, how many sessions?','Tratamientos para hombres: qué resultados esperar, cuántas sesiones.','text'],
+  ['others','DpSCAN, Derma Jade, D\'OR24K: anything the assistant should know?','DpSCAN, Derma Jade, D\'OR24K: algo que deba saber el asistente.','text'],
+  ['prep','How should clients prepare before an appointment? (makeup, alcohol, blood thinners…)','¿Cómo se deben preparar antes de la cita?','text'],
+  ['aftercare','General aftercare you want repeated','Cuidados posteriores que quiere que repita.','text'],
+ ]},
+ {id:'safety',title:'Health & safety',lead:'Medical questions always go to your team. Tell us where the line is.',qs:[
+  ['contra','Who should NOT get treatments? (pregnant, breastfeeding, Accutane, under 18, etc.)','¿Quién NO puede recibir tratamientos? (embarazo, lactancia, Accutane, menores…)','text'],
+  ['min_age','Minimum age for injectables and for facials','Edad mínima para inyectables y para faciales.','text'],
+  ['medical_line','Which questions must ALWAYS be passed to a person?','¿Qué preguntas SIEMPRE debe pasar a una persona?','multi',['Pregnancy / breastfeeding','Medications or allergies','A bad reaction after a treatment','Skin conditions or infections','Price negotiation','Complaints','Any medical question']],
+ ]},
+ {id:'booking',title:'Booking & handoff',lead:'How appointments and human takeover should work.',qs:[
+  ['confirm_mode','When the assistant books, should the appointment be…','Cuando el asistente agenda, la cita queda…','choice',['Pending, our team confirms it (recommended)','Confirmed immediately']],
+  ['confirm_who','Who confirms appointments, and how fast during business hours?','¿Quién confirma las citas y qué tan rápido?','text'],
+  ['same_day','Can clients book the same day? Minimum notice?','¿Se puede agendar el mismo día? ¿Con cuánta anticipación mínima?','text'],
+  ['capacity','How many clients can you see at the same time?','¿Cuántos clientes pueden atender al mismo tiempo?','choice',['1','2','3 or more']],
+  ['after_hours','What should the assistant say outside business hours?','¿Qué decir fuera de horario?','text'],
+  ['human_contact','When a client needs a person, what should they be told? (call, wait for Messenger reply, visit)','Cuando el cliente necesita a una persona, ¿qué se le dice?','text'],
+ ]},
+ {id:'voice',title:'Voice & tone',lead:'Make it sound like you.',qs:[
+  ['tone','How should the assistant sound?','¿Cómo debe sonar?','choice',['Warm and friendly','Elegant and professional','Short and direct']],
+  ['emoji','Emojis?','¿Emojis?','choice',['None','At most one','A few are fine']],
+  ['say_always','Phrases or ideas you want it to use','Frases o ideas que quiere que use.','text'],
+  ['say_never','Words, topics or competitors it must never mention','Palabras, temas o competidores que nunca debe mencionar.','text'],
+  ['differentiator','In one or two sentences: why should someone choose Solace?','En una o dos frases: ¿por qué elegir Solace?','text'],
+ ]},
+ {id:'faq',title:'Your top questions',lead:'The questions clients ask you most, with the answer you give. Add as many as you like.',special:'faq'},
+];
+
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let A={}, rowId=null, timer=null, submittedAt=null;
+
+function load(){try{const s=JSON.parse(localStorage.getItem(LS)||'{}');A=s.answers||{};$('#who').value=s.who||''}catch{}}
+function local(){localStorage.setItem(LS,JSON.stringify({answers:A,who:$('#who').value}))}
+
+function qHTML(q){
+ const [id,t,es,type,opts,now]=q;const v=A[id];
+ let input='';
+ if(type==='text') input=`<textarea data-id="${id}">${esc(v)}</textarea>`;
+ if(type==='choice'||type==='choice+text'){const val=type==='choice'?v:(v||{}).choice;
+   input=`<div class="opts">${opts.map(o=>`<label><input type="radio" name="${id}" value="${esc(o)}" ${val===o?'checked':''}>${esc(o)}</label>`).join('')}</div>`;
+   if(type==='choice+text') input+=`<textarea data-id="${id}" data-part="text" placeholder="Correction / notes" style="margin-top:8px;min-height:50px">${esc((v||{}).text)}</textarea>`}
+ if(type==='multi'){const arr=Array.isArray(v)?v:[];input=`<div class="opts">${opts.map(o=>`<label><input type="checkbox" name="${id}" value="${esc(o)}" ${arr.includes(o)?'checked':''}>${esc(o)}</label>`).join('')}</div>`}
+ return `<div class="q" id="q-${id}"><label class="t">${esc(t)}</label><div class="help es">${esc(es)}</div>${now?`<div class="now">Currently: ${esc(now)}</div>`:''}${input}</div>`;
+}
+function servicesHTML(){
+ const s=A.services||{};
+ return `<div class="svc head"><span>Treatment</span><span>Starting price $</span><span>Minutes</span><span>Notes (sessions, areas, units…)</span></div>`+
+ SERVICES.map(([id,n,c])=>{const r=s[id]||{};return `<div class="svc" data-svc="${id}"><div class="n"><b>${esc(n)}</b><small>${esc(c)}</small></div>
+  <input type="number" min="0" step="0.01" inputmode="decimal" data-svc="${id}" data-f="price" value="${esc(r.price)}" aria-label="${esc(n)} price" placeholder="e.g. 199">
+  <input type="number" min="5" step="5" inputmode="numeric" data-svc="${id}" data-f="minutes" value="${esc(r.minutes)}" aria-label="${esc(n)} minutes" placeholder="60">
+  <input type="text" class="note" data-svc="${id}" data-f="notes" value="${esc(r.notes)}" aria-label="${esc(n)} notes" placeholder="per unit / per syringe…"></div>`}).join('')+
+ `<div class="q"><label class="t">Treatments you offer that are NOT on this list, or ones listed that you no longer offer</label><div class="help es">Tratamientos que faltan o que ya no ofrecen.</div><textarea data-id="services_missing">${esc(A.services_missing)}</textarea></div>`;
+}
+function faqHTML(){
+ const f=(A.faq&&A.faq.length)?A.faq:[{q:'',a:''},{q:'',a:''},{q:'',a:''}];A.faq=f;
+ return `<div id="faqs">${f.map((x,i)=>`<div class="faq"><div class="row"><span>Question ${i+1}</span>${f.length>1?`<button data-del="${i}">Remove</button>`:''}</div>
+  <input type="text" data-faq="${i}" data-f="q" value="${esc(x.q)}" placeholder="Client asks…" aria-label="Question ${i+1}">
+  <textarea data-faq="${i}" data-f="a" placeholder="You answer…" aria-label="Answer ${i+1}">${esc(x.a)}</textarea></div>`).join('')}</div>
+  <button class="btn" id="addfaq" style="margin-top:12px">+ Add a question</button>`;
+}
+function render(){
+ $('#form').innerHTML=SECTIONS.map(s=>`<section class="block" id="s-${s.id}"><h2>${esc(s.title)}</h2><p class="lead">${esc(s.lead)}</p>${s.special==='services'?servicesHTML():s.special==='faq'?faqHTML():s.qs.map(qHTML).join('')}</section>`).join('');
+ stats();
+}
+function filled(v){if(v==null)return false;if(typeof v==='string')return v.trim()!=='';if(Array.isArray(v))return v.length>0;if(typeof v==='object')return Object.values(v).some(filled);return true}
+function stats(){
+ let total=0,done=0;
+ const toc=SECTIONS.map(s=>{let t=0,d=0;
+  if(s.special==='services'){t=SERVICES.length;d=SERVICES.filter(([id])=>filled((A.services||{})[id])).length}
+  else if(s.special==='faq'){t=1;d=(A.faq||[]).some(x=>x.q.trim()&&x.a.trim())?1:0}
+  else s.qs.forEach(q=>{t++;const f=filled(A[q[0]]);if(f)d++;const el=document.getElementById('q-'+q[0]);if(el)el.classList.toggle('done',f)});
+  total+=t;done+=d;return `<a href="#s-${s.id}">${esc(s.title)}<span>${d}/${t}</span></a>`}).join('');
+ $('#toc').innerHTML=toc;$('#count').textContent=`${done} of ${total} answered`;$('#bar').style.width=(total?done/total*100:0)+'%';
+}
+function setSave(msg,err){const el=$('#save');el.className='save'+(err?' err':'');el.innerHTML=msg}
+function review(final){return {type:'bot-training',version:1,answers:A,services_catalog:SERVICES.map(([id,n])=>({id,name:n})),updated_at:new Date().toISOString(),submitted_at:final?new Date().toISOString():submittedAt,status:final||submittedAt?'submitted':'draft'}}
+async function persist(final){
+ local();if(final)submittedAt=new Date().toISOString();
+ const body={review:review(final),client_name:ROLE+($('#who').value.trim()?' · '+$('#who').value.trim():'')};
+ setSave('Saving…');
+ try{
+  let r;
+  if(rowId) r=await fetch(`${PB_URL}/api/collections/approvals/records/${rowId}`,{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+  else r=await fetch(`${PB_URL}/api/collections/approvals/records`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({client:CLIENT,campaign:CAMPAIGN,created_at:new Date().toISOString(),...body})});
+  if(!r.ok)throw 0;const rec=await r.json();if(rec.id){rowId=rec.id;localStorage.setItem(LS+'-row',rowId)}
+  setSave(`<b>Saved</b> ${new Date().toLocaleTimeString([], {hour:'numeric',minute:'2-digit'})}`);return true;
+ }catch{setSave('<b>Not saved</b> — check your connection. Your answers are kept on this device.',true);return false}
+}
+function schedule(){local();stats();clearTimeout(timer);setSave('Editing…');timer=setTimeout(()=>persist(false),900)}
+
+document.addEventListener('input',e=>{
+ const t=e.target;
+ if(t.id==='who'){schedule();return}
+ if(t.dataset.svc){A.services=A.services||{};const r=A.services[t.dataset.svc]=A.services[t.dataset.svc]||{};r[t.dataset.f]=t.value;schedule();return}
+ if(t.dataset.faq!==undefined){A.faq[+t.dataset.faq][t.dataset.f]=t.value;schedule();return}
+ if(t.dataset.id){if(t.dataset.part==='text'){A[t.dataset.id]=A[t.dataset.id]||{};A[t.dataset.id].text=t.value}else A[t.dataset.id]=t.value;schedule();return}
+});
+document.addEventListener('change',e=>{
+ const t=e.target;if(!t.name)return;const q=SECTIONS.flatMap(s=>s.qs||[]).find(q=>q[0]===t.name);if(!q)return;
+ if(q[3]==='multi')A[t.name]=[...document.querySelectorAll(`input[name="${t.name}"]:checked`)].map(x=>x.value);
+ else if(q[3]==='choice+text'){A[t.name]=A[t.name]||{};A[t.name].choice=t.value}
+ else A[t.name]=t.value;
+ schedule();
+});
+document.addEventListener('click',e=>{
+ const t=e.target;
+ if(t.id==='addfaq'){A.faq.push({q:'',a:''});render();schedule();document.querySelector(`[data-faq="${A.faq.length-1}"]`).focus()}
+ if(t.dataset.del!==undefined){A.faq.splice(+t.dataset.del,1);render();schedule()}
+});
+$('#send').onclick=async()=>{const b=$('#send');b.disabled=true;b.textContent='Sending…';const ok=await persist(true);b.disabled=false;b.textContent='Send to Bunker';
+ if(ok){$('#thanks').style.display='block';$('#thanks').scrollIntoView({behavior:'smooth'})}else alert('Could not send. Please check your connection and try again.')};
+
+async function init(){
+ load();
+ try{
+  const f=encodeURIComponent(`client='${CLIENT}' && campaign='${CAMPAIGN}'`);
+  const r=await fetch(`${PB_URL}/api/collections/approvals/records?filter=${f}&perPage=1&sort=-id`);
+  const d=r.ok?await r.json():{items:[]};const row=d.items&&d.items[0];
+  if(row){rowId=row.id;const rv=row.review||{};submittedAt=rv.submitted_at||null;
+   // server wins unless this device has newer unsaved work
+   const loc=JSON.parse(localStorage.getItem(LS)||'{}');if(!loc.answers||!Object.keys(loc.answers).length)A=rv.answers||{};
+   if(!$('#who').value&&row.client_name)$('#who').value=(row.client_name.split(' · ')[1]||'');
+   if(submittedAt)$('#thanks').style.display='block';
+   setSave(`<b>Loaded</b> your saved answers`)}
+ }catch{}
+ render();
+}
+init();
+</script>
+</body>
+</html>
