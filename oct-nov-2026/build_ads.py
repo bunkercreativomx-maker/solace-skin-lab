@@ -1,5 +1,5 @@
 import json
-PHONE = "(915) 995-9524"
+PHONE = "(915) 209-2060"
 DESC = "Cielo Vista Mall, El Paso • Message us to book"
 ads = [
  dict(id="META-01", name="2 Facials for $64.99 — Tuesdays", week="Every Mon–Tue (Oct 19–Nov 10)",
