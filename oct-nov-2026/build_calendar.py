@@ -84,7 +84,7 @@ add(date(2026,10,26), "Engagement", "OKAY… BE HONEST", "OKAY… BE HONEST. �
     "#SkincareRoutine #Poll", 12)
 add(date(2026,10,27), "2×1 Tuesday", "TWO FACIALS. ONE PRICE.", "🚨 IT'S TUESDAY 🚨", TUESDAY_BODY, TUESDAY_CTA,
     "2 Facials for $64.99", "Tuesdays only · Bring your mom",
-    "Mother and adult daughter having facials together on adjacent treatment beds, holding hands across the gap and smiling: mother in her late 50s, Latina, grey-streaked dark hair; daughter in her late 20s with a different face shape and lighter brown hair in a bun; warm lamp light, dark luxe spa room.",
+    "Mother and adult daughter having facials together on adjacent treatment beds, relaxed and smiling, hands resting under the towels (no hands visible): mother in her late 50s, Latina, grey-streaked dark hair; daughter in her late 20s with a different face shape and lighter brown hair in a bun; warm lamp light, dark luxe spa room.",
     "#TwoForOne #FacialTuesday #MomAndMe", "Tuesday")
 add(date(2026,10,28), "Facial", "YOUR SKIN CALLED", "YOUR SKIN CALLED. 📞",
     "It wants a facial. 😂\n\n🧖‍♀️ Professional Facial\n✨ Relax\n✨ Refresh\n✨ Glow\n\n🔥 ONLY $64.99\n\n📍 Solace — El Paso, Texas",
@@ -124,13 +124,13 @@ add(date(2026,11,2), "Facial", "PLANS THIS WEEK?", "PLANS THIS WEEK? 👀",
     "#Facial #UnplugAndRelax", 18)
 add(date(2026,11,3), "2×1 Tuesday", "2 FOR 1 TUESDAY", "👯‍♀️ BRING YOUR BESTIE — IT'S TUESDAY", TUESDAY_BODY, TUESDAY_CTA,
     "2 Facials for $64.99", "Tuesdays only · Bring your sister",
-    "Two sisters with clearly different faces on two treatment beds in white robes and headbands, high-fiving between the beds with green clay masks on: one in her mid 30s with straight black hair and fair skin, the other in her early 20s with honey-blonde hair and a tan; warm candle glow, dark luxe spa.",
+    "Two sisters with clearly different faces on two treatment beds in white robes and headbands, laughing toward each other with green clay masks on, hands resting under the robes (no hands visible): one in her mid 30s with straight black hair and fair skin, the other in her early 20s with honey-blonde hair and a tan; warm candle glow, dark luxe spa.",
     "#TwoForOne #FacialTuesday #SisterTime", "Tuesday")
 add(date(2026,11,4), "Engagement", "TAG SOMEONE WHO NEEDS A FACIAL", "TAG SOMEONE WHO NEEDS A FACIAL. 👇😂",
     "Your best friend?\nYour mom?\nYour sister?\nYour boyfriend? 👀\n\nMaybe all of them. 😂\n\n✨ Facials $64.99\n\n📍 Solace — El Paso, Texas",
     "📲 Message us to book.",
     "Tag someone who needs a facial", "Facials · $64.99",
-    "Man in his early 30s with a beard and medium-brown skin, white headband, lying on a treatment bed with a white cream mask, giving an amused thumbs-up to camera while a gloved esthetician hand applies product; warm overhead light, dark background, fun and real.",
+    "Man in his early 30s with a beard and medium-brown skin, white headband, lying on a treatment bed with a white cream mask, smiling amused at the camera with his hands out of frame, while one gloved esthetician hand brushes on the mask; warm overhead light, dark background, fun and real.",
     "#TagAFriend #Facial", 19)
 add(date(2026,11,5), "Process", "THE SOLACE EXPERIENCE", "WHAT HAPPENS WHEN YOU COME TO SOLACE?",
     "1️⃣ We listen.\n2️⃣ We discuss your goals.\n3️⃣ We evaluate your options.\n4️⃣ We create a plan with you.\n\nNo two clients are exactly alike.\n\nYour skincare shouldn't be either.\n\n🧖‍♀️ Facials $64.99\n\n📍 El Paso, Texas",
