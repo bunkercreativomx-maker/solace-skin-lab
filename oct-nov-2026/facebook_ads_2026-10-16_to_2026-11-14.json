@@ -1,0 +1,192 @@
+{
+ "campaign": "Solace — Client Ideas Oct 16 – Nov 14",
+ "period": "2026-10-16 to 2026-11-14",
+ "platforms": [
+  "Facebook",
+  "Instagram"
+ ],
+ "status": "Pending client approval — nothing is live",
+ "officialPhone": "(915) 995-9524",
+ "location": "Cielo Vista Mall, El Paso TX",
+ "monthlyStrategy": {
+  "primaryGoal": "Booked facials (Tuesday 2-for-$64.99 + $64.99 facial) via Messenger, plus a consultation pipeline for microneedling and BOTOX® Cosmetic.",
+  "budgetAllocation": [
+   {
+    "percent": "35",
+    "segment": "2 Facials for $64.99 (Tuesdays)",
+    "purpose": "Main booking driver, 4 Tuesdays."
+   },
+   {
+    "percent": "25",
+    "segment": "Facial $64.99",
+    "purpose": "Always-on entry offer."
+   },
+   {
+    "percent": "15",
+    "segment": "Microneedling",
+    "purpose": "Higher-ticket consultations."
+   },
+   {
+    "percent": "10",
+    "segment": "BOTOX® consultation",
+    "purpose": "Holiday pipeline (Nov–Dec)."
+   },
+   {
+    "percent": "15",
+    "segment": "Retargeting",
+    "purpose": "Convert engagers from the organic posts."
+   }
+  ],
+  "audienceFramework": "Local radius around Cielo Vista Mall, broad Advantage+ audiences, creative-led delivery; no health-condition or personal-attribute targeting.",
+  "weeklyFlight": [
+   {
+    "week": 1,
+    "dates": "Oct 16–25",
+    "focus": "Launch",
+    "actions": "META-02 always on; META-01 Sun–Tue before Oct 20; start META-03."
+   },
+   {
+    "week": 2,
+    "dates": "Oct 26–Nov 1",
+    "focus": "Tuesday + consult",
+    "actions": "META-01 for Oct 27; launch META-04 and META-05."
+   },
+   {
+    "week": 3,
+    "dates": "Nov 2–8",
+    "focus": "Scale winners",
+    "actions": "Move budget to the lowest cost-per-conversation creative."
+   },
+   {
+    "week": 4,
+    "dates": "Nov 9–14",
+    "focus": "Close",
+    "actions": "META-01 for Nov 10; META-05 retargeting push."
+   }
+  ],
+  "measurement": [
+   "Conversations started (primary)",
+   "Booked appointments / cost per booking",
+   "Tuesday fill rate",
+   "Consultation requests (microneedling, BOTOX®)",
+   "Retargeting pool size"
+  ],
+  "testingRules": [
+   "2 primary texts + 2 headlines per ad (Advantage+ creative)",
+   "One variable at a time",
+   "Pause any ad with no conversations after 3 days at stable spend",
+   "Answer every message within 1 hour during business hours"
+  ]
+ },
+ "ads": [
+  {
+   "id": "META-01",
+   "name": "2 Facials for $64.99 — Tuesdays",
+   "week": "Every Mon–Tue (Oct 19–Nov 10)",
+   "objective": "Engagement → Messages (bookings)",
+   "funnel": "Prospecting + retargeting",
+   "creativeDay": 5,
+   "alternateCreativeDays": [
+    12,
+    19,
+    26
+   ],
+   "audience": "Adults 21–60 within ~10 mi of Cielo Vista Mall; broad (Advantage+ audience), no interest stacking.",
+   "primaryTextA": "TWO FACIALS. ONE PRICE. 🔥 Every Tuesday at Solace Skin Lab: 2 facials for $64.99 total. Bring your bestie, your mom, your sister or your partner — self-care is better together. Tuesday spots are limited.",
+   "primaryTextB": "Yes, you read that right: TWO facials for only $64.99 — Tuesdays only at Solace Skin Lab, El Paso. Tag who you're bringing and message us to save your Tuesday spot.",
+   "headlineA": "2 Facials for $64.99 — Tuesdays",
+   "headlineB": "Bring Your Bestie This Tuesday",
+   "description": "Cielo Vista Mall, El Paso • Message us to book",
+   "cta": "SEND_MESSAGE",
+   "destination": "Messenger (Solace Skin Lab page)",
+   "optimization": "Conversations; run Sun night → Tue 2 pm, pause Wed–Sat.",
+   "compliance": "Price covers BOTH facials together; state 'Tuesdays only' and limited spots only if true. No before/after."
+  },
+  {
+   "id": "META-02",
+   "name": "Facial $64.99 — Your Skin Deserves a Little Love",
+   "week": "Oct 16 – Nov 14 (always on)",
+   "objective": "Engagement → Messages",
+   "funnel": "Prospecting",
+   "creativeDay": 2,
+   "alternateCreativeDays": [
+    6,
+    13,
+    23
+   ],
+   "audience": "Adults 25–60 within ~10 mi of Cielo Vista Mall; broad.",
+   "primaryTextA": "When was your last facial? 👀 If you had to think about it… it's probably been too long. Professional facial at Solace Skin Lab — $64.99. Take an hour for yourself.",
+   "primaryTextB": "Your skin called. It wants a facial. 😂 Relax, refresh, glow — professional facials for only $64.99 at Solace Skin Lab, El Paso.",
+   "headlineA": "Professional Facial · $64.99",
+   "headlineB": "Your Skin Called 📞",
+   "description": "Cielo Vista Mall, El Paso • Message us to book",
+   "cta": "SEND_MESSAGE",
+   "destination": "Messenger",
+   "optimization": "Conversations; test 2 creatives at a time, keep the winner.",
+   "compliance": "Phrase benefits as relaxation/refresh; no guaranteed results."
+  },
+  {
+   "id": "META-03",
+   "name": "Microneedling — Learn More",
+   "week": "Oct 19 – Nov 14",
+   "objective": "Leads / Messages",
+   "funnel": "Prospecting",
+   "creativeDay": 4,
+   "alternateCreativeDays": [
+    17
+   ],
+   "audience": "Adults 25–55 within ~15 mi of Cielo Vista Mall; broad (no condition-based targeting).",
+   "primaryTextA": "Why does everyone talk about microneedling? 👀 It's a professional treatment that may help improve the appearance of uneven texture, enlarged-looking pores, fine lines and acne scarring over a series of sessions. Message us to learn if it's right for you.",
+   "primaryTextB": "Ready to take skincare to the next level? Microneedling at Solace Skin Lab may help smooth the look of texture and scarring. Honest consultation first — message us.",
+   "headlineA": "Microneedling at Solace",
+   "headlineB": "Smoother-Looking Texture Starts Here",
+   "description": "Cielo Vista Mall, El Paso • Message us to book",
+   "cta": "LEARN_MORE",
+   "destination": "Messenger",
+   "optimization": "Conversations / consultation requests.",
+   "compliance": "Meta personal-attributes policy: never say or imply 'your acne/your scars'. 'May help', results vary, no before/after."
+  },
+  {
+   "id": "META-04",
+   "name": "BOTOX® Cosmetic — Injector Consultation",
+   "week": "Oct 25 – Nov 14",
+   "objective": "Leads (consultation requests)",
+   "funnel": "Prospecting + retargeting",
+   "creativeDay": 10,
+   "alternateCreativeDays": [
+    25
+   ],
+   "audience": "Adults 30–60 within ~15 mi; plus retarget 60-day page engagers.",
+   "primaryTextA": "Let's talk BOTOX®. The goal isn't looking dramatically different — for many clients it's a refreshed appearance while still looking like themselves. Book an injector consultation at Solace Skin Lab. Individual results vary.",
+   "primaryTextB": "\"How many units of BOTOX® do I need?\" There's no universal number — it depends on the areas, your anatomy and your goals. That's why your injector evaluates YOU. Schedule a consultation.",
+   "headlineA": "Let's Talk BOTOX®",
+   "headlineB": "Your Injector Evaluates YOU",
+   "description": "Cielo Vista Mall, El Paso • Message us to book",
+   "cta": "SEND_MESSAGE",
+   "destination": "Messenger",
+   "optimization": "Consultation requests.",
+   "compliance": "Prescription product: consultation framing, results vary, include Important Safety Information per Allergan guidance before activation; 18+; no before/after, no price claims."
+  },
+  {
+   "id": "META-05",
+   "name": "Retargeting — This Is Your Sign",
+   "week": "Oct 26 – Nov 14",
+   "objective": "Engagement → Messages (urgency)",
+   "funnel": "Retargeting",
+   "creativeDay": 15,
+   "alternateCreativeDays": [
+    30
+   ],
+   "audience": "Warm: FB/IG page engagers 60 days, video viewers, message senders; exclude booked clients if a list is available.",
+   "primaryTextA": "You've been saying \"I'll book later…\" for weeks. 👀 THIS IS YOUR SIGN. Facial $64.99 at Solace Skin Lab — stop putting it off.",
+   "primaryTextB": "Stop thinking about it. Start. Facials, microneedling, BOTOX® & advanced skincare — facials from $64.99. Your skin will thank you. ❤️",
+   "headlineA": "This Is Your Sign ✨",
+   "headlineB": "Stop Thinking About It. Start.",
+   "description": "Cielo Vista Mall, El Paso • Message us to book",
+   "cta": "SEND_MESSAGE",
+   "destination": "Messenger",
+   "optimization": "Conversations; frequency cap ~2/week.",
+   "compliance": "Urgency only if real; no guarantees."
+  }
+ ]
+}
