@@ -42,6 +42,7 @@ sub("Solace Skin Lab — Oct 16–Nov 14 Content Review", "Solace Skin Lab — N
 sub("campaign:'Client Ideas Oct-Nov',period:'2026-10-16 to 2026-11-14'", "campaign:'November 2026',period:'2026-11-02 to 2026-12-01'")
 sub("image:`images/day${String(p.day).padStart(2,'0')}.png`", "image:p.poster")
 sub("solace-oct-nov-2026-client-review.json", "solace-nov-2026-client-review.json")
+sub('<span class="pill ok">${aa} ads approved</span><span class="pill skip">${as} ads changes</span><span class="pill">${an} ads pending</span>`', '`')
 assert 'oct-nov-2026-v3' not in h
 open(f'{OUT}/index.html', 'w').write(h)
 print('ok', len(cal))
