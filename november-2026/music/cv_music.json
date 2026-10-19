@@ -1,0 +1,21 @@
+{
+ "A": {
+  "uuid": "01a15650-a186-71c1-814d-fb2bf5848e8b",
+  "src": "https://cdn.clonevoice.ai/uploads/production/2026/10/19/user-1110/audios/audio-01-01a15651-292c-7031-8575-342daa29aa86.mp3"
+ },
+ "B": {
+  "uuid": "01a1565b-c0ea-712e-b625-a4d010a0ba25",
+  "src": "https://cdn.clonevoice.ai/uploads/production/2026/10/19/user-1110/audios/audio-01-01a1565b-c676-708a-9614-8be6dddf6e60.mp3",
+  "len": 103.22
+ },
+ "C": {
+  "uuid": "01a1565b-c751-7072-a2cd-28552d217aa6",
+  "src": "https://cdn.clonevoice.ai/uploads/production/2026/10/19/user-1110/audios/audio-01-01a1565b-cc35-7253-9b04-09022307113b.mp3",
+  "len": 37.44
+ },
+ "D": {
+  "uuid": "01a1565b-cd09-7070-b530-a5da98a9c76a",
+  "src": "https://cdn.clonevoice.ai/uploads/production/2026/10/19/user-1110/audios/audio-01-01a1565b-d20c-71fa-9d6f-c64b5356b215.mp3",
+  "len": 30.02
+ }
+}

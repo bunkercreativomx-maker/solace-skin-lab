@@ -1,0 +1,5 @@
+cv_*.mp3
+cv_*.wav
+*_*.mp3
+trA/
+!demos/*.mp3
