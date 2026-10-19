@@ -9,16 +9,16 @@
  "officialPhone": "(915) 209-2060",
  "location": "Cielo Vista Mall, El Paso TX",
  "monthlyStrategy": {
-  "primaryGoal": "Booked facials (Tuesday 2-for-$64.99 + $64.99 facial) via Messenger, plus a consultation pipeline for microneedling and BOTOX® Cosmetic.",
+  "primaryGoal": "Booked facials (Tuesday 2-for-$74.99 + $74.99 facial) via Messenger, plus a consultation pipeline for microneedling and BOTOX® Cosmetic.",
   "budgetAllocation": [
    {
     "percent": "35",
-    "segment": "2 Facials for $64.99 (Tuesdays)",
+    "segment": "2 Facials for $74.99 (Tuesdays)",
     "purpose": "Main booking driver, 4 Tuesdays."
    },
    {
     "percent": "25",
-    "segment": "Facial $64.99",
+    "segment": "Facial $74.99",
     "purpose": "Always-on entry offer."
    },
    {
@@ -81,7 +81,7 @@
  "ads": [
   {
    "id": "META-01",
-   "name": "2 Facials for $64.99 — Tuesdays",
+   "name": "2 Facials for $74.99 — Tuesdays",
    "week": "Every Mon–Tue (Oct 19–Nov 10)",
    "objective": "Engagement → Messages (bookings)",
    "funnel": "Prospecting + retargeting",
@@ -92,9 +92,9 @@
     26
    ],
    "audience": "Adults 21–60 within ~10 mi of Cielo Vista Mall; broad (Advantage+ audience), no interest stacking.",
-   "primaryTextA": "TWO FACIALS. ONE PRICE. 🔥 Every Tuesday at Solace Skin Lab: 2 facials for $64.99 total. Bring your bestie, your mom, your sister or your partner — self-care is better together. Tuesday spots are limited.",
-   "primaryTextB": "Yes, you read that right: TWO facials for only $64.99 — Tuesdays only at Solace Skin Lab, El Paso. Tag who you're bringing and message us to save your Tuesday spot.",
-   "headlineA": "2 Facials for $64.99 — Tuesdays",
+   "primaryTextA": "TWO FACIALS. ONE PRICE. 🔥 Every Tuesday at Solace Skin Lab: 2 facials for $74.99 total. Bring your bestie, your mom, your sister or your partner — self-care is better together. Tuesday spots are limited.",
+   "primaryTextB": "Yes, you read that right: TWO facials for only $74.99 — Tuesdays only at Solace Skin Lab, El Paso. Tag who you're bringing and message us to save your Tuesday spot.",
+   "headlineA": "2 Facials for $74.99 — Tuesdays",
    "headlineB": "Bring Your Bestie This Tuesday",
    "description": "Cielo Vista Mall, El Paso • Message us to book",
    "cta": "SEND_MESSAGE",
@@ -104,7 +104,7 @@
   },
   {
    "id": "META-02",
-   "name": "Facial $64.99 — Your Skin Deserves a Little Love",
+   "name": "Facial $74.99 — Your Skin Deserves a Little Love",
    "week": "Oct 16 – Nov 14 (always on)",
    "objective": "Engagement → Messages",
    "funnel": "Prospecting",
@@ -115,9 +115,9 @@
     23
    ],
    "audience": "Adults 25–60 within ~10 mi of Cielo Vista Mall; broad.",
-   "primaryTextA": "When was your last facial? 👀 If you had to think about it… it's probably been too long. Professional facial at Solace Skin Lab — $64.99. Take an hour for yourself.",
-   "primaryTextB": "Your skin called. It wants a facial. 😂 Relax, refresh, glow — professional facials for only $64.99 at Solace Skin Lab, El Paso.",
-   "headlineA": "Professional Facial · $64.99",
+   "primaryTextA": "When was your last facial? 👀 If you had to think about it… it's probably been too long. Professional facial at Solace Skin Lab — $74.99. Take an hour for yourself.",
+   "primaryTextB": "Your skin called. It wants a facial. 😂 Relax, refresh, glow — professional facials for only $74.99 at Solace Skin Lab, El Paso.",
+   "headlineA": "Professional Facial · $74.99",
    "headlineB": "Your Skin Called 📞",
    "description": "Cielo Vista Mall, El Paso • Message us to book",
    "cta": "SEND_MESSAGE",
@@ -178,8 +178,8 @@
     30
    ],
    "audience": "Warm: FB/IG page engagers 60 days, video viewers, message senders; exclude booked clients if a list is available.",
-   "primaryTextA": "You've been saying \"I'll book later…\" for weeks. 👀 THIS IS YOUR SIGN. Facial $64.99 at Solace Skin Lab — stop putting it off.",
-   "primaryTextB": "Stop thinking about it. Start. Facials, microneedling, BOTOX® & advanced skincare — facials from $64.99. Your skin will thank you. ❤️",
+   "primaryTextA": "You've been saying \"I'll book later…\" for weeks. 👀 THIS IS YOUR SIGN. Facial $74.99 at Solace Skin Lab — stop putting it off.",
+   "primaryTextB": "Stop thinking about it. Start. Facials, microneedling, BOTOX® & advanced skincare — facials from $74.99. Your skin will thank you. ❤️",
    "headlineA": "This Is Your Sign ✨",
    "headlineB": "Stop Thinking About It. Start.",
    "description": "Cielo Vista Mall, El Paso • Message us to book",
