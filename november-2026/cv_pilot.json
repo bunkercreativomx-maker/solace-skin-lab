@@ -1,0 +1,18 @@
+{
+ "1": {
+  "uuid": "01a154ba-7421-73f0-b586-c3cf53864ceb",
+  "voice": 377295,
+  "name": "Victoria Reynolds",
+  "script": "Microneedling at Solace Skin Lab. Here's the truth: texture isn't forever. Microneedling helps your skin build new collagen, for the look of acne scars, pores and uneven texture. Smoother-looking skin, one session at a time. Book your consultation: nine one five, two zero nine, twenty sixty.",
+  "src": "https://cdn.clonevoice.ai/uploads/production/2026/10/19/user-1110/audios/solace-nov-d01-4dea2d81-u-01a154ba-7421-73f0-b586-c3cf53864ceb.mp3",
+  "len": 20.79
+ },
+ "2": {
+  "uuid": "01a154ba-75e4-73ad-a3aa-d9b6d7e3cb5f",
+  "voice": 384064,
+  "name": "Camila Navarro",
+  "script": "Tuesdays only at Solace. Two facials. Bring your bestie, and enjoy a glass of wine while you glow. Two facials for seventy-four ninety-nine, total. Book your Tuesday: nine one five, two zero nine, twenty sixty.",
+  "src": "https://cdn.clonevoice.ai/uploads/production/2026/10/19/user-1110/audios/solace-nov-d02-b62106ae-u-01a154ba-75e4-73ad-a3aa-d9b6d7e3cb5f.mp3",
+  "len": 11.94
+ }
+}
