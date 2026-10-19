@@ -93,7 +93,7 @@ dict(d=13, date="2026-11-14", fmt="4x5", service="Facial + Dermaplaning", eyebro
  caption="Glass skin starts here. ✨\n\nDermaplaning gently removes dead skin cells and peach fuzz, so your facial products absorb better and makeup sits smoother.\n\nFacial + Dermaplaning: $74.99\n📲 (915) 209-2060 · 📍 Cielo Vista Mall",
  tags="#SolaceSkinLab #Dermaplaning #GlassSkin #ElPasoFacials",
  scene="profile close-up of a woman in her early 30s with eyes closed, luminous dewy healthy cheek catching warm light, hair wrapped in a white towel, lying on a white treatment bed, crop just below the eyebrow", space="upper half"),
-dict(d=14, date="2026-11-15", fmt="1x1", service="Myth: BOTOX®", eyebrow="MYTH vs FACT", title="\"Botox freezes your face.\"", script="not when it's done right", support="Natural movement · softer lines", price=None,
+dict(d=14, date="2026-11-15", fmt="1x1", service="Myth: BOTOX®", eyebrow="MYTH vs FACT", title="\"BOTOX® freezes your face.\"", script="not when it's done right", support="Natural movement · softer lines", price=None,
  cta="Ask us anything", vo=["Myth versus fact.", "Botox freezes your face?", "Not when it's dosed for you. The goal is softer lines, and natural movement.",
      "Ask your questions in a consultation.", "Comment your question below."],
  caption="MYTH: \"Botox freezes your face.\" ❌\nFACT: When it's dosed for your face, you keep natural movement — just softer-looking lines.\n\nGot a question about BOTOX® Cosmetic or Xeomin®? Drop it in the comments 👇\n*Individual results vary.",
