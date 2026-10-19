@@ -55,17 +55,20 @@ html, body { width:%(W)dpx; height:%(H)dpx; overflow:hidden; background:#0d0907;
 .title .w { display:inline-block; opacity:0; }
 .script { margin-top:%(SGAP)dpx; font:400 %(SS)dpx/1.1 "Pinyon Script",cursive; color:#EBD39E; opacity:0; transform:rotate(-3deg); text-shadow:0 2px 18px rgba(0,0,0,.55); }
 .support { margin-top:%(UGAP)dpx; font:400 %(US)dpx/1.35 Jost,sans-serif; letter-spacing:.14em; text-transform:uppercase; color:rgba(246,239,228,.9); opacity:0; max-width:%(UW)dpx; }
-.price { margin-top:%(PGAP)dpx; display:flex; align-items:center; gap:16px; opacity:0; }
-.price .lbl { font:500 18px/1.2 Jost,sans-serif; letter-spacing:.3em; color:rgba(246,239,228,.8); text-align:right; }
+.price { margin-top:%(PGAP)dpx; display:flex; align-items:center; gap:16px; opacity:0; padding:10px 26px; border-radius:16px; background:radial-gradient(ellipse at center, rgba(12,8,6,.78) 0%%, rgba(12,8,6,.55) 60%%, rgba(12,8,6,0) 100%%); }
+.price .lbl, .price .num { text-shadow:0 0 12px rgba(0,0,0,.95), 0 0 3px rgba(0,0,0,.9); }
+.price .lbl { font:500 %(PL)dpx/1.35 Jost,sans-serif; letter-spacing:.3em; color:rgba(246,239,228,.8); text-align:right; }
 .price .num { font:600 %(PS)dpx/1 "Cormorant Garamond",serif; color:#E2C88F; letter-spacing:-.01em; }
 .foot { position:absolute; left:0; right:0; bottom:%(FB)dpx; display:flex; flex-direction:column; align-items:center; gap:22px; }
 .cta { font:500 %(CS)dpx/1 Jost,sans-serif; letter-spacing:.24em; text-transform:uppercase; color:#1a120c; background:linear-gradient(90deg,#CFAF74,#E8D3A2,#CFAF74); padding:18px 34px; border-radius:999px; opacity:0; }
 .phone { font:400 %(PH)dpx/1 Jost,sans-serif; letter-spacing:.18em; color:#F6EFE4; opacity:0; }
+.offer { display:flex; align-items:center; gap:14px; font:500 %(OF)dpx/1.2 Jost,sans-serif; letter-spacing:.2em; color:#EBD39E; opacity:0; text-shadow:0 2px 12px rgba(0,0,0,.6); }
+.offer i { display:block; width:36px; height:1px; background:#D8BE8A; }
 .fine { position:absolute; left:0; right:0; bottom:%(FINEB)dpx; text-align:center; font:400 15px/1 Jost,sans-serif; letter-spacing:.12em; color:rgba(246,239,228,.6); opacity:0; }
 """
 LAY = {
- '4x5': dict(W=1080, H=1350, OBJPOS='50% 60%', S1=24, S2=46, S3=60, TOP=140, EYE=21, TGAP=26, TS=112, SGAP=-2, SS=100, UGAP=18, US=22, UW=820, PGAP=14, PS=118, FB=74, CS=22, PH=26, FINEB=40),
- '1x1': dict(W=1080, H=1080, OBJPOS='50% 62%', S1=22, S2=44, S3=58, TOP=118, EYE=19, TGAP=20, TS=92, SGAP=-2, SS=84, UGAP=12, US=19, UW=780, PGAP=8, PS=96, FB=58, CS=19, PH=22, FINEB=30),
+ '4x5': dict(W=1080, H=1350, OBJPOS='50% 60%', S1=24, S2=46, S3=60, TOP=140, EYE=21, TGAP=26, TS=112, SGAP=-2, SS=100, UGAP=18, US=22, UW=820, PGAP=14, PS=118, PL=17, FB=74, CS=22, PH=26, FINEB=40, OF=19),
+ '1x1': dict(W=1080, H=1080, OBJPOS='50% 62%', S1=22, S2=44, S3=58, TOP=118, EYE=19, TGAP=20, TS=92, SGAP=-2, SS=84, UGAP=12, US=19, UW=780, PGAP=8, PS=96, PL=15, FB=58, CS=19, PH=22, FINEB=30, OF=16),
 }
 
 def build(p):
@@ -88,9 +91,11 @@ def build(p):
     price = p.get('price')
     lbl, num = ('FROM', price.replace('from ', '')) if price and price.startswith('from') else ('ONLY', price)
     if p['service'].startswith('2×1'): lbl = 'BOTH<br>FOR'
+    if p.get('plabel'): lbl = p['plabel']
     title = ' '.join(f'<span class="w">{html.escape(w)}</span>' for w in p['title'].split())
     fine = '<div class="fine" id="fine">Individual results vary. Consultation required.</div>' if p['service'] in FINE else ''
     pblock = f'<div class="price" id="price"><div class="lbl">{lbl}</div><div class="num">{html.escape(num)}</div></div>' if price else ''
+    endnote = f'<div class="offer" id="offer"><i></i><span>{html.escape(p["endnote"])}</span><i></i></div>' if p.get('endnote') else ''
     body = f"""
   <div id="root" data-composition-id="main" data-start="0" data-duration="{DUR}" data-width="{c['W']}" data-height="{c['H']}">
     <div class="bg" data-layout-allow-overflow><img id="photo" src="assets/photo.png" alt="" /></div>
@@ -104,7 +109,7 @@ def build(p):
       <div class="support" id="support">{html.escape(p['support'])}</div>
       {pblock}
     </div>
-    <div class="foot"><div class="cta" id="cta">{html.escape(p['cta'])}</div><div class="phone" id="phone">{PHONE} · CIELO VISTA MALL</div></div>
+    <div class="foot">{endnote}<div class="cta" id="cta">{html.escape(p['cta'])}</div><div class="phone" id="phone">{PHONE} · CIELO VISTA MALL</div></div>
     {fine}
     <audio id="vo" src="assets/vo.wav" data-start="0" data-duration="{DUR}" data-track-index="1"></audio>
     <audio id="music" src="assets/music.wav" data-start="0" data-duration="{DUR}" data-track-index="2" data-volume="0.16"></audio>
@@ -122,7 +127,8 @@ def build(p):
     if price:
         js.append(f'tl.fromTo("#price",{{opacity:0,scale:1.18}},{{opacity:1,scale:1,duration:0.8,ease:"power3.out",immediateRender:false}},{t3:.2f});')
     if fine: js.append(f'IN("#fine",{t2:.2f},{{opacity:0}},0.8);')
-    js.append(f'IN("#cta",{t4:.2f},{{opacity:0,y:18}},0.7);')
+    if p.get('endnote'): js.append(f'IN("#offer",{t4:.2f},{{opacity:0,y:14}},0.8);')
+    js.append(f'IN("#cta",{t4 + (0.5 if p.get("endnote") else 0):.2f},{{opacity:0,y:18}},0.7);')
     js.append(f'IN("#phone",{t4 + 0.25:.2f},{{opacity:0,y:12}},0.7);')
     js.append(f'tl.fromTo("#cta",{{scale:1}},{{scale:1.04,duration:0.6,yoyo:true,repeat:1,ease:"sine.inOut",immediateRender:false}},{t4 + 1.0:.2f});')
     page = f"""<!doctype html>

@@ -197,3 +197,99 @@ dict(d=30, date="2026-12-01", fmt="1x1", service="2×1 Tuesday", eyebrow="TUESDA
  scene="two clearly DIFFERENT women, one in her late 20s Latina with a high ponytail, one in her 50s with short grey hair and brown skin, relaxing on white treatment beds under soft golden string-light bokeh, eyes closed, smooth masks, two glasses of red wine, warm candle light; not the same face", space="upper third"),
 ]
 assert len(POSTS) == 30 and sum(p['fmt'] == '4x5' for p in POSTS) == 15
+
+# ===================== V2 (client request): campaign built on 2 offers =====================
+# A (any day): luxury skincare product $74.99 + FREE facial
+# B (Tuesdays): luxury skincare product $74.99 + 2 FREE facials (you + a friend) + a glass of wine
+LA = "LUXURY PRODUCT<br>+ FREE FACIAL"
+LB = "PRODUCT + 2 FREE<br>FACIALS + WINE"
+TAIL_A = "\n\n✨ This month: take home a luxury skincare product for $74.99 and get a FREE facial."
+TAIL_B = "\n\n🥂 Tuesdays: a luxury skincare product for $74.99 + 2 FREE facials (you + a friend) + a glass of wine (21+)."
+END_VO = f"This month, get a luxury product for seventy-four ninety-nine, and your facial is free. Call {PHONE_VO}."
+FOOT = "\n📲 (915) 209-2060 · 📍 Cielo Vista Mall"
+U = {
+ 2: dict(title="Two facials.", script="both on us", support="Luxury product + 2 FREE facials + wine", price="$74.99", plabel=LB,
+   vo=["Tuesdays only at Solace.", "Two facials, both on us.", "Take home a luxury product, and you and your bestie get two free facials, with a glass of wine.",
+       "All for seventy-four ninety-nine.", f"Book your Tuesday: {PHONE_VO}."],
+   caption="Two facials. Both on us. 🥂\n\nEvery Tuesday: take home a luxury skincare product for $74.99 and get 2 FREE facials — one for you, one for your bestie — plus a glass of wine (21+).\n\nTag the friend who's coming with you 👇" + FOOT),
+ 4: dict(support="Luxury product + a FREE hydrating facial", price="$74.99", plabel=LA,
+   vo=["An El Paso skin tip.", "Dry desert air, plus November cold, equals thirsty skin.", "Take home a luxury skincare product, and get a hydrating facial, free.",
+       "All for seventy-four ninety-nine.", f"Call {PHONE_VO}."],
+   caption="Dry air + November cold = thirsty skin. 🏜️\n\nIf your skin feels tight, flaky or dull lately, it's the season. Take home a luxury skincare product for $74.99 and get a hydrating facial FREE." + FOOT),
+ 5: dict(plabel=LA),
+ 6: dict(script="your free facial", support="Luxury product $74.99 + FREE facial", price=None,
+   vo=["This or that?", "Glow, or reset?", "Get a luxury product for seventy-four ninety-nine, and your facial is free.",
+       "Comment glow or reset, and tell us which free facial you'd pick.", "We read every comment."],
+   caption="This or that? ✨\n\nGLOW → brightening facial for dull, tired skin\nRESET → deep cleansing for clogged pores\n\nWhich one would you pick? It's FREE this month with a luxury skincare product ($74.99). Comment GLOW or RESET 👇" + FOOT),
+ 9: dict(script="two free facials", support="Luxury product + 2 FREE facials + wine", price="$74.99", plabel=LB,
+   vo=["Tuesdays only.", "Bring your mom.", "Get a luxury product, and two free facials, one for you and one for her, plus a glass of wine.",
+       "All for seventy-four ninety-nine.", f"Book your Tuesday: {PHONE_VO}."],
+   caption="Mom + you = the best Tuesday plan. 💛\n\nEvery Tuesday: a luxury skincare product for $74.99 + 2 FREE facials (one for you, one for her) + a glass of wine (21+)." + FOOT),
+ 11: dict(service="Luxury product + FREE facial", eyebrow="TAKE HOME LUXURY", title="Upgrade your routine.", script="the facial is free",
+   support="Luxury skincare product + a FREE facial", price="$74.99", plabel=LA,
+   vo=["Take home luxury.", "Upgrade your routine.", "Choose a luxury skincare product, and your facial is free.",
+       "Luxury product plus free facial, seventy-four ninety-nine.", f"Book now: {PHONE_VO}."],
+   caption="Upgrade your routine — the facial is free. ✨\n\nChoose a luxury skincare product for $74.99 and enjoy a FREE professional facial. Great skin at home + a reset in our treatment room." + FOOT,
+   tags="#SolaceSkinLab #FreeFacial #LuxurySkincare #ElPasoMedSpa"),
+ 13: dict(service="Luxury product + FREE facial", eyebrow="GLASS SKIN SEASON", support="Luxury product + a FREE facial", price="$74.99", plabel=LA,
+   vo=["Glass skin season.", "Glass skin starts here.", "Take home a luxury skincare product, and get your facial free.",
+       "All for seventy-four ninety-nine.", f"Book your glow: {PHONE_VO}."],
+   caption="Glass skin starts here. ✨\n\nTake home a luxury skincare product for $74.99 and get your facial FREE — the glow starts in our treatment room and continues at home." + FOOT),
+ 15: dict(service="Luxury product + FREE facial (men)", title="Guys, it's on us.", script="free facial", support="Luxury skincare product + a FREE facial", price="$74.99", plabel=LA,
+   vo=["For men.", "Guys, the facial is on us.", "Pick a luxury skincare product, and get a free facial, in a private, relaxed room.",
+       "Seventy-four ninety-nine.", f"Book now: {PHONE_VO}."],
+   caption="Guys — the facial is on us. 🧔\n\nPick a luxury skincare product for $74.99 and get a FREE facial in a private, relaxed room. No judgment, just better skin." + FOOT,
+   tags="#SolaceSkinLab #MensSkincare #FreeFacial #ElPasoTX"),
+ 16: dict(script="two free facials", support="Luxury product + 2 FREE facials + wine", price="$74.99", plabel=LB,
+   vo=["Tuesdays only.", "Sister time.", "One luxury product, two free facials, and a glass of wine.",
+       "All for seventy-four ninety-nine.", f"Book your Tuesday: {PHONE_VO}."],
+   caption="Sister time, Solace style. 🥂\n\nEvery Tuesday: a luxury skincare product for $74.99 + 2 FREE facials + a glass of wine (21+).\n\nTag your sister 👇" + FOOT),
+ 17: dict(price=None, vo=["LED face and body.", "Light therapy.", "Red or blue LED, selected for your skin goals.",
+       "For calmer, brighter-looking skin.", END_VO]),
+ 18: dict(support="Luxury product + a FREE facial · book now", price="$74.99", plabel=LA,
+   vo=["Holiday photos are coming.", "One week to Thanksgiving.", "Book now: take home a luxury product, and your facial is free.",
+       "All for seventy-four ninety-nine.", f"Book this week: {PHONE_VO}."],
+   caption="One week to Thanksgiving. 📸\n\nFamily photos are coming — get your glow now. Take home a luxury skincare product for $74.99 and your facial is FREE. Holiday spots fill fast." + FOOT),
+ 20: dict(script="your free facial", support="1 Glow · 2 Clear · 3 Firm", price="$74.99", plabel=LA,
+   vo=["Quick question.", "What's your skin goal?", "One, glow. Two, clear. Three, firm.",
+       "Comment your number. Your facial is free with a luxury product, seventy-four ninety-nine.", "We answer every comment."],
+   caption="What's your skin goal right now? 👇\n\n1️⃣ Glow\n2️⃣ Clear\n3️⃣ Firm\n\nComment your number — your facial is FREE this month with a luxury skincare product ($74.99)." + FOOT),
+ 23: dict(support="Luxury product + 2 FREE facials + wine", price="$74.99", plabel=LB,
+   vo=["Thanksgiving week.", "Thankful for my bestie.", "Treat her: one luxury product, two free facials, and a glass of wine.",
+       "All for seventy-four ninety-nine, this Tuesday.", f"Book your Tuesday: {PHONE_VO}."],
+   caption="Thankful for my bestie. 🍂\n\nThis Tuesday: a luxury skincare product for $74.99 + 2 FREE facials (you + her) + a glass of wine (21+)." + FOOT),
+ 24: dict(script="free this month", price="$74.99", plabel=LA,
+   vo=["The Luxury Facial.", "Three steps.", "Skin analysis, your treatment, and a calming finish.",
+       "And it's free, with a luxury product for seventy-four ninety-nine.", f"Book it: {PHONE_VO}."],
+   caption="Our Luxury Facial in 3 steps ✨\n\n1. Skin analysis\n2. Treatment chosen for your skin\n3. A calming finish\n\nThis month it's FREE when you take home a luxury skincare product ($74.99). Save this post 📌" + FOOT),
+ 26: dict(plabel=LA),
+ 27: dict(support="Luxury product + a FREE facial", price="$74.99", plabel=LA,
+   vo=["It's Small Business Saturday.", "Shop local.", "And glow local, inside Cielo Vista Mall.",
+       "Luxury product plus a free facial, seventy-four ninety-nine.", f"Book your visit: {PHONE_VO}."],
+   caption="Shop local. Glow local. 🤎\n\nThis Small Business Saturday, visit us inside Cielo Vista Mall: a luxury skincare product for $74.99 + a FREE facial. Every booking supports a local El Paso team.\n\n📲 (915) 209-2060"),
+ 30: dict(support="Luxury product + 2 FREE facials + wine", price="$74.99", plabel=LB,
+   vo=["Tuesdays only.", "December starts with a glow.", "One luxury product, two free facials, and a glass of wine.",
+       "All for seventy-four ninety-nine.", f"Book your Tuesday: {PHONE_VO}."],
+   caption="December starts with a glow. ✨\n\nEvery Tuesday: a luxury skincare product for $74.99 + 2 FREE facials + a glass of wine (21+). Bring your favorite person." + FOOT),
+}
+ENDNOTE = [1, 3, 7, 8, 12, 14, 17, 19, 21, 22, 28, 29]
+for p in POSTS:
+    p.update(U.get(p['d'], {}))
+    if p['d'] in ENDNOTE:
+        p['endnote'] = "THIS MONTH · LUXURY PRODUCT $74.99 + FREE FACIAL"
+        if p['d'] != 17: p['vo'] = p['vo'][:4] + [END_VO]
+        c = p['caption']; i = c.find('\n📲'); i = i if i > 0 else len(c)
+        p['caption'] = c[:i].rstrip() + TAIL_A + c[i:].replace('\n📲', '\n\n📲', 1) if '\n📲' in c else c + TAIL_A
+REVOICE = [d for d in range(1, 31) if d not in (5, 10, 25, 26)]
+for p in POSTS:
+    if p['d'] == 17: p['caption'] = p['caption'].replace('\n\nFrom $79.99', '')
+assert all('64.99' not in p['caption'] and '79.99' not in p['caption'] for p in POSTS)
+# V2b: support lines must not repeat the price-block label
+SUP = {2: "One for you, one for your bestie", 9: "One for you, one for mom", 16: "One for you, one for your sister",
+       23: "One for you, one for her", 30: "Bring your favorite person", 4: "Hydrate before winter hits",
+       5: "Your routine at home + a reset with us", 11: "Choose your product · we do the facial", 13: "Your facial is on us this month",
+       15: "Private, relaxed room · no judgment", 18: "Book now · holiday spots fill fast", 26: "Treat yourself or someone you love",
+       27: "Inside Cielo Vista Mall · El Paso"}
+for p in POSTS:
+    if p['d'] in SUP: p['support'] = SUP[p['d']]
+POSTS[10]['cta'] = "Claim yours"
