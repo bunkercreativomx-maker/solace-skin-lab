@@ -1,0 +1,34 @@
+{
+ "campaign": "Solace — Video Ads Nov 2026 (HyperFrames)",
+ "period": "2026-11-01 to 2026-11-30",
+ "status": "Pending client approval — nothing is live",
+ "officialPhone": "(915) 209-2060",
+ "notes": [
+  "Every ad ships in 9:16 (Reels/Stories, text inside Meta safe zone: top 14% / bottom 35% clear) and 4:5 (Feed). Upload both in the same ad (placement asset customization).",
+  "Prescription drugs (BOTOX®, Xeomin®) can't be promoted on Meta without authorization, which is only available to online pharmacies, telehealth providers and manufacturers — META-04 uses 'wrinkle relaxer' and no brand names.",
+  "Cosmetic procedures: target 18+. META-01 and META-05 mention complimentary wine → target 21+.",
+  "No before/after, no 'your acne/your wrinkles' (personal attributes)."
+ ],
+ "ads": [
+  {"id": "META-01", "file": "ad01", "name": "Tuesdays — Luxury product $74.99 + 2 FREE facials + wine", "objective": "Engagement → Messages", "cta": "Send message", "audience": "21–60, ~10 mi around Cielo Vista Mall, Advantage+ audience", "schedule": "Sun 6 pm → Tue 2 pm, every week",
+   "primaryTextA": "Tuesday plans? Sorted. 🍷 Grab a luxury skincare product for $74.99 and you + your bestie get 2 facials FREE — plus a glass of wine. Tuesdays only at Solace Skin Lab, Cielo Vista Mall. Spots are limited, message us to book.",
+   "primaryTextB": "Two facials. Zero extra cost. Every Tuesday: take home a luxury skincare product for $74.99, bring a friend, and both facials are on us (wine included 🥂). Message us to save your spot.",
+   "headlineA": "2 FREE Facials + Wine — Tuesdays", "headlineB": "Bring Your Bestie This Tuesday", "description": "Cielo Vista Mall, El Paso • Message us to book"},
+  {"id": "META-02", "file": "ad02", "name": "Any day — Luxury product $74.99 + FREE facial", "objective": "Engagement → Messages", "cta": "Send message", "audience": "25–60, ~10 mi around Cielo Vista Mall, Advantage+ audience", "schedule": "Always on",
+   "primaryTextA": "When was your last facial? 👀 If you had to think about it, it's been too long. Take home a luxury skincare product for $74.99 and your facial is FREE — any day of the week at Solace Skin Lab.",
+   "primaryTextB": "Your skin called. It wants a facial. 😌 Luxury skincare product $74.99 + your facial on us. Any day at Cielo Vista Mall, El Paso. Message us to book.",
+   "headlineA": "Luxury Product $74.99 + FREE Facial", "headlineB": "Your Facial Is On Us", "description": "Cielo Vista Mall, El Paso • Message us to book"},
+  {"id": "META-03", "file": "ad03", "name": "Microneedling — consultation", "objective": "Engagement → Messages", "cta": "Learn more (→ Messenger)", "audience": "25–55, ~15 mi, broad (no condition-based targeting)", "schedule": "Nov 1–30",
+   "primaryTextA": "Texture. Pores. Fine lines. 👀 Microneedling is a professional treatment that works with your skin's own renewal process and may help improve the look of all three over a series of sessions. Every plan starts with an honest consultation. Message us to see if it's right for you.",
+   "primaryTextB": "Ready to take skincare to the next level? Microneedling at Solace Skin Lab may help smooth the look of texture over a series of sessions. Consultation first, always. Individual results vary.",
+   "headlineA": "Microneedling at Solace", "headlineB": "Smoother-Looking Skin Starts Here", "description": "Cielo Vista Mall, El Paso • Individual results vary"},
+  {"id": "META-04", "file": "ad04", "name": "Wrinkle relaxer — injector consultation (no brand names)", "objective": "Engagement → Messages", "cta": "Send message", "audience": "30–60, ~15 mi, broad", "schedule": "Nov 1–30 (holiday pipeline)",
+   "primaryTextA": "Holiday photos are coming. 📸 Soften the look of fine lines and still look like you. Wrinkle relaxer treatments at Solace Skin Lab start with a one-on-one consultation with our injector and a plan made just for you. Individual results vary.",
+   "primaryTextB": "Refreshed, not \"done.\" Book a one-on-one consultation with our injector at Solace Skin Lab, Cielo Vista Mall. Medical consultation required; individual results vary.",
+   "headlineA": "Book Your Injector Consultation", "headlineB": "Refreshed. Still You.", "description": "Cielo Vista Mall, El Paso • Consultation required"},
+  {"id": "META-05", "file": "ad05", "name": "Retargeting — This is your sign", "objective": "Engagement → Messages", "cta": "Send message", "audience": "Retargeting: page + IG engagers 365 d, video viewers 50%+, Messenger contacts; 21+", "schedule": "Nov 1–30",
+   "primaryTextA": "This is your sign. ✨ Book the facial you keep putting off. ANY DAY: luxury product $74.99 + FREE facial. TUESDAYS: bring a friend — 2 FREE facials + wine. Solace Skin Lab, Cielo Vista Mall.",
+   "primaryTextB": "Still thinking about it? Your facial is FREE when you take home a luxury skincare product for $74.99 — and on Tuesdays your friend's is free too (wine included). Message us before the spots fill up.",
+   "headlineA": "This Is Your Sign ✨", "headlineB": "Your Facial Is On Us", "description": "Cielo Vista Mall, El Paso • Message us to book"}
+ ]
+}
