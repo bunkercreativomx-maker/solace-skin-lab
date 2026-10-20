@@ -10,7 +10,7 @@ TPL = '/opt/data/hyperframes/dp-fb-d01-45'
 PICK = json.load(open(f'{SRC}/picks.json')) if os.path.exists(f'{SRC}/picks.json') else {}
 OVR = json.load(open(f'{SRC}/overrides.json')) if os.path.exists(f'{SRC}/overrides.json') else {}
 FINE = {'Microneedling', 'BOTOX®', 'Lip filler', 'Myth: BOTOX®', 'Peptides', 'Men: acne scars', 'BOTOX® timing', 'LED face & body',
-        'Derma Jade Eye Solution', 'Salmon DNA 2×1'}
+        'Derma Jade Eye Solution', 'Salmon DNA 2×1', 'Thermal Anti-Aging Lifting', 'GLP-1', 'Microneedling (hair)', 'Jawline', 'Salmon PDRN Facial'}
 
 def norm(w): return re.sub(r'[^a-z0-9]', '', w.lower())
 
@@ -62,7 +62,7 @@ html, body { width:%(W)dpx; height:%(H)dpx; overflow:hidden; background:#0d0907;
 .foot { position:absolute; left:0; right:0; bottom:%(FB)dpx; display:flex; flex-direction:column; align-items:center; gap:22px; }
 .cta { font:500 %(CS)dpx/1 Jost,sans-serif; letter-spacing:.24em; text-transform:uppercase; color:#1a120c; background:linear-gradient(90deg,#CFAF74,#E8D3A2,#CFAF74); padding:18px 34px; border-radius:999px; opacity:0; }
 .phone { font:400 %(PH)dpx/1 Jost,sans-serif; letter-spacing:.18em; color:#F6EFE4; opacity:0; }
-.offer { display:flex; align-items:center; gap:14px; font:500 %(OF)dpx/1.2 Jost,sans-serif; letter-spacing:.2em; color:#EBD39E; opacity:0; text-shadow:0 2px 12px rgba(0,0,0,.6); }
+.offer { display:flex; align-items:center; gap:14px; padding:8px 30px; border-radius:30px; background:radial-gradient(ellipse at center, rgba(12,8,6,.85) 0%%, rgba(12,8,6,.6) 65%%, rgba(12,8,6,0) 100%%); font:500 %(OF)dpx/1.2 Jost,sans-serif; letter-spacing:.2em; color:#EBD39E; opacity:0; text-shadow:0 2px 12px rgba(0,0,0,.6); }
 .offer i { display:block; width:36px; height:1px; background:#D8BE8A; }
 .fine { position:absolute; left:0; right:0; bottom:%(FINEB)dpx; text-align:center; font:400 15px/1 Jost,sans-serif; letter-spacing:.12em; color:rgba(246,239,228,.6); opacity:0; }
 """
@@ -93,7 +93,7 @@ def build(p):
     if p['service'].startswith('2×1'): lbl = 'BOTH<br>FOR'
     if p.get('plabel'): lbl = p['plabel']
     title = ' '.join(f'<span class="w">{html.escape(w)}</span>' for w in p['title'].split())
-    fine = '<div class="fine" id="fine">Individual results vary. Consultation required.</div>' if p['service'] in FINE else ''
+    fine = ('<div class="fine" id="fine">' + ('Prescription & medical consultation required. Results vary.' if p['service']=='GLP-1' else 'Individual results vary. Consultation required.') + '</div>') if p['service'] in FINE else ''
     pblock = f'<div class="price" id="price"><div class="lbl">{lbl}</div><div class="num">{html.escape(num)}</div></div>' if price else ''
     endnote = f'<div class="offer" id="offer"><i></i><span>{html.escape(p["endnote"])}</span><i></i></div>' if p.get('endnote') else ''
     body = f"""

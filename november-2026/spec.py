@@ -293,3 +293,81 @@ SUP = {2: "One for you, one for your bestie", 9: "One for you, one for mom", 16:
 for p in POSTS:
     if p['d'] in SUP: p['support'] = SUP[p['d']]
 POSTS[10]['cta'] = "Claim yours"
+
+# ===================== V2c: service posts follow the Oct-Nov V3 client services =====================
+SV = {
+ 1: dict(service="Microneedling", eyebrow="MICRONEEDLING FOR ACNE", title="Acne isn't your story.", script="smoother skin",
+   support="Collagen induction for acne marks & texture",
+   vo=["Microneedling for acne, at Solace.", "Acne is part of the journey. It doesn't have to define your story.",
+       "Microneedling works with your skin's own healing response, to help improve acne marks and texture.", "With a plan made for your skin."],
+   caption="Acne is part of the journey. It doesn't have to define your story. 💛\n\nBreakouts, marks and uneven texture can take a toll on your confidence. Microneedling works with your skin's own healing response to stimulate collagen and help improve acne marks, texture and overall skin quality — with a plan made for YOUR skin.\n\n📲 Book your consultation: (915) 209-2060\n📍 Inside Cielo Vista Mall · El Paso, TX\n*Individual results vary.",
+   tags="#SolaceSkinLab #Microneedling #AcneScars #ElPasoMedSpa #ElPasoTX"),
+ 7: dict(service="Thermal Anti-Aging Lifting", eyebrow="THERMAL ANTI-AGING LIFTING", title="Feel the warmth.", script="see the lift",
+   support="Warming mask + red light therapy", cta="Book your facial", newphoto=True,
+   scene="close-up of a relaxed woman in her mid 40s with eyes closed, a smooth warm-toned thermal facial mask covering her cheeks and forehead, soft red light glow on one side of her face, white towel wrap on her hair, lying on a white treatment bed",
+   space="upper half",
+   vo=["Thermal anti-aging lifting.", "Feel the warmth, and see the lift.", "A warming thermal mask helps target dark spots and visibly firm the skin.",
+       "Followed by red light therapy, to maximize your results."],
+   caption="Thermal Anti-Aging Lifting 🔥\n\nA warming thermal mask helps target the look of dark spots and visibly firm the skin… followed by red light therapy to maximize your results. ❤️‍🔥\n\n📲 (915) 209-2060 · 📍 Cielo Vista Mall\n*Individual results vary.",
+   tags="#SolaceSkinLab #AntiAging #ThermalFacial #RedLightTherapy #ElPasoFacials"),
+ 12: dict(service="GLP-1", eyebrow="GLP-1 MEDICAL WEIGHT LOSS", title="Ready for a change?", script="let's talk",
+   support="Semaglutide or tirzepatide · licensed provider", cta="Ask how it works", newphoto=True,
+   scene="still life on a white consultation desk: a clear glass of water with a lemon slice, a closed cream leather notebook, a plain white ceramic cup and a small green plant, soft warm window light, calm and clean, no pills, no syringes, no pens, no scale, no measuring tape",
+   space="upper half",
+   vo=["G L P one, medical weight loss.", "Ready for a change?", "Semaglutide or tirzepatide, guided by a licensed provider.",
+       "Ask us how it works, and whether it's right for you."],
+   caption="Ready for a change? 💛\n\nMedical weight loss with GLP-1 medications — semaglutide or tirzepatide — guided by a licensed provider. Ask us how it works and whether it's right for you.\n\n📲 (915) 209-2060 · 📍 Cielo Vista Mall\n*Prescription and medical consultation required. Not for everyone. Individual results vary.",
+   tags="#SolaceSkinLab #GLP1 #Semaglutide #Tirzepatide #ElPasoWellness"),
+ 14: dict(service="BOTOX®", eyebrow="MEET XEOMIN®", title="Meet Xeomin®.", script="one natural goal",
+   support="Xeomin® or BOTOX® Cosmetic · two trusted options", cta="Ask us",
+   vo=["Meet Xeomin.", "Meet Xeomin, at Solace.", "Smooth expression lines with Xeomin, or Botox Cosmetic. Two trusted options.",
+       "One natural-looking goal. Not sure which one is for you? Ask us."],
+   caption="Meet Xeomin®. 💉\n\nSmooth expression lines with Xeomin® or BOTOX® Cosmetic — two trusted options, one natural-looking goal. Not sure which one is for you? Ask us!\n\n📲 (915) 209-2060 · 📍 Cielo Vista Mall\n*Treatment by a licensed provider. Individual results vary. Ask about risks.",
+   tags="#SolaceSkinLab #Xeomin #BotoxElPaso #ElPasoMedSpa"),
+ 17: dict(service="Microneedling (hair)", eyebrow="MICRONEEDLING FOR HAIR GROWTH", title="Thinning hair?", script="let's talk",
+   support="Scalp microneedling · for men & women", cta="Book your scalp evaluation", price=None, newphoto=True,
+   scene="close-up from above of the top of a woman's head in her 40s with dark hair neatly parted in the middle showing the healthy scalp line, lying on a white treatment bed, white towel around her shoulders, a slim plain matte-silver microneedling pen resting on the towel beside her, warm moody light, face not visible",
+   space="upper half",
+   vo=["Microneedling for hair growth.", "Thinning hair? Let's talk.", "Scalp microneedling stimulates the scalp, to support healthier, fuller-looking hair.",
+       "For men and women. We evaluate your scalp first."],
+   caption="Thinning hair? Let's talk. 💈\n\nScalp microneedling stimulates the scalp to support healthier, fuller-looking hair. For men and women. We evaluate your scalp first — results vary from person to person.\n\n📲 (915) 209-2060 · 📍 Cielo Vista Mall",
+   tags="#SolaceSkinLab #HairGrowth #ScalpMicroneedling #ElPasoTX"),
+ 19: dict(service="24K Gold Facial", eyebrow="24K GOLD EXPERIENCE", title="Pure gold.", script="pure glow",
+   support="A luxury facial with 24K gold care", cta="Book your gold facial",
+   vo=["The twenty-four K gold experience.", "Pure gold, pure glow.", "A luxury facial with twenty-four karat gold care, for skin that looks radiant.",
+       "Your most glamorous hour of the week."],
+   caption="24K Gold Experience ✨\n\nA luxury facial with 24K gold care for skin that looks radiant and refreshed — your most glamorous hour of the week.\n\n📲 (915) 209-2060 · 📍 Cielo Vista Mall",
+   tags="#SolaceSkinLab #24KGoldFacial #LuxuryFacial #ElPasoFacials"),
+ 22: dict(service="Blackheads facial", eyebrow="BYE BYE BLACKHEADS", title="Clear pores.", script="fresh start",
+   support="Deep cleansing facial with extractions", cta="Book your facial", newphoto=True,
+   scene="extreme close-up of the clean nose and cheek of a woman in her late 20s with calm healthy skin, natural visible pores, a thin layer of smooth white cleansing foam on her cheek, eyes out of frame (crop below the eyes), white towel at the hairline, soft warm light",
+   space="upper half",
+   vo=["Bye bye, blackheads.", "Clear pores, fresh start.", "Our deep cleansing facial with extractions helps clear congested pores.",
+       "Plus a recovery routine, to keep results at home."],
+   caption="Say goodbye to blackheads. ✨\n\nOur deep cleansing facial with extractions helps clear congested pores and reset oily, acne-prone skin — plus a recovery routine to keep results at home.\n\n📲 (915) 209-2060 · 📍 Cielo Vista Mall",
+   tags="#SolaceSkinLab #Blackheads #DeepCleansingFacial #ElPasoFacials"),
+ 28: dict(service="Salmon PDRN Facial", eyebrow="SALMON PDRN FACIAL", title="Repair & glow.", script="from within",
+   support="A regenerating facial with salmon PDRN", cta="Book your facial", newphoto=True,
+   scene="close-up of a woman's cheek and jawline in her early 30s, eyes out of frame (crop below the eyes), a thin glossy layer of soft peach-pink serum on her skin catching warm light, white towel at her neck, lying on a white treatment bed, calm dewy healthy skin",
+   space="upper half",
+   vo=["Salmon P D R N facial.", "Repair and glow, from within.", "A regenerating facial with salmon P D R N.",
+       "To support hydration, glow and the look of healthy skin."],
+   caption="Salmon PDRN Facial 🐟✨\n\nA regenerating facial with salmon PDRN to support hydration, glow and the look of healthy, repaired skin.\n\n📲 (915) 209-2060 · 📍 Cielo Vista Mall\n*Individual results vary.",
+   tags="#SolaceSkinLab #SalmonPDRN #SalmonDNA #ElPasoFacials"),
+ 29: dict(service="Jawline", eyebrow="REFINE YOUR JAWLINE", title="Define your jawline.", script="no surgery",
+   support="BOTOX® Cosmetic / Xeomin® · microneedling", cta="Book a consultation", newphoto=True,
+   scene="elegant profile of a woman in her late 30s with a defined natural jawline and neck, chin slightly lifted, eyes closed, hair pulled back, white towel at her shoulders, dramatic warm side light against a dark background, no needle, no syringe",
+   space="upper half",
+   vo=["Refine your jawline.", "Define your jawline, with no surgery.", "Botox Cosmetic or Xeomin, and microneedling, to firm and improve skin quality.",
+       "We'll recommend the right plan for you."],
+   caption="Refine your jawline. ✨\n\nNon-surgical options to help define your jawline and lower face:\n• BOTOX® Cosmetic / Xeomin®\n• Microneedling to firm and improve skin quality\n\nWe'll recommend the right plan for you.\n\n📲 (915) 209-2060 · 📍 Cielo Vista Mall\n*Treatment by a licensed provider. Individual results vary.",
+   tags="#SolaceSkinLab #Jawline #BotoxElPaso #Microneedling"),
+}
+FINE_EXTRA = {'Thermal Anti-Aging Lifting', 'GLP-1', 'Microneedling (hair)', 'Jawline', 'Salmon PDRN Facial'}
+for p in POSTS:
+    if p['d'] in SV:
+        s = SV[p['d']]; vo = s.pop('vo'); p.update(s)
+        p['vo'] = vo + [END_VO]
+        c = p['caption']; i = c.find('\n\n📲')
+        p['caption'] = (c[:i] + TAIL_A + c[i:]) if i > 0 else c + TAIL_A
+REVOICE_C = [1, 7, 12, 14, 17, 19, 22, 28, 29]
