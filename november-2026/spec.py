@@ -371,3 +371,59 @@ for p in POSTS:
         c = p['caption']; i = c.find('\n\n📲')
         p['caption'] = (c[:i] + TAIL_A + c[i:]) if i > 0 else c + TAIL_A
 REVOICE_C = [1, 7, 12, 14, 17, 19, 22, 28, 29]
+
+# ===================== V4 (21-oct-2026): Meta compliance =====================
+# Page got restricted for the GLP-1 post. Meta bans promoting prescription drugs (GLP-1, peptides, Botox®/Xeomin®
+# brand names) and gifting alcohol. Neurotoxin posts use generic "wrinkle relaxers", no drug names; GLP-1/peptide
+# posts replaced; wine removed from Tuesday copy.
+EV = "This month, get a luxury product for seventy-four ninety-nine, and your facial is free. Call nine one five, two zero nine, twenty sixty."
+FT = "\n\n📲 (915) 209-2060 · 📍 Cielo Vista Mall"
+V4 = {
+ 3: dict(service="Wrinkle relaxers", eyebrow="WRINKLE RELAXERS", title="Softer lines.", script="still you",
+   support="Natural movement · evaluation first", cta="Book your evaluation",
+   vo=["Wrinkle relaxers, at Solace.", "Softer lines. Still you.", "They soften the look of forehead lines, crow's feet and frown lines.",
+       "Natural movement, always after an evaluation with our licensed provider.", EV],
+   caption="Softer lines. Still you. 💫\n\nWrinkle relaxers help soften the look of forehead lines, crow's feet and frown lines — and you keep your natural movement. It always starts with an evaluation with our licensed provider." + TAIL_A + FT + "\n*Individual results vary.",
+   tags="#SolaceSkinLab #ElPasoMedSpa #SmoothSkin #NaturalResults"),
+ 12: dict(service="Skin consultation", eyebrow="YOUR SKIN PLAN", title="Not sure where to start?", script="let's talk",
+   support="We map your skin goals first", cta="Book your consultation",
+   vo=["Your skin plan starts here.", "Not sure where to start? Let's talk.", "We look at your skin, your goals and your routine, then build a plan that fits you.",
+       "Facials, microneedling and more, chosen for your skin.", EV],
+   caption="Not sure where to start? Let's talk. 💛\n\nTell us about your skin, your goals and your routine — we'll build a plan that fits you: facials, microneedling and more." + TAIL_A + FT,
+   tags="#SolaceSkinLab #SkinConsultation #ElPasoFacials #ElPasoMedSpa"),
+ 14: dict(service="Wrinkle relaxers", eyebrow="MYTH vs FACT", title="\"It freezes your face.\"", script="not when it's done right",
+   support="Natural movement · softer lines", cta="Ask us anything",
+   vo=["Myth versus fact.", "Wrinkle relaxers freeze your face?", "Not when they're dosed for you. The goal is softer lines, and natural movement.",
+       "Got a question? Ask us.", EV],
+   caption="MYTH: \"Wrinkle relaxers freeze your face.\" ❌\nFACT: When the treatment is dosed for your face, you keep natural movement — just softer-looking lines.\n\nGot a question? Drop it in the comments 👇" + TAIL_A + FT + "\n*Individual results vary.",
+   tags="#SolaceSkinLab #MythVsFact #ElPasoMedSpa #NaturalResults"),
+ 21: dict(service="Luxury skincare", eyebrow="LUXURY SKINCARE", title="Your new ritual.", script="glow at home",
+   support="Pro-grade skincare, picked for your skin", cta="Claim yours",
+   vo=["Luxury skincare, at Solace.", "Your new ritual.", "Pro-grade skincare, picked for your skin by our team.", "Keep your glow going at home.", EV],
+   caption="Your new ritual. 🌿\n\nPro-grade skincare, picked for your skin by our team — so your glow keeps going at home." + TAIL_A + FT,
+   tags="#SolaceSkinLab #LuxurySkincare #SkincareRoutine #ElPasoFacials"),
+ 29: dict(support="Microneedling · non-surgical options",
+   vo=["Refine your jawline.", "Define your jawline, with no surgery.", "Non-surgical options, like microneedling, to firm and improve skin quality.",
+       "We'll recommend the right plan for you.", EV],
+   caption="Refine your jawline. ✨\n\nNon-surgical options to help define your jawline and lower face — including microneedling to firm and improve skin quality. We'll recommend the right plan for you after an evaluation." + TAIL_A + FT + "\n*Individual results vary.",
+   tags="#SolaceSkinLab #Jawline #Microneedling #NonSurgical"),
+}
+LB = "LUXURY PRODUCT<br>+ 2 FREE FACIALS"
+WINE_VO = {2: ("get two free facials, with a glass of wine.", "get two free facials."),
+           9: ("one for you and one for her, plus a glass of wine.", "one for you and one for her."),
+           16: ("two free facials, and a glass of wine.", "and two free facials."),
+           23: ("two free facials, and a glass of wine.", "and two free facials."),
+           30: ("two free facials, and a glass of wine.", "and two free facials.")}
+for p in POSTS:
+    if p['d'] in V4: p.update(V4[p['d']])
+    if p['d'] in WINE_VO:
+        a, b = WINE_VO[p['d']]; assert any(a in v for v in p['vo']), p['d']
+        p['vo'] = [v.replace(a, b) for v in p['vo']]; p['plabel'] = LB
+        for w in [" — plus a glass of wine (21+)", ", plus a glass of wine (21+)", " + a glass of wine (21+)", " plus a glass of wine (21+)"]:
+            p['caption'] = p['caption'].replace(w, "")
+        p['caption'] = p['caption'].replace("🥂", "✨")
+import re as _re
+_BAD = _re.compile(r"(?i)botox|xeomin|dysport|glp|semaglut|tirzepat|peptide|nad\+|ghk|weight loss|wine|alcohol|exosome")
+for p in POSTS:
+    txt = ' '.join(str(p.get(k, '')) for k in ('eyebrow', 'title', 'script', 'support', 'caption', 'tags', 'plabel', 'cta')) + ' '.join(p['vo'])
+    assert not _BAD.search(txt), (p['d'], _BAD.findall(txt))
