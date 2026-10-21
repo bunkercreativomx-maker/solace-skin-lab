@@ -422,8 +422,31 @@ for p in POSTS:
         for w in [" — plus a glass of wine (21+)", ", plus a glass of wine (21+)", " + a glass of wine (21+)", " plus a glass of wine (21+)"]:
             p['caption'] = p['caption'].replace(w, "")
         p['caption'] = p['caption'].replace("🥂", "✨")
+# V5 (Oct 21, after FB removed 3 posts for "prescription drugs"/"drugs"): no injectables at all
+V5 = {
+ 3: dict(service="LED face & body", eyebrow="RED LIGHT THERAPY", title="Rested skin.", script="still you",
+   support="LED light · no downtime", price=None, cta="Book your facial",
+   vo=["Red light therapy, at Solace.", "Rested skin. Still you.", "Our LED light therapy helps your skin look smoother, calmer and more radiant.",
+       "Relaxing, no downtime, and the perfect add-on to your facial.", EV],
+   caption="Rested skin. Still you. ✨\n\nOur LED red light therapy helps your skin look smoother, calmer and more radiant — relaxing, no downtime, and the perfect add-on to your facial." + TAIL_A + FT + "\n*Individual results vary.",
+   tags="#SolaceSkinLab #ElPasoMedSpa #RedLightTherapy #LEDFacial #ElPasoTX"),
+ 8: dict(service="Dermaplaning", eyebrow="FACIAL + DERMAPLANING", title="Smooth skin.", script="soft glow",
+   support="No peach fuzz · makeup glides on", price=None, cta="Book your facial",
+   vo=["Facial plus dermaplaning, at Solace.", "Smooth skin. Soft glow.", "Dermaplaning gently removes dead skin and peach fuzz, so your skin looks brighter.",
+       "And your makeup glides right on.", EV],
+   caption="Smooth skin. Soft glow. ✨\n\nDermaplaning gently removes dead skin and peach fuzz, so your skin looks brighter, feels softer and your makeup glides right on." + TAIL_A + FT,
+   tags="#SolaceSkinLab #Dermaplaning #ElPasoFacials #SmoothSkin #ElPasoTX"),
+ 14: dict(service="Facial", eyebrow="MYTH vs FACT", title="\"Facials are just pampering.\"", script="think again",
+   support="Deep cleansing · exfoliation · extractions", price=None, cta="Book your facial",
+   vo=["Myth versus fact.", "Facials are just pampering?", "Think again. A professional facial deep cleans, exfoliates and clears pores in ways your home routine can't.",
+       "Your skin will feel the difference.", EV],
+   caption="MYTH: \"Facials are just pampering.\" ❌\nFACT: A professional facial deep cleanses, exfoliates and clears congested pores in ways your home routine can't. ✨\n\nWhat skincare myth should we bust next? Drop it in the comments 👇" + TAIL_A + FT,
+   tags="#SolaceSkinLab #MythVsFact #ElPasoFacials #ElPasoMedSpa"),
+}
+for p in POSTS:
+    if p['d'] in V5: p.update(V5[p['d']])
 import re as _re
-_BAD = _re.compile(r"(?i)botox|xeomin|dysport|glp|semaglut|tirzepat|peptide|nad\+|ghk|weight loss|wine|alcohol|exosome")
+_BAD = _re.compile(r"(?i)botox|xeomin|dysport|glp|semaglut|tirzepat|peptide|nad\+|ghk|weight loss|wine|alcohol|exosome|wrinkle.relax|filler|juv[eé]derm|belotero|inject|neurotox|toxin|prescri|\bneedles?\b|syringe|💉|kybella|ozempic|wegovy|mounjaro|\bdrug")
 for p in POSTS:
     txt = ' '.join(str(p.get(k, '')) for k in ('eyebrow', 'title', 'script', 'support', 'caption', 'tags', 'plabel', 'cta')) + ' '.join(p['vo'])
     assert not _BAD.search(txt), (p['d'], _BAD.findall(txt))
