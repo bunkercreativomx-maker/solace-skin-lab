@@ -30,7 +30,7 @@ sub(r'<section class="hero">.*?</section>', '<section class="hero"><div><div cla
 notes = re.findall(r'<div class="promo-note".*?</div>', h, flags=re.S)
 sub(notes[0], '<div class="promo-note"><strong>This month’s two offers:</strong> <strong>1) Any day: luxury skincare product $74.99 + a FREE facial.</strong> <strong>2) Tuesdays (Nov 3, 10, 17, 24 · Dec 1): luxury skincare product $74.99 + 2 FREE facials (you + a friend).</strong> Most posts feature these offers; service posts (microneedling, lips, LED…) end with the offer. <strong>Meta policy update (Oct 21):</strong> no drug brand names (Botox®/Xeomin®), no GLP-1/peptides and no wine in Facebook posts — the page was restricted for a GLP-1 post. You can still serve wine in the clinic; we just don’t advertise it. Official phone <strong>(915) 209-2060</strong>.</div>')
 sub(notes[1], '<div class="promo-note"><strong>Please confirm:</strong> Black Friday (Nov 27) uses the offer <strong>luxury product $74.99 + FREE facial</strong>. If you want a different Black Friday promo, tell us in that post’s notes. Holidays included: Veterans Day, Thanksgiving and Small Business Saturday.</div>')
-sub("const DATA_URL='calendar_v3.json?v=2';", f"const DATA_URL='calendar.json?v={V}';")
+sub("const DATA_URL='calendar_v3.json?v=3';", f"const DATA_URL='calendar.json?v={V}';")
 sub("Promise.all([DATA_URL,ADS_URL].map(", "Promise.all([DATA_URL].map(")
 sub("const BUNKER_CAMPAIGN='oct-nov-2026-v3';", "const BUNKER_CAMPAIGN='nov-2026';")
 sub("solace_octnov_v3_review", "solace_nov2026_review", count=0)
