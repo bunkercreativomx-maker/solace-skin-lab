@@ -450,3 +450,39 @@ _BAD = _re.compile(r"(?i)botox|xeomin|dysport|glp|semaglut|tirzepat|peptide|nad\
 for p in POSTS:
     txt = ' '.join(str(p.get(k, '')) for k in ('eyebrow', 'title', 'script', 'support', 'caption', 'tags', 'plabel', 'cta')) + ' '.join(p['vo'])
     assert not _BAD.search(txt), (p['d'], _BAD.findall(txt))
+# V6 (31-oct-2026): page is penalized on FB -> drop hair-loss (personal attribute), PDRN/DNA, microneedling/needle and "non-surgical" wording
+V6 = {
+ 1: dict(service="Clear skin facial", eyebrow="CLEAR SKIN FACIAL", title="Clearer skin.", script="starts here",
+   support="Deep cleanse · exfoliation · calm", cta="Book your facial",
+   vo=["The clear skin facial, at Solace.", "Clearer, calmer skin starts here.", "A deep cleanse, gentle exfoliation and a calming mask, made for your skin.",
+       "Fresh, smooth and glowing.", EV],
+   caption="Clearer, calmer skin starts here. 💛\n\nOur clear skin facial deep cleanses, gently exfoliates and calms — with a plan made for YOUR skin, so it looks fresh, smooth and glowing." + TAIL_A + FT,
+   tags="#SolaceSkinLab #ClearSkin #ElPasoFacials #ElPasoMedSpa #ElPasoTX"),
+ 17: dict(service="Hydrating facial", eyebrow="MIDWEEK RESET", title="Midweek glow.", script="you earned it",
+   support="Hydrating facial · deep relaxation", cta="Book your facial", price=None,
+   scene="close-up of a relaxed woman in her late 30s with eyes closed and a soft smile, a smooth translucent hydrating gel mask on her cheeks and forehead, white towel headband, lying on a white treatment bed, warm candle glow, calm dewy healthy skin",
+   space="upper half",
+   vo=["Your midweek reset, at Solace.", "Midweek glow. You earned it.", "A hydrating facial that melts the stress away, and leaves your skin soft and dewy.",
+       "One hour, just for you.", EV],
+   caption="Midweek glow — you earned it. 💆‍♀️\n\nA hydrating facial that melts the stress away and leaves your skin soft, dewy and glowing. One hour, just for you." + TAIL_A + FT,
+   tags="#SolaceSkinLab #HydratingFacial #SelfCare #ElPasoFacials #ElPasoTX"),
+ 28: dict(service="Salmon Glow Facial", eyebrow="SALMON GLOW FACIAL", title="Hydrate & glow.", script="sunday ritual",
+   support="Deep hydration · dewy glow", cta="Book your facial",
+   vo=["The Salmon Glow Facial, at Solace.", "Hydrate and glow.", "A nourishing facial for deep hydration and a healthy-looking glow.",
+       "Your new Sunday ritual.", EV],
+   caption="Salmon Glow Facial ✨\n\nA nourishing facial for deep hydration, a dewy glow and healthy-looking skin — your new Sunday ritual." + TAIL_A + FT,
+   tags="#SolaceSkinLab #SalmonFacial #GlowingSkin #ElPasoFacials"),
+ 29: dict(service="Sculpting facial", eyebrow="SCULPTING FACIAL", title="Sculpted glow.", script="jawline to neck",
+   support="Sculpting massage · firming care", cta="Book your facial",
+   vo=["The sculpting facial, at Solace.", "Sculpted glow, from jawline to neck.", "A lifting facial massage with firming care, for a more defined look.",
+       "Relaxing, with no downtime.", EV],
+   caption="Sculpted glow. ✨\n\nOur sculpting facial uses a lifting massage and firming care along the jawline and neck for a more defined, lifted look — relaxing, with no downtime." + TAIL_A + FT,
+   tags="#SolaceSkinLab #SculptingFacial #FacialMassage #ElPasoFacials"),
+}
+for p in POSTS:
+    if p['d'] in V6: p.update(V6[p['d']])
+_BAD6 = _re.compile(r"(?i)microneedl|needl|pdrn|\bdna\b|hair|thinning|surg|scar|acne|collagen induction")
+for p in POSTS:
+    if p['d'] in V6:
+        txt = ' '.join(str(p.get(k, '')) for k in ('eyebrow', 'title', 'script', 'support', 'caption', 'tags', 'plabel', 'cta')) + ' '.join(p['vo'])
+        assert not _BAD6.search(txt), (p['d'], _BAD6.findall(txt))
