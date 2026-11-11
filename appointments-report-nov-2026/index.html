@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Solace Skin Lab — Appointments Report · Nov 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#100d0b;--card:#1a1512;--line:#2e2620;--text:#f3ece4;--muted:#b3a597;--gold:#c9a25e;--red:#d9776a;--green:#8fbf8a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 Inter,system-ui,sans-serif}
+.wrap{max-width:860px;margin:0 auto;padding:40px 20px 80px}
+header{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
+h1{font:600 2.4rem/1.1 "Cormorant Garamond",serif;margin:.2em 0}
+h2{font:600 1.6rem/1.2 "Cormorant Garamond",serif;color:var(--gold);margin:44px 0 12px}
+.eyebrow{letter-spacing:.18em;text-transform:uppercase;font-size:.75rem;color:var(--gold)}
+.muted{color:var(--muted)}
+.lang button{background:none;border:1px solid var(--line);color:var(--muted);padding:6px 14px;border-radius:99px;cursor:pointer;font:inherit;font-size:.85rem}
+.lang button.on{border-color:var(--gold);color:var(--text)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;margin:14px 0}
+.summary{border-left:3px solid var(--gold)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.kpi b{display:block;font:600 2.2rem/1 "Cormorant Garamond",serif}
+.kpi span{font-size:.85rem;color:var(--muted)}
+.down{color:var(--red)} .up{color:var(--green)}
+.bars{display:grid;gap:10px;margin-top:10px}
+.bar{display:grid;grid-template-columns:140px 1fr 44px;align-items:center;gap:10px;font-size:.88rem}
+.bar i{display:block;height:14px;border-radius:7px;background:var(--gold)}
+.bar i.dim{background:#6d5a3f}
+.bar em{font-style:normal;text-align:right}
+ol,ul{padding-left:20px} li{margin:6px 0}
+.tag{display:inline-block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;padding:2px 9px;border-radius:99px;border:1px solid var(--line);color:var(--muted);margin-right:6px}
+.tag.you{border-color:var(--gold);color:var(--gold)}
+blockquote{margin:10px 0;padding:10px 14px;border-left:2px solid var(--line);color:var(--muted);font-size:.92rem}
+footer{margin-top:50px;font-size:.8rem;color:var(--muted)}
+[data-lang]{display:none} body.en [data-lang=en], body.es [data-lang=es]{display:revert}
+</style>
+</head>
+<body class="en">
+<div class="wrap">
+<header>
+  <div>
+    <div class="eyebrow">Solace Skin Lab · Bunker Creativo</div>
+    <h1 data-lang="en">Why fewer appointments are coming in</h1>
+    <h1 data-lang="es">¿Por qué están entrando menos citas?</h1>
+    <div class="muted" data-lang="en">Data from the CRM and Facebook Messenger · Oct 19 – Nov 10, 2026</div>
+    <div class="muted" data-lang="es">Datos del CRM y Facebook Messenger · 19 oct – 10 nov 2026</div>
+  </div>
+  <div class="lang"><button class="on" onclick="setL('en',this)">English</button> <button onclick="setL('es',this)">Español</button></div>
+</header>
+
+<div class="card summary">
+  <p data-lang="en"><b>Short answer:</b> the system is working — the website, booking page, CRM and Messenger connection are all online and every appointment is being saved. The drop comes from <b>far fewer people messaging the Facebook page</b> (−63% in one week), and from the AI assistant not closing bookings by itself. Your team is the one closing appointments today.</p>
+  <p data-lang="es"><b>Respuesta corta:</b> el sistema funciona — el sitio, la página de citas, el CRM y la conexión con Messenger están en línea y cada cita se guarda. La baja viene de que <b>mucha menos gente está escribiendo a la página de Facebook</b> (−63% en una semana) y de que el asistente de IA no cierra citas por sí solo. Hoy las citas las cierra tu equipo.</p>
+</div>
+
+<div class="kpis">
+  <div class="card kpi"><b class="down">−63%</b><span data-lang="en">Messenger messages, week of Nov 2 vs. Oct 26</span><span data-lang="es">Mensajes de Messenger, semana del 2 nov vs. 26 oct</span></div>
+  <div class="card kpi"><b class="down">−34%</b><span data-lang="en">New Messenger leads, same weeks</span><span data-lang="es">Leads nuevos de Messenger, mismas semanas</span></div>
+  <div class="card kpi"><b class="up">28</b><span data-lang="en">Appointments the week of Nov 2 — best week so far</span><span data-lang="es">Citas la semana del 2 nov — la mejor hasta ahora</span></div>
+  <div class="card kpi"><b class="down">10</b><span data-lang="en">Appointments booked for Nov 16 – Dec 6 (3 weeks)</span><span data-lang="es">Citas agendadas del 16 nov al 6 dic (3 semanas)</span></div>
+</div>
+
+<h2 data-lang="en">1. Fewer people are writing in</h2>
+<h2 data-lang="es">1. Está escribiendo menos gente</h2>
+<div class="card">
+  <div class="muted" data-lang="en">Incoming Messenger messages per week</div>
+  <div class="muted" data-lang="es">Mensajes entrantes de Messenger por semana</div>
+  <div class="bars">
+    <div class="bar"><span data-lang="en">Oct 19 – 25</span><span data-lang="es">19 – 25 oct</span><i style="width:80%"></i><em>103</em></div>
+    <div class="bar"><span data-lang="en">Oct 26 – Nov 1</span><span data-lang="es">26 oct – 1 nov</span><i style="width:100%"></i><em>129</em></div>
+    <div class="bar"><span data-lang="en">Nov 2 – 8</span><span data-lang="es">2 – 8 nov</span><i style="width:37%"></i><em>48</em></div>
+    <div class="bar"><span data-lang="en">Nov 9 – 10 (2 days)</span><span data-lang="es">9 – 10 nov (2 días)</span><i class="dim" style="width:19%"></i><em>24</em></div>
+  </div>
+  <p data-lang="en">Fewer conversations means fewer appointments, no matter who answers. This usually points to the ads side: a campaign paused, rejected, out of budget, or reach limited by Facebook (Facebook removed 3 posts from the page in October, which can reduce distribution).</p>
+  <p data-lang="es">Menos conversaciones = menos citas, sin importar quién conteste. Esto normalmente apunta a los anuncios: una campaña pausada, rechazada, sin presupuesto, o alcance limitado por Facebook (Facebook eliminó 3 publicaciones de la página en octubre, lo que puede bajar la distribución).</p>
+</div>
+
+<h2 data-lang="en">2. The calendar ahead is thin</h2>
+<h2 data-lang="es">2. La agenda de las próximas semanas está vacía</h2>
+<div class="card">
+  <div class="muted" data-lang="en">Appointments by week (not canceled)</div>
+  <div class="muted" data-lang="es">Citas por semana (sin canceladas)</div>
+  <div class="bars">
+    <div class="bar"><span data-lang="en">Oct 19 – 25</span><span data-lang="es">19 – 25 oct</span><i style="width:18%"></i><em>5</em></div>
+    <div class="bar"><span data-lang="en">Oct 26 – Nov 1</span><span data-lang="es">26 oct – 1 nov</span><i style="width:54%"></i><em>15</em></div>
+    <div class="bar"><span data-lang="en">Nov 2 – 8</span><span data-lang="es">2 – 8 nov</span><i style="width:100%"></i><em>28</em></div>
+    <div class="bar"><span data-lang="en">Nov 9 – 15</span><span data-lang="es">9 – 15 nov</span><i class="dim" style="width:32%"></i><em>9</em></div>
+    <div class="bar"><span data-lang="en">Nov 16 – 22</span><span data-lang="es">16 – 22 nov</span><i class="dim" style="width:7%"></i><em>2</em></div>
+    <div class="bar"><span data-lang="en">Nov 23 – 29</span><span data-lang="es">23 – 29 nov</span><i class="dim" style="width:7%"></i><em>2</em></div>
+    <div class="bar"><span data-lang="en">Nov 30 – Dec 6</span><span data-lang="es">30 nov – 6 dic</span><i class="dim" style="width:21%"></i><em>6</em></div>
+  </div>
+  <p data-lang="en">Appointments peaked the week of Nov 2, while the messages from the previous busy week were still being worked. With fewer new conversations since then, the upcoming weeks are filling slowly.</p>
+  <p data-lang="es">Las citas llegaron a su punto más alto la semana del 2 nov, mientras se trabajaban los mensajes de la semana anterior. Con menos conversaciones nuevas desde entonces, las próximas semanas se están llenando lento.</p>
+</div>
+
+<h2 data-lang="en">3. The AI assistant answers, but doesn't close</h2>
+<h2 data-lang="es">3. El asistente de IA contesta, pero no cierra</h2>
+<div class="card">
+  <p data-lang="en">The assistant replies quickly and offers real available times, but <b>it has not booked an appointment on its own yet</b> — all bookings were closed by your team. What we found in real chats:</p>
+  <p data-lang="es">El asistente contesta rápido y ofrece horarios reales, pero <b>todavía no ha agendado una cita por sí solo</b> — todas las cerró tu equipo. Lo que vimos en chats reales:</p>
+  <ul data-lang="en">
+    <li><b>It ignores the time the client asks for.</b> A client asked for "after 5" and it offered 2:00 PM again, even though the clinic is open until 8–9 PM.</li>
+    <li><b>It doesn't ask for the phone number</b> or give a clear "shall I hold it for you?" to lock the appointment.</li>
+    <li><b>It doesn't give prices</b> (by design). 13 clients asked about price in the last two weeks; several left before the team replied.</li>
+    <li><b>It's running on a backup AI model</b> since Nov 5. It works, but understands less and sounds more generic than the previous one.</li>
+  </ul>
+  <ul data-lang="es">
+    <li><b>Ignora la hora que pide el cliente.</b> Una clienta pidió "después de las 5" y volvió a ofrecer 2:00 PM, aunque la clínica abre hasta las 8–9 PM.</li>
+    <li><b>No pide el teléfono</b> ni hace un "¿te lo aparto?" claro para asegurar la cita.</li>
+    <li><b>No da precios</b> (así se configuró). 13 clientes preguntaron precio en las últimas dos semanas; varios se fueron antes de que el equipo contestara.</li>
+    <li><b>Funciona con un modelo de IA de respaldo</b> desde el 5 nov. Funciona, pero entiende menos y suena más genérico que el anterior.</li>
+  </ul>
+  <blockquote data-lang="en">Client: "After 5?" — Assistant: "We have an opening at 2:00 PM on Wednesday…" — Client: "No. I'll check back."</blockquote>
+  <blockquote data-lang="es">Clienta: "After 5?" — Asistente: "We have an opening at 2:00 PM on Wednesday…" — Clienta: "No. I'll check back."</blockquote>
+  <p data-lang="en">Also: about half of the conversations (33 of 73) are spam or non-clients, which the system filters automatically so the team doesn't lose time on them.</p>
+  <p data-lang="es">Además: casi la mitad de las conversaciones (33 de 73) son spam o no son clientes; el sistema las filtra solo para que el equipo no pierda tiempo.</p>
+</div>
+
+<h2 data-lang="en">4. Action plan</h2>
+<h2 data-lang="es">4. Plan de acción</h2>
+<div class="card">
+  <ol data-lang="en">
+    <li><span class="tag you">Solace</span><b>Check Meta Ads Manager:</b> confirm the Messenger campaign is active, approved and has budget. This is the biggest factor.</li>
+    <li><span class="tag">Bunker</span><b>Fix the assistant:</b> respect the requested time (evenings), ask for name + phone, and confirm the booking in the chat.</li>
+    <li><span class="tag">Bunker</span><b>Move the assistant back to the stronger AI model</b> (small monthly AI cost, about $10–20 USD).</li>
+    <li><span class="tag you">Solace</span><b>Decide on promos:</b> should the assistant be allowed to mention the $74.99 luxury product + free facial offer, so price questions don't go cold?</li>
+    <li><span class="tag you">Solace</span><b>Reply fast to "price" handoffs:</b> the team gets an urgent notification — answering within minutes keeps the client.</li>
+  </ol>
+  <ol data-lang="es">
+    <li><span class="tag you">Solace</span><b>Revisar Meta Ads Manager:</b> confirmar que la campaña de Messenger esté activa, aprobada y con presupuesto. Es el factor más grande.</li>
+    <li><span class="tag">Bunker</span><b>Corregir el asistente:</b> respetar la hora pedida (tardes), pedir nombre + teléfono y confirmar la cita en el chat.</li>
+    <li><span class="tag">Bunker</span><b>Regresar el asistente al modelo de IA más potente</b> (costo mensual pequeño, unos $10–20 USD).</li>
+    <li><span class="tag you">Solace</span><b>Decidir sobre promos:</b> ¿el asistente puede mencionar la oferta de producto de lujo $74.99 + facial gratis, para que las preguntas de precio no se enfríen?</li>
+    <li><span class="tag you">Solace</span><b>Contestar rápido los avisos de "precio":</b> el equipo recibe una notificación urgente — responder en minutos retiene al cliente.</li>
+  </ol>
+</div>
+
+<footer data-lang="en">Prepared by Bunker Creativo · Nov 11, 2026 · Figures pulled directly from the Solace CRM.</footer>
+<footer data-lang="es">Preparado por Bunker Creativo · 11 nov 2026 · Cifras tomadas directamente del CRM de Solace.</footer>
+</div>
+<script>function setL(l,b){document.body.className=l;document.documentElement.lang=l;document.querySelectorAll('.lang button').forEach(x=>x.classList.toggle('on',x===b))}</script>
+</body>
+</html>
