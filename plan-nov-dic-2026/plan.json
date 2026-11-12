@@ -1,0 +1,302 @@
+[
+ {
+  "day": 1,
+  "date": "Sáb 14 nov",
+  "lang": "EN",
+  "service": "Luxury Facial",
+  "audience": "Mujeres",
+  "hook": "One hour that's just yours.",
+  "angle": "Cómo se siente: tiempo para ella",
+  "promo": "Producto $74.99 + facial GRATIS"
+ },
+ {
+  "day": 2,
+  "date": "Dom 15 nov",
+  "lang": "ES",
+  "service": "Facial (manchas)",
+  "audience": "Mujeres hispanas",
+  "hook": "Tu piel, sin filtro.",
+  "angle": "Confianza sin maquillaje",
+  "promo": ""
+ },
+ {
+  "day": 3,
+  "date": "Lun 16 nov",
+  "lang": "EN",
+  "service": "Microneedling (hombres)",
+  "audience": "Hombres",
+  "hook": "Smoother skin. Same you.",
+  "angle": "Cómo se ve: textura y cicatrices",
+  "promo": ""
+ },
+ {
+  "day": 4,
+  "date": "Mar 17 nov",
+  "lang": "ES",
+  "service": "Martes de amigas",
+  "audience": "Amigas / mamá e hija",
+  "hook": "Martes de amigas: 2 faciales gratis.",
+  "angle": "Plan para dos",
+  "promo": "Producto $74.99 + 2 faciales GRATIS (vino solo en el texto)"
+ },
+ {
+  "day": 5,
+  "date": "Mié 18 nov",
+  "lang": "EN",
+  "service": "Mapa de líneas finas",
+  "audience": "Mujeres 30+",
+  "hook": "Smooth fine lines. No needles.",
+  "angle": "Alternativa sin agujas",
+  "promo": ""
+ },
+ {
+  "day": 6,
+  "date": "Jue 19 nov",
+  "lang": "ES",
+  "service": "Facial + Dermaplaning",
+  "audience": "Mujeres",
+  "hook": "Que el maquillaje se vea como piel.",
+  "angle": "Resultado el mismo día",
+  "promo": ""
+ },
+ {
+  "day": 7,
+  "date": "Vie 20 nov",
+  "lang": "EN",
+  "service": "Salmon DNA",
+  "audience": "Mujeres",
+  "hook": "Hydration you can actually see.",
+  "angle": "Beneficios (sin precio)",
+  "promo": ""
+ },
+ {
+  "day": 8,
+  "date": "Sáb 21 nov",
+  "lang": "ES",
+  "service": "DpSCAN",
+  "audience": "Todos",
+  "hook": "Conoce tu piel por dentro.",
+  "angle": "Diagnóstico con datos",
+  "promo": ""
+ },
+ {
+  "day": 9,
+  "date": "Dom 22 nov",
+  "lang": "EN",
+  "service": "Lip enhancement",
+  "audience": "Mujeres 18+",
+  "hook": "Soft, natural lips. Still you.",
+  "angle": "Natural, no exagerado",
+  "promo": ""
+ },
+ {
+  "day": 10,
+  "date": "Lun 23 nov",
+  "lang": "ES",
+  "service": "Evaluación de cicatrices (hombres)",
+  "audience": "Hombres hispanos",
+  "hook": "Hombres: las cicatrices de acné tienen solución.",
+  "angle": "Cómo se ve + privado",
+  "promo": ""
+ },
+ {
+  "day": 11,
+  "date": "Mar 24 nov",
+  "lang": "EN",
+  "service": "Tuesday besties",
+  "audience": "Amigas",
+  "hook": "Thankful for my bestie.",
+  "angle": "Plan para dos, semana de Thanksgiving",
+  "promo": "Producto $74.99 + 2 facials FREE"
+ },
+ {
+  "day": 12,
+  "date": "Mié 25 nov",
+  "lang": "ES",
+  "service": "Luxury Facial",
+  "audience": "Mujeres hispanas",
+  "hook": "Lista para la foto familiar.",
+  "angle": "Llegar radiante a la cena",
+  "promo": "Producto $74.99 + facial GRATIS"
+ },
+ {
+  "day": 13,
+  "date": "Jue 26 nov",
+  "lang": "EN",
+  "service": "Saludo Thanksgiving",
+  "audience": "Comunidad",
+  "hook": "Grateful for you, El Paso.",
+  "angle": "Gratitud, sin venta",
+  "promo": ""
+ },
+ {
+  "day": 14,
+  "date": "Vie 27 nov",
+  "lang": "ES",
+  "service": "Black Friday",
+  "audience": "Mujeres",
+  "hook": "Este Black Friday, regálate a ti primero.",
+  "angle": "Darse un gusto",
+  "promo": "Producto $74.99 + facial GRATIS"
+ },
+ {
+  "day": 15,
+  "date": "Sáb 28 nov",
+  "lang": "EN",
+  "service": "Small Business Saturday",
+  "audience": "Comunidad",
+  "hook": "Shop local. Glow local.",
+  "angle": "Negocio local de El Paso",
+  "promo": ""
+ },
+ {
+  "day": 16,
+  "date": "Dom 29 nov",
+  "lang": "ES",
+  "service": "Derma Jade Eye",
+  "audience": "Mujeres",
+  "hook": "Mirada descansada, aunque no duermas.",
+  "angle": "Ojeras y cansancio",
+  "promo": ""
+ },
+ {
+  "day": 17,
+  "date": "Lun 30 nov",
+  "lang": "EN",
+  "service": "LED Light Therapy",
+  "audience": "Todos",
+  "hook": "Red light. Real glow.",
+  "angle": "Cómo funciona la luz roja/azul",
+  "promo": ""
+ },
+ {
+  "day": 18,
+  "date": "Mar 1 dic",
+  "lang": "ES",
+  "service": "Martes de amigas",
+  "audience": "Amigas",
+  "hook": "Diciembre empieza de a dos.",
+  "angle": "Plan para dos",
+  "promo": "Producto $74.99 + 2 faciales GRATIS*"
+ },
+ {
+  "day": 19,
+  "date": "Mié 2 dic",
+  "lang": "EN",
+  "service": "D'OR24K Neck & Décolleté",
+  "audience": "Mujeres 35+",
+  "hook": "Your neck deserves a facial too.",
+  "angle": "La zona que todas olvidan",
+  "promo": ""
+ },
+ {
+  "day": 20,
+  "date": "Jue 3 dic",
+  "lang": "ES",
+  "service": "Mapa de líneas finas",
+  "audience": "Mujeres 30+",
+  "hook": "Suaviza líneas finas. Sin agujas.",
+  "angle": "Alternativa sin agujas",
+  "promo": ""
+ },
+ {
+  "day": 21,
+  "date": "Vie 4 dic",
+  "lang": "EN",
+  "service": "Scalp Care (hombres)",
+  "audience": "Hombres",
+  "hook": "Your hairline, looked after.",
+  "angle": "Cómo se ve: cabello y cuero cabelludo",
+  "promo": ""
+ },
+ {
+  "day": 22,
+  "date": "Sáb 5 dic",
+  "lang": "ES",
+  "service": "Luxury Facial en 3 pasos",
+  "audience": "Mujeres",
+  "hook": "Una hora solo para ti, en 3 pasos.",
+  "angle": "Qué incluye (análisis + facial + LED)",
+  "promo": "Producto $74.99 + facial GRATIS*"
+ },
+ {
+  "day": 23,
+  "date": "Dom 6 dic",
+  "lang": "EN",
+  "service": "Mito vs realidad",
+  "audience": "Todos",
+  "hook": "\"Facials are just pampering.\" Think again.",
+  "angle": "Educación",
+  "promo": ""
+ },
+ {
+  "day": 24,
+  "date": "Lun 7 dic",
+  "lang": "ES",
+  "service": "Microneedling (hombres)",
+  "audience": "Hombres hispanos",
+  "hook": "Piel más pareja, sin que nadie lo note.",
+  "angle": "Cómo se ve + discreto",
+  "promo": ""
+ },
+ {
+  "day": 25,
+  "date": "Mar 8 dic",
+  "lang": "EN",
+  "service": "Tuesday besties",
+  "audience": "Amigas",
+  "hook": "Holiday party prep, for two.",
+  "angle": "Plan para dos antes de las fiestas",
+  "promo": "Producto $74.99 + 2 facials FREE*"
+ },
+ {
+  "day": 26,
+  "date": "Mié 9 dic",
+  "lang": "ES",
+  "service": "Labios naturales",
+  "audience": "Mujeres 18+",
+  "hook": "Labios suaves y naturales.",
+  "angle": "Natural, no exagerado",
+  "promo": ""
+ },
+ {
+  "day": 27,
+  "date": "Jue 10 dic",
+  "lang": "EN",
+  "service": "Facial + LED cara y cuello",
+  "audience": "Mujeres",
+  "hook": "Camera-ready for every holiday photo.",
+  "angle": "Fotos de temporada",
+  "promo": ""
+ },
+ {
+  "day": 28,
+  "date": "Vie 11 dic",
+  "lang": "ES",
+  "service": "Salmon DNA",
+  "audience": "Mujeres",
+  "hook": "Hidratación que se nota.",
+  "angle": "Beneficios (sin precio)",
+  "promo": ""
+ },
+ {
+  "day": 29,
+  "date": "Sáb 12 dic",
+  "lang": "EN",
+  "service": "Interacción",
+  "audience": "Todos",
+  "hook": "What's your skin goal for 2027? 👇",
+  "angle": "Comentarios",
+  "promo": ""
+ },
+ {
+  "day": 30,
+  "date": "Dom 13 dic",
+  "lang": "ES",
+  "service": "Posadas",
+  "audience": "Mujeres hispanas",
+  "hook": "Brilla en todas tus posadas.",
+  "angle": "Temporada hispana",
+  "promo": "Producto $74.99 + facial GRATIS*"
+ }
+]
