@@ -5,47 +5,47 @@ OUT = pathlib.Path(__file__).parent / 'index.html'
 
 # day, fecha, idioma, servicio, audiencia, gancho (pantalla), ángulo, promo
 P = [
- (1, 'Sáb 14 nov', 'EN', 'Luxury Facial', 'Mujeres', 'One hour that\'s just yours.', 'Cómo se siente: tiempo para ella', 'Producto $74.99 + facial GRATIS'),
+ (1, 'Sáb 14 nov', 'EN', 'Luxury Facial', 'Mujeres', 'One hour that\'s just yours.', 'Cómo se siente: tiempo para ella', 'Facial $59.99 + producto GRATIS'),
  (2, 'Dom 15 nov', 'ES', 'Facial (manchas)', 'Mujeres hispanas', 'Tu piel, sin filtro.', 'Confianza sin maquillaje', ''),
  (3, 'Lun 16 nov', 'EN', 'Microneedling (hombres)', 'Hombres', 'Smoother skin. Same you.', 'Cómo se ve: textura y cicatrices', ''),
- (4, 'Mar 17 nov', 'ES', 'Martes de amigas', 'Amigas / mamá e hija', 'Martes de amigas: 2 faciales gratis.', 'Plan para dos', 'Producto $74.99 + 2 faciales GRATIS (vino solo en el texto)'),
+ (4, 'Mar 17 nov', 'ES', 'Martes 2x1', 'Amigas / mamá e hija', 'Martes 2x1: invita a tu amiga.', 'Plan para dos', 'Martes 2x1: 2 faciales $54.99 + producto GRATIS'),
  (5, 'Mié 18 nov', 'EN', 'Mapa de líneas finas', 'Mujeres 30+', 'Smooth fine lines. No needles.', 'Alternativa sin agujas', ''),
  (6, 'Jue 19 nov', 'ES', 'Facial + Dermaplaning', 'Mujeres', 'Que el maquillaje se vea como piel.', 'Resultado el mismo día', ''),
- (7, 'Vie 20 nov', 'EN', 'Salmon DNA', 'Mujeres', 'Hydration you can actually see.', 'Beneficios (sin precio)', ''),
- (8, 'Sáb 21 nov', 'ES', 'DpSCAN', 'Todos', 'Conoce tu piel por dentro.', 'Diagnóstico con datos', ''),
+ (7, 'Vie 20 nov', 'EN', 'Facial', 'Mujeres', 'Hydration you can actually see.', 'Limpieza profunda + hidratación', 'Facial $59.99 + producto GRATIS'),
+ (8, 'Sáb 21 nov', 'ES', 'Facial + Dermaplaning', 'Mujeres hispanas', 'Piel suave como seda, el mismo día.', 'Resultado el mismo día', ''),
  (9, 'Dom 22 nov', 'EN', 'Lip enhancement', 'Mujeres 18+', 'Soft, natural lips. Still you.', 'Natural, no exagerado', ''),
- (10, 'Lun 23 nov', 'ES', 'Evaluación de cicatrices (hombres)', 'Hombres hispanos', 'Hombres: las cicatrices de acné tienen solución.', 'Cómo se ve + privado', ''),
- (11, 'Mar 24 nov', 'EN', 'Tuesday besties', 'Amigas', 'Thankful for my bestie.', 'Plan para dos, semana de Thanksgiving', 'Producto $74.99 + 2 facials FREE'),
- (12, 'Mié 25 nov', 'ES', 'Luxury Facial', 'Mujeres hispanas', 'Lista para la foto familiar.', 'Llegar radiante a la cena', 'Producto $74.99 + facial GRATIS'),
+ (10, 'Lun 23 nov', 'ES', 'Evaluación de cicatrices (mujeres)', 'Mujeres hispanas', 'Las cicatrices de acné tienen solución.', 'Cómo se siente: confianza sin maquillaje', ''),
+ (11, 'Mar 24 nov', 'EN', 'Tuesday besties', 'Amigas', 'Thankful for my bestie.', 'Plan para dos, semana de Thanksgiving', 'Martes 2x1: 2 facials $54.99 + producto GRATIS'),
+ (12, 'Mié 25 nov', 'ES', 'Luxury Facial', 'Mujeres hispanas', 'Lista para la foto familiar.', 'Llegar radiante a la cena', 'Facial $59.99 + producto GRATIS'),
  (13, 'Jue 26 nov', 'EN', 'Saludo Thanksgiving', 'Comunidad', 'Grateful for you, El Paso.', 'Gratitud, sin venta', ''),
- (14, 'Vie 27 nov', 'ES', 'Black Friday', 'Mujeres', 'Este Black Friday, regálate a ti primero.', 'Darse un gusto', 'Producto $74.99 + facial GRATIS'),
- (15, 'Sáb 28 nov', 'EN', 'Small Business Saturday', 'Comunidad', 'Shop local. Glow local.', 'Negocio local de El Paso', ''),
+ (14, 'Vie 27 nov', 'ES', 'Black Friday', 'Mujeres', 'Este Black Friday, regálate a ti primero.', 'Darse un gusto', 'Facial $59.99 + producto GRATIS'),
+ (15, 'Sáb 28 nov', 'EN', 'Lip enhancement (Small Business Saturday)', 'Mujeres 18+', 'Shop local. Soft, natural lips.', 'Negocio local + natural, no exagerado', ''),
  (16, 'Dom 29 nov', 'ES', 'Derma Jade Eye', 'Mujeres', 'Mirada descansada, aunque no duermas.', 'Ojeras y cansancio', ''),
- (17, 'Lun 30 nov', 'EN', 'LED Light Therapy', 'Todos', 'Red light. Real glow.', 'Cómo funciona la luz roja/azul', ''),
- (18, 'Mar 1 dic', 'ES', 'Martes de amigas', 'Amigas', 'Diciembre empieza de a dos.', 'Plan para dos', 'Producto $74.99 + 2 faciales GRATIS*'),
+ (17, 'Lun 30 nov', 'EN', 'Facial', 'Mujeres', 'Clean skin. Real glow.', 'Limpieza profunda, resultado el mismo día', 'Facial $59.99 + producto GRATIS'),
+ (18, 'Mar 1 dic', 'ES', 'Martes 2x1', 'Amigas', 'Diciembre empieza de a dos.', 'Plan para dos', 'Martes 2x1: 2 faciales $54.99 + producto GRATIS*'),
  (19, 'Mié 2 dic', 'EN', 'D\'OR24K Neck & Décolleté', 'Mujeres 35+', 'Your neck deserves a facial too.', 'La zona que todas olvidan', ''),
  (20, 'Jue 3 dic', 'ES', 'Mapa de líneas finas', 'Mujeres 30+', 'Suaviza líneas finas. Sin agujas.', 'Alternativa sin agujas', ''),
- (21, 'Vie 4 dic', 'EN', 'Scalp Care (hombres)', 'Hombres', 'Your hairline, looked after.', 'Cómo se ve: cabello y cuero cabelludo', ''),
- (22, 'Sáb 5 dic', 'ES', 'Luxury Facial en 3 pasos', 'Mujeres', 'Una hora solo para ti, en 3 pasos.', 'Qué incluye (análisis + facial + LED)', 'Producto $74.99 + facial GRATIS*'),
+ (21, 'Vie 4 dic', 'EN', 'Lip enhancement', 'Mujeres 18+', 'Fuller lips that still look like you.', 'Natural, no exagerado', ''),
+ (22, 'Sáb 5 dic', 'ES', 'Luxury Facial en 3 pasos', 'Mujeres', 'Una hora solo para ti, en 3 pasos.', 'Qué incluye (análisis + facial + LED)', 'Facial $59.99 + producto GRATIS*'),
  (23, 'Dom 6 dic', 'EN', 'Mito vs realidad', 'Todos', '"Facials are just pampering." Think again.', 'Educación', ''),
- (24, 'Lun 7 dic', 'ES', 'Microneedling (hombres)', 'Hombres hispanos', 'Piel más pareja, sin que nadie lo note.', 'Cómo se ve + discreto', ''),
- (25, 'Mar 8 dic', 'EN', 'Tuesday besties', 'Amigas', 'Holiday party prep, for two.', 'Plan para dos antes de las fiestas', 'Producto $74.99 + 2 facials FREE*'),
+ (24, 'Lun 7 dic', 'ES', 'Microneedling (mujeres)', 'Mujeres hispanas', 'Piel más pareja, sin que nadie lo note.', 'Cómo se siente: textura y confianza', ''),
+ (25, 'Mar 8 dic', 'EN', 'Tuesday besties', 'Amigas', 'Holiday party prep, for two.', 'Plan para dos antes de las fiestas', 'Martes 2x1: 2 facials $54.99 + producto GRATIS*'),
  (26, 'Mié 9 dic', 'ES', 'Labios naturales', 'Mujeres 18+', 'Labios suaves y naturales.', 'Natural, no exagerado', ''),
  (27, 'Jue 10 dic', 'EN', 'Facial + LED cara y cuello', 'Mujeres', 'Camera-ready for every holiday photo.', 'Fotos de temporada', ''),
- (28, 'Vie 11 dic', 'ES', 'Salmon DNA', 'Mujeres', 'Hidratación que se nota.', 'Beneficios (sin precio)', ''),
+ (28, 'Vie 11 dic', 'ES', 'Facial', 'Mujeres', 'Hidratación que se nota.', 'Limpieza profunda + hidratación', 'Facial $59.99 + producto GRATIS'),
  (29, 'Sáb 12 dic', 'EN', 'Interacción', 'Todos', 'What\'s your skin goal for 2027? 👇', 'Comentarios', ''),
- (30, 'Dom 13 dic', 'ES', 'Posadas', 'Mujeres hispanas', 'Brilla en todas tus posadas.', 'Temporada hispana', 'Producto $74.99 + facial GRATIS*'),
+ (30, 'Dom 13 dic', 'ES', 'Posadas', 'Mujeres hispanas', 'Brilla en todas tus posadas.', 'Temporada hispana', 'Facial $59.99 + producto GRATIS*'),
 ]
 
 ok = [
- ('Faciales', 'Luxury Facial, Facial (limpieza, acné, anti-edad, manchas), Facial + Dermaplaning, Salmon DNA (solo beneficios, sin precio)'),
+ ('Faciales', 'Luxury Facial, Facial (limpieza, acné, anti-edad, manchas), Facial + Dermaplaning, Salmon DNA (solo beneficios, sin precio; fuera de este plan)'),
  ('Luz LED', 'LED Light Therapy (roja/azul), Facial + LED cara y cuello (D\'OR24K)'),
- ('Piel y ojos', 'DpSCAN, Derma Jade Eye Solution, D\'OR24K Neck & Décolleté'),
- ('Hombres', 'Evaluación de cicatrices de acné, Scalp Care, Microneedling'),
- ('Promo', 'Producto luxury $74.99 + facial GRATIS · Martes: 2 faciales GRATIS (tú + amiga)'),
+ ('Piel y ojos', 'Derma Jade Eye Solution, D\'OR24K Neck & Décolleté'),
+ ('Mujeres', 'Evaluación de cicatrices de acné, Microneedling'),
+ ('Promo', 'Facial $59.99 + producto GRATIS · Martes 2x1: 2 faciales $54.99 + producto GRATIS (invita a tu amiga)'),
 ]
 care = [
- ('Lip enhancement', 'Sí, Meta lo permite (dermal fillers) con anuncios para 18+. Siempre "lip filler / lip enhancement" genérico: sin marcas, sin agujas ni jeringas, foto del resultado. Máximo 2 al mes.'),
+ ('Lip enhancement', 'Sí, Meta lo permite (dermal fillers) con anuncios para 18+. Siempre "lip filler / lip enhancement" genérico: sin marcas, sin agujas ni jeringas, foto del resultado. 4 en este plan (días 9, 15, 21, 26).'),
  ('Microneedling', 'Sí, Meta lo menciona como permitido para 18+. Mostrar el aparato y la piel después, nunca agujas en primer plano ni piel con sangre. Decir "collagen induction" / "inducción de colágeno".'),
 ]
 no = 'Botox, Xeomin, Dysport, "wrinkle relaxers", "injectables", Juvéderm/Belotero (marcas), GLP-1/semaglutide, péptidos, NAD+, IV/B12, agujas/jeringas/💉, "exosomes", PRP en anuncios.'
@@ -96,7 +96,7 @@ tr.flag td{{background:#2a2118}}.big{{font-size:16px;padding:12px 20px;border-ra
 <div class="kpis"><div class="kpi"><b>30</b>videos animados con voz</div><div class="kpi"><b>{en} / {es}</b>inglés / español</div><div class="kpi"><b>{promos}</b>con la promo</div><div class="kpi"><b>Reel + historia</b>cada publicación</div></div>
 <div class="grid">
 <div class="card"><h3>Público hispano</h3><ul><li>La mitad del calendario va en <b>español</b>, con voz en español, para la clientela hispana de El Paso y Juárez.</li><li>En anuncios: un conjunto en inglés y otro en español (segmentación por idioma: español), ambos para mayores de 18.</li><li>El texto en español no es traducción: habla de posadas, foto familiar y "martes de amigas".</li></ul></div>
-<div class="card"><h3>A quién le hablamos</h3><ul><li><b>Mujeres:</b> cómo se siente (confianza, una hora para ella).</li><li><b>Hombres:</b> cómo se ve (textura, cicatrices, cabello) y que sea discreto.</li><li><b>Clientas con poco tiempo:</b> resultado el mismo día.</li></ul></div>
+<div class="card"><h3>A quién le hablamos</h3><ul><li><b>Mujeres:</b> cómo se siente (confianza, una hora para ella).</li><li><b>Cicatrices y microneedling:</b> ahora dirigidos a mujeres.</li><li><b>Clientas con poco tiempo:</b> resultado el mismo día.</li></ul></div>
 <div class="card"><h3>Formato</h3><ul><li>Videos de 10–15 s, fotos estilo tratamiento real, tipografía serif dorada.</li><li>Cada pieza sale como reel y como historia a la misma hora.</li><li>Teléfono (915) 209-2060 · Cielo Vista Mall.</li></ul></div>
 </div>
 
@@ -107,7 +107,7 @@ tr.flag td{{background:#2a2118}}.big{{font-size:16px;padding:12px 20px;border-ra
 <h2>Calendario</h2>
 <p class="sub">Toca "Cambiar" en cualquier día para dejar un comentario.</p>
 <table><thead><tr><th>#</th><th>Fecha</th><th>Idioma</th><th>Servicio</th><th>Gancho en pantalla</th><th>Ángulo</th><th>Promo</th><th></th></tr></thead><tbody>{rows}</tbody></table>
-<p class="foot">* Si la promo cambia en diciembre, se ajusta solo ese día. Salmon DNA siempre sin precio. Sin vino en imágenes (solo en el texto del martes).</p>
+<p class="foot">* Si la promo cambia en diciembre, se ajusta solo ese día. Promo de martes ya sin vino.</p>
 
 <h2>Aprobación</h2>
 <textarea id="gen" placeholder="Comentarios generales (opcional)" style="width:100%;min-height:80px;background:var(--card);color:var(--cream);border:1px solid var(--line);border-radius:10px;padding:10px;font:inherit"></textarea>

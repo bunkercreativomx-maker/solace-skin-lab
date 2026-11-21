@@ -7,7 +7,7 @@
   "audience": "Mujeres",
   "hook": "One hour that's just yours.",
   "angle": "Cómo se siente: tiempo para ella",
-  "promo": "Producto $74.99 + facial GRATIS"
+  "promo": "Facial $59.99 + producto GRATIS"
  },
  {
   "day": 2,
@@ -33,11 +33,11 @@
   "day": 4,
   "date": "Mar 17 nov",
   "lang": "ES",
-  "service": "Martes de amigas",
+  "service": "Martes 2x1",
   "audience": "Amigas / mamá e hija",
-  "hook": "Martes de amigas: 2 faciales gratis.",
+  "hook": "Martes 2x1: invita a tu amiga.",
   "angle": "Plan para dos",
-  "promo": "Producto $74.99 + 2 faciales GRATIS (vino solo en el texto)"
+  "promo": "Martes 2x1: 2 faciales $54.99 + producto GRATIS"
  },
  {
   "day": 5,
@@ -63,20 +63,20 @@
   "day": 7,
   "date": "Vie 20 nov",
   "lang": "EN",
-  "service": "Salmon DNA",
+  "service": "Facial",
   "audience": "Mujeres",
   "hook": "Hydration you can actually see.",
-  "angle": "Beneficios (sin precio)",
-  "promo": ""
+  "angle": "Limpieza profunda + hidratación",
+  "promo": "Facial $59.99 + producto GRATIS"
  },
  {
   "day": 8,
   "date": "Sáb 21 nov",
   "lang": "ES",
-  "service": "DpSCAN",
-  "audience": "Todos",
-  "hook": "Conoce tu piel por dentro.",
-  "angle": "Diagnóstico con datos",
+  "service": "Facial + Dermaplaning",
+  "audience": "Mujeres hispanas",
+  "hook": "Piel suave como seda, el mismo día.",
+  "angle": "Resultado el mismo día",
   "promo": ""
  },
  {
@@ -93,10 +93,10 @@
   "day": 10,
   "date": "Lun 23 nov",
   "lang": "ES",
-  "service": "Evaluación de cicatrices (hombres)",
-  "audience": "Hombres hispanos",
-  "hook": "Hombres: las cicatrices de acné tienen solución.",
-  "angle": "Cómo se ve + privado",
+  "service": "Evaluación de cicatrices (mujeres)",
+  "audience": "Mujeres hispanas",
+  "hook": "Las cicatrices de acné tienen solución.",
+  "angle": "Cómo se siente: confianza sin maquillaje",
   "promo": ""
  },
  {
@@ -107,7 +107,7 @@
   "audience": "Amigas",
   "hook": "Thankful for my bestie.",
   "angle": "Plan para dos, semana de Thanksgiving",
-  "promo": "Producto $74.99 + 2 facials FREE"
+  "promo": "Martes 2x1: 2 facials $54.99 + producto GRATIS"
  },
  {
   "day": 12,
@@ -117,7 +117,7 @@
   "audience": "Mujeres hispanas",
   "hook": "Lista para la foto familiar.",
   "angle": "Llegar radiante a la cena",
-  "promo": "Producto $74.99 + facial GRATIS"
+  "promo": "Facial $59.99 + producto GRATIS"
  },
  {
   "day": 13,
@@ -137,16 +137,16 @@
   "audience": "Mujeres",
   "hook": "Este Black Friday, regálate a ti primero.",
   "angle": "Darse un gusto",
-  "promo": "Producto $74.99 + facial GRATIS"
+  "promo": "Facial $59.99 + producto GRATIS"
  },
  {
   "day": 15,
   "date": "Sáb 28 nov",
   "lang": "EN",
-  "service": "Small Business Saturday",
-  "audience": "Comunidad",
-  "hook": "Shop local. Glow local.",
-  "angle": "Negocio local de El Paso",
+  "service": "Lip enhancement (Small Business Saturday)",
+  "audience": "Mujeres 18+",
+  "hook": "Shop local. Soft, natural lips.",
+  "angle": "Negocio local + natural, no exagerado",
   "promo": ""
  },
  {
@@ -163,21 +163,21 @@
   "day": 17,
   "date": "Lun 30 nov",
   "lang": "EN",
-  "service": "LED Light Therapy",
-  "audience": "Todos",
-  "hook": "Red light. Real glow.",
-  "angle": "Cómo funciona la luz roja/azul",
-  "promo": ""
+  "service": "Facial",
+  "audience": "Mujeres",
+  "hook": "Clean skin. Real glow.",
+  "angle": "Limpieza profunda, resultado el mismo día",
+  "promo": "Facial $59.99 + producto GRATIS"
  },
  {
   "day": 18,
   "date": "Mar 1 dic",
   "lang": "ES",
-  "service": "Martes de amigas",
+  "service": "Martes 2x1",
   "audience": "Amigas",
   "hook": "Diciembre empieza de a dos.",
   "angle": "Plan para dos",
-  "promo": "Producto $74.99 + 2 faciales GRATIS*"
+  "promo": "Martes 2x1: 2 faciales $54.99 + producto GRATIS*"
  },
  {
   "day": 19,
@@ -203,10 +203,10 @@
   "day": 21,
   "date": "Vie 4 dic",
   "lang": "EN",
-  "service": "Scalp Care (hombres)",
-  "audience": "Hombres",
-  "hook": "Your hairline, looked after.",
-  "angle": "Cómo se ve: cabello y cuero cabelludo",
+  "service": "Lip enhancement",
+  "audience": "Mujeres 18+",
+  "hook": "Fuller lips that still look like you.",
+  "angle": "Natural, no exagerado",
   "promo": ""
  },
  {
@@ -217,7 +217,7 @@
   "audience": "Mujeres",
   "hook": "Una hora solo para ti, en 3 pasos.",
   "angle": "Qué incluye (análisis + facial + LED)",
-  "promo": "Producto $74.99 + facial GRATIS*"
+  "promo": "Facial $59.99 + producto GRATIS*"
  },
  {
   "day": 23,
@@ -233,10 +233,10 @@
   "day": 24,
   "date": "Lun 7 dic",
   "lang": "ES",
-  "service": "Microneedling (hombres)",
-  "audience": "Hombres hispanos",
+  "service": "Microneedling (mujeres)",
+  "audience": "Mujeres hispanas",
   "hook": "Piel más pareja, sin que nadie lo note.",
-  "angle": "Cómo se ve + discreto",
+  "angle": "Cómo se siente: textura y confianza",
   "promo": ""
  },
  {
@@ -247,7 +247,7 @@
   "audience": "Amigas",
   "hook": "Holiday party prep, for two.",
   "angle": "Plan para dos antes de las fiestas",
-  "promo": "Producto $74.99 + 2 facials FREE*"
+  "promo": "Martes 2x1: 2 facials $54.99 + producto GRATIS*"
  },
  {
   "day": 26,
@@ -273,11 +273,11 @@
   "day": 28,
   "date": "Vie 11 dic",
   "lang": "ES",
-  "service": "Salmon DNA",
+  "service": "Facial",
   "audience": "Mujeres",
   "hook": "Hidratación que se nota.",
-  "angle": "Beneficios (sin precio)",
-  "promo": ""
+  "angle": "Limpieza profunda + hidratación",
+  "promo": "Facial $59.99 + producto GRATIS"
  },
  {
   "day": 29,
@@ -297,6 +297,6 @@
   "audience": "Mujeres hispanas",
   "hook": "Brilla en todas tus posadas.",
   "angle": "Temporada hispana",
-  "promo": "Producto $74.99 + facial GRATIS*"
+  "promo": "Facial $59.99 + producto GRATIS*"
  }
 ]
