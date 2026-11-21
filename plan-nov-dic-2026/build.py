@@ -7,7 +7,7 @@ OUT = pathlib.Path(__file__).parent / 'index.html'
 P = [
  (1, 'Sáb 14 nov', 'EN', 'Luxury Facial', 'Mujeres', 'One hour that\'s just yours.', 'Cómo se siente: tiempo para ella', 'Facial $59.99 + producto GRATIS'),
  (2, 'Dom 15 nov', 'ES', 'Facial (manchas)', 'Mujeres hispanas', 'Tu piel, sin filtro.', 'Confianza sin maquillaje', ''),
- (3, 'Lun 16 nov', 'EN', 'Microneedling (hombres)', 'Hombres', 'Smoother skin. Same you.', 'Cómo se ve: textura y cicatrices', ''),
+ (3, 'Lun 16 nov', 'EN', 'Microneedling (mujeres)', 'Mujeres', 'Smoother skin. Still you.', 'Cómo se siente: textura y confianza', ''),
  (4, 'Mar 17 nov', 'ES', 'Martes 2x1', 'Amigas / mamá e hija', 'Martes 2x1: invita a tu amiga.', 'Plan para dos', 'Martes 2x1: 2 faciales $54.99 + producto GRATIS'),
  (5, 'Mié 18 nov', 'EN', 'Mapa de líneas finas', 'Mujeres 30+', 'Smooth fine lines. No needles.', 'Alternativa sin agujas', ''),
  (6, 'Jue 19 nov', 'ES', 'Facial + Dermaplaning', 'Mujeres', 'Que el maquillaje se vea como piel.', 'Resultado el mismo día', ''),
@@ -38,7 +38,7 @@ P = [
 ]
 
 # Versión en el otro idioma (cliente: atacar EN y ES en todas las piezas)
-ALT = {1:'Una hora solo para ti.',2:'Your skin, no filter.',3:'Piel más suave. El mismo tú.',4:'Tuesday 2x1: bring your bestie.',
+ALT = {1:'Una hora solo para ti.',2:'Your skin, no filter.',3:'Piel más suave. Sigues siendo tú.',4:'Tuesday 2x1: bring your bestie.',
 5:'Suaviza líneas finas. Sin agujas.',6:'Makeup that looks like skin.',7:'Hidratación que se nota.',8:'Silky-smooth skin, same day.',
 9:'Labios suaves y naturales. Sigues siendo tú.',10:'Acne scars? There is a solution.',11:'Agradecida por mi mejor amiga.',
 12:'Ready for the family photo.',13:'Gracias, El Paso.',14:'This Black Friday, treat yourself first.',15:'Compra local. Labios suaves y naturales.',
