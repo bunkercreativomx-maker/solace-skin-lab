@@ -25,7 +25,7 @@ P = [
  (18, 'Mar 1 dic', 'ES', 'Martes 2x1', 'Amigas', 'Diciembre empieza de a dos.', 'Plan para dos', 'Martes 2x1: 2 faciales $54.99 + producto GRATIS*'),
  (19, 'Mié 2 dic', 'EN', 'D\'OR24K Neck & Décolleté', 'Mujeres 35+', 'Your neck deserves a facial too.', 'La zona que todas olvidan', ''),
  (20, 'Jue 3 dic', 'ES', 'Mapa de líneas finas', 'Mujeres 30+', 'Suaviza líneas finas. Sin agujas.', 'Alternativa sin agujas', ''),
- (21, 'Vie 4 dic', 'EN', 'Lip enhancement', 'Mujeres 18+', 'Fuller lips that still look like you.', 'Natural, no exagerado', ''),
+ (21, 'Vie 4 dic', 'EN', 'Lip filler', 'Mujeres 18+', 'Lip filler that still looks like you.', 'Natural, no exagerado', ''),
  (22, 'Sáb 5 dic', 'ES', 'Luxury Facial en 3 pasos', 'Mujeres', 'Una hora solo para ti, en 3 pasos.', 'Qué incluye (análisis + facial + LED)', 'Facial $59.99 + producto GRATIS*'),
  (23, 'Dom 6 dic', 'EN', 'Mito vs realidad', 'Todos', '"Facials are just pampering." Think again.', 'Educación', ''),
  (24, 'Lun 7 dic', 'ES', 'Microneedling (mujeres)', 'Mujeres hispanas', 'Piel más pareja, sin que nadie lo note.', 'Cómo se siente: textura y confianza', ''),
@@ -43,7 +43,7 @@ ALT = {1:'Una hora solo para ti.',2:'Your skin, no filter.',3:'Piel más suave. 
 9:'Labios suaves y naturales. Sigues siendo tú.',10:'Acne scars? There is a solution.',11:'Agradecida por mi mejor amiga.',
 12:'Ready for the family photo.',13:'Gracias, El Paso.',14:'This Black Friday, treat yourself first.',15:'Compra local. Labios suaves y naturales.',
 16:'Rested eyes, even when you don\'t sleep.',17:'Piel limpia. Brillo real.',18:'December starts for two.',19:'Tu cuello también merece un facial.',
-20:'Smooth fine lines. No needles.',21:'Labios más llenos que se ven como tú.',22:'One hour just for you, in 3 steps.',
+20:'Smooth fine lines. No needles.',21:'Lip filler que se ve natural y muy tú.',22:'One hour just for you, in 3 steps.',
 23:'"Los faciales son solo un lujo." Piénsalo otra vez.',24:'Smoother skin no one will notice.',25:'Preparadas para las fiestas, de a dos.',
 26:'Soft, natural lips.',27:'Lista para cada foto de las fiestas.',28:'Hydration you can actually see.',29:'¿Cuál es tu meta de piel para 2027? 👇',30:'Glow at every posada.'}
 
