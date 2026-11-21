@@ -37,6 +37,16 @@ P = [
  (30, 'Dom 13 dic', 'ES', 'Posadas', 'Mujeres hispanas', 'Brilla en todas tus posadas.', 'Temporada hispana', 'Facial $59.99 + producto GRATIS*'),
 ]
 
+# Versión en el otro idioma (cliente: atacar EN y ES en todas las piezas)
+ALT = {1:'Una hora solo para ti.',2:'Your skin, no filter.',3:'Piel más suave. El mismo tú.',4:'Tuesday 2x1: bring your bestie.',
+5:'Suaviza líneas finas. Sin agujas.',6:'Makeup that looks like skin.',7:'Hidratación que se nota.',8:'Silky-smooth skin, same day.',
+9:'Labios suaves y naturales. Sigues siendo tú.',10:'Acne scars? There is a solution.',11:'Agradecida por mi mejor amiga.',
+12:'Ready for the family photo.',13:'Gracias, El Paso.',14:'This Black Friday, treat yourself first.',15:'Compra local. Labios suaves y naturales.',
+16:'Rested eyes, even when you don\'t sleep.',17:'Piel limpia. Brillo real.',18:'December starts for two.',19:'Tu cuello también merece un facial.',
+20:'Smooth fine lines. No needles.',21:'Labios más llenos que se ven como tú.',22:'One hour just for you, in 3 steps.',
+23:'"Los faciales son solo un lujo." Piénsalo otra vez.',24:'Smoother skin no one will notice.',25:'Preparadas para las fiestas, de a dos.',
+26:'Soft, natural lips.',27:'Lista para cada foto de las fiestas.',28:'Hydration you can actually see.',29:'¿Cuál es tu meta de piel para 2027? 👇',30:'Glow at every posada.'}
+
 ok = [
  ('Faciales', 'Luxury Facial, Facial (limpieza, acné, anti-edad, manchas), Facial + Dermaplaning, Salmon DNA (solo beneficios, sin precio; fuera de este plan)'),
  ('Luz LED', 'LED Light Therapy (roja/azul), Facial + LED cara y cuello (D\'OR24K)'),
@@ -51,8 +61,8 @@ care = [
 no = 'Botox, Xeomin, Dysport, "wrinkle relaxers", "injectables", Juvéderm/Belotero (marcas), GLP-1/semaglutide, péptidos, NAD+, IV/B12, agujas/jeringas/💉, "exosomes", PRP en anuncios.'
 
 def e(s): return html.escape(s)
-rows = ''.join(f'''<tr data-d="{d}"><td class="n">{d}</td><td class="date">{e(f)}</td><td><span class="lang {l.lower()}">{l}</span></td>
-<td><b>{e(s)}</b><div class="aud">{e(a)}</div></td><td class="hook">{e(h)}</td><td class="ang">{e(an)}</td><td class="promo">{e(pr) if pr else '—'}</td>
+rows = ''.join(f'''<tr data-d="{d}"><td class="n">{d}</td><td class="date">{e(f)}</td><td><span class="lang en">EN</span> <span class="lang es">ES</span></td>
+<td><b>{e(s)}</b><div class="aud">{e(a)}</div></td><td class="hook">{e(h if l=="EN" else ALT[d])}<div class="hook2">{e(ALT[d] if l=="EN" else h)}</div></td><td class="ang">{e(an)}</td><td class="promo">{e(pr) if pr else '—'}</td>
 <td class="act"><button class="ch" onclick="tog({d})">Cambiar</button><textarea id="n{d}" placeholder="¿Qué cambiarías?" hidden></textarea></td></tr>''' for d, f, l, s, a, h, an, pr in P)
 okh = ''.join(f'<li><b>{e(a)}:</b> {e(b)}</li>' for a, b in ok)
 careh = ''.join(f'<li><b>{e(a)}:</b> {e(b)}</li>' for a, b in care)
@@ -73,7 +83,7 @@ h1,h2{{font-family:"Cormorant Garamond",serif;font-weight:600;color:var(--gold);
 table{{width:100%;border-collapse:collapse;background:var(--card);border-radius:14px;overflow:hidden}}th,td{{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}}
 th{{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);background:#191512}}td.n{{color:var(--gold);font-weight:600}}td.date{{white-space:nowrap;color:var(--mut)}}
 .lang{{font-size:12px;font-weight:600;padding:2px 8px;border-radius:99px}}.lang.en{{background:#2c3a4a;color:#bcd6f2}}.lang.es{{background:#4a2f2c;color:#f2c9bc}}
-.aud{{color:var(--mut);font-size:13px}}.hook{{font-family:"Cormorant Garamond",serif;font-size:19px}}.promo{{color:var(--gold);font-size:13px}}.ang{{font-size:13px;color:var(--mut)}}
+.aud{{color:var(--mut);font-size:13px}}.hook{{font-family:"Cormorant Garamond",serif;font-size:19px}}.promo{{color:var(--gold);font-size:13px}}.ang{{font-size:13px;color:var(--mut)}}.hook2{{font-size:16px;color:var(--mut);margin-top:4px}}
 .act button,.big{{background:transparent;border:1px solid var(--line);color:var(--cream);border-radius:8px;padding:6px 10px;cursor:pointer;font:inherit;font-size:13px}}
 .act textarea{{width:100%;min-width:160px;margin-top:6px;background:#141110;color:var(--cream);border:1px solid var(--gold);border-radius:8px;padding:6px;font:inherit;font-size:13px}}
 tr.flag td{{background:#2a2118}}.big{{font-size:16px;padding:12px 20px;border-radius:10px}}.big.pri{{background:var(--gold);color:#1a1410;border-color:var(--gold);font-weight:600}}
@@ -93,9 +103,9 @@ tr.flag td{{background:#2a2118}}.big{{font-size:16px;padding:12px 20px;border-ra
 </div>
 
 <h2>Estrategia</h2>
-<div class="kpis"><div class="kpi"><b>30</b>videos animados con voz</div><div class="kpi"><b>{en} / {es}</b>inglés / español</div><div class="kpi"><b>{promos}</b>con la promo</div><div class="kpi"><b>Reel + historia</b>cada publicación</div></div>
+<div class="kpis"><div class="kpi"><b>30</b>videos animados con voz</div><div class="kpi"><b>60</b>piezas: cada día en inglés + español</div><div class="kpi"><b>{promos}</b>con la promo</div><div class="kpi"><b>Reel + historia</b>cada publicación</div></div>
 <div class="grid">
-<div class="card"><h3>Público hispano</h3><ul><li>La mitad del calendario va en <b>español</b>, con voz en español, para la clientela hispana de El Paso y Juárez.</li><li>En anuncios: un conjunto en inglés y otro en español (segmentación por idioma: español), ambos para mayores de 18.</li><li>El texto en español no es traducción: habla de posadas, foto familiar y "martes de amigas".</li></ul></div>
+<div class="card"><h3>Público hispano</h3><ul><li>Cada publicación sale en <b>inglés y en español</b> (voz y texto en cada idioma), para llegar a todo El Paso y a la clientela hispana.</li><li>En anuncios: un conjunto en inglés y otro en español (segmentación por idioma: español), ambos para mayores de 18.</li><li>El texto en español no es traducción: habla de posadas, foto familiar y "martes de amigas".</li></ul></div>
 <div class="card"><h3>A quién le hablamos</h3><ul><li><b>Mujeres:</b> cómo se siente (confianza, una hora para ella).</li><li><b>Cicatrices y microneedling:</b> ahora dirigidos a mujeres.</li><li><b>Clientas con poco tiempo:</b> resultado el mismo día.</li></ul></div>
 <div class="card"><h3>Formato</h3><ul><li>Videos de 10–15 s, fotos estilo tratamiento real, tipografía serif dorada.</li><li>Cada pieza sale como reel y como historia a la misma hora.</li><li>Teléfono (915) 209-2060 · Cielo Vista Mall.</li></ul></div>
 </div>
@@ -106,7 +116,7 @@ tr.flag td{{background:#2a2118}}.big{{font-size:16px;padding:12px 20px;border-ra
 
 <h2>Calendario</h2>
 <p class="sub">Toca "Cambiar" en cualquier día para dejar un comentario.</p>
-<table><thead><tr><th>#</th><th>Fecha</th><th>Idioma</th><th>Servicio</th><th>Gancho en pantalla</th><th>Ángulo</th><th>Promo</th><th></th></tr></thead><tbody>{rows}</tbody></table>
+<table><thead><tr><th>#</th><th>Fecha</th><th>Idioma</th><th>Servicio</th><th>Gancho EN / ES</th><th>Ángulo</th><th>Promo</th><th></th></tr></thead><tbody>{rows}</tbody></table>
 <p class="foot">* Si la promo cambia en diciembre, se ajusta solo ese día. Promo de martes ya sin vino.</p>
 
 <h2>Aprobación</h2>
