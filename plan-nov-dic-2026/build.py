@@ -35,6 +35,13 @@ P = [
  (28, 'Vie 11 dic', 'ES', 'Facial', 'Mujeres', 'Hidratación que se nota.', 'Limpieza profunda + hidratación', 'Facial $59.99 + producto GRATIS'),
  (29, 'Sáb 12 dic', 'EN', 'Interacción', 'Todos', 'What\'s your skin goal for 2027? 👇', 'Comentarios', ''),
  (30, 'Dom 13 dic', 'ES', 'Posadas', 'Mujeres hispanas', 'Brilla en todas tus posadas.', 'Temporada hispana', 'Facial $59.99 + producto GRATIS*'),
+ (31, 'Lun 14 dic', 'EN', 'Facial (manchas)', 'Mujeres', 'Dark spots in every holiday photo?', 'Piel pareja para las fotos', 'Facial $59.99 + producto GRATIS'),
+ (32, 'Mar 15 dic', 'ES', 'Martes 2x1 · Navidad', 'Amigas', '¿Buscas regalo para tu amiga?', 'Regalo: un día juntas', 'Martes 2x1: 2 faciales $54.99 + producto GRATIS'),
+ (33, 'Mié 16 dic', 'EN', 'Luxury Facial · regalo para ti', 'Mujeres', 'This week, the gift is for you.', 'Cómo se siente: tiempo para ella', 'Facial $59.99 + producto GRATIS'),
+ (34, 'Jue 17 dic', 'ES', 'Facial + Dermaplaning · fiesta', 'Mujeres hispanas', 'Tu maquillaje se verá como piel.', 'Lista para la posada', ''),
+ (35, 'Vie 18 dic', 'EN', 'Microneedling (mujeres) · 2027', 'Mujeres', 'New skin for the new year.', 'Cómo se siente: confianza', ''),
+ (36, 'Sáb 19 dic', 'ES', 'Derma Jade Eye · desvelo', 'Mujeres', '¿Desvelada envolviendo regalos?', 'Mirada descansada', ''),
+ (37, 'Dom 20 dic', 'EN', 'Facial + LED · Nochebuena', 'Mujeres', 'Glowing for Christmas Eve.', 'Radiante en familia', 'Facial $59.99 + producto GRATIS'),
 ]
 
 # Versión en el otro idioma (cliente: atacar EN y ES en todas las piezas)
@@ -45,7 +52,7 @@ ALT = {1:'Una hora solo para ti.',2:'Your skin, no filter.',3:'Piel más suave. 
 16:'Rested eyes, even when you don\'t sleep.',17:'Piel limpia. Brillo real.',18:'December starts for two.',19:'Tu cuello también merece un facial.',
 20:'Smooth fine lines. No needles.',21:'Lip filler que se ve natural y muy tú.',22:'One hour just for you, in 3 steps.',
 23:'"Los faciales son solo un lujo." Piénsalo otra vez.',24:'Smoother skin no one will notice.',25:'Preparadas para las fiestas, de a dos.',
-26:'Soft, natural lips.',27:'Lista para cada foto de las fiestas.',28:'Hydration you can actually see.',29:'¿Cuál es tu meta de piel para 2027? 👇',30:'Glow at every posada.'}
+26:'Soft, natural lips.',27:'Lista para cada foto de las fiestas.',28:'Hydration you can actually see.',29:'¿Cuál es tu meta de piel para 2027? 👇',30:'Glow at every posada.',31:'¿Manchas en todas las fotos de las fiestas?',32:'Looking for a gift for your bestie?',33:'Esta semana, el regalo es para ti.',34:'Your makeup will look like skin.',35:'Piel nueva para el año nuevo.',36:'Late nights wrapping gifts?',37:'Radiante para Nochebuena.'}
 
 ok = [
  ('Faciales', 'Luxury Facial, Facial (limpieza, acné, anti-edad, manchas), Facial + Dermaplaning, Salmon DNA (solo beneficios, sin precio; fuera de este plan)'),
@@ -69,7 +76,7 @@ careh = ''.join(f'<li><b>{e(a)}:</b> {e(b)}</li>' for a, b in care)
 en = sum(1 for p in P if p[2] == 'EN'); es = len(P) - en; promos = sum(1 for p in P if p[7])
 
 page = f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Solace Skin Lab · Plan 14 nov – 13 dic 2026</title>
+<title>Solace Skin Lab · Plan 14 nov – 20 dic 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{{--bg:#141110;--card:#1e1a17;--line:#3a322b;--gold:#c9a45c;--cream:#f3ead9;--mut:#b3a690;--ok:#7fb48a;--warn:#e0b45a;--no:#d9776a}}

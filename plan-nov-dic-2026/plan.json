@@ -298,5 +298,75 @@
   "hook": "Brilla en todas tus posadas.",
   "angle": "Temporada hispana",
   "promo": "Facial $59.99 + producto GRATIS*"
+ },
+ {
+  "day": 31,
+  "date": "Lun 14 dic",
+  "lang": "EN",
+  "service": "Facial (manchas)",
+  "audience": "Mujeres",
+  "hook": "Dark spots in every holiday photo?",
+  "angle": "Piel pareja para las fotos",
+  "promo": "Facial $59.99 + producto GRATIS"
+ },
+ {
+  "day": 32,
+  "date": "Mar 15 dic",
+  "lang": "ES",
+  "service": "Martes 2x1 · Navidad",
+  "audience": "Amigas",
+  "hook": "¿Buscas regalo para tu amiga?",
+  "angle": "Regalo: un día juntas",
+  "promo": "Martes 2x1: 2 faciales $54.99 + producto GRATIS"
+ },
+ {
+  "day": 33,
+  "date": "Mié 16 dic",
+  "lang": "EN",
+  "service": "Luxury Facial · regalo para ti",
+  "audience": "Mujeres",
+  "hook": "This week, the gift is for you.",
+  "angle": "Cómo se siente: tiempo para ella",
+  "promo": "Facial $59.99 + producto GRATIS"
+ },
+ {
+  "day": 34,
+  "date": "Jue 17 dic",
+  "lang": "ES",
+  "service": "Facial + Dermaplaning · fiesta",
+  "audience": "Mujeres hispanas",
+  "hook": "Tu maquillaje se verá como piel.",
+  "angle": "Lista para la posada",
+  "promo": ""
+ },
+ {
+  "day": 35,
+  "date": "Vie 18 dic",
+  "lang": "EN",
+  "service": "Microneedling (mujeres) · 2027",
+  "audience": "Mujeres",
+  "hook": "New skin for the new year.",
+  "angle": "Cómo se siente: confianza",
+  "promo": ""
+ },
+ {
+  "day": 36,
+  "date": "Sáb 19 dic",
+  "lang": "ES",
+  "service": "Derma Jade Eye · desvelo",
+  "audience": "Mujeres",
+  "hook": "¿Desvelada envolviendo regalos?",
+  "angle": "Mirada descansada",
+  "promo": ""
+ },
+ {
+  "day": 37,
+  "date": "Dom 20 dic",
+  "lang": "EN",
+  "service": "Facial + LED · Nochebuena",
+  "audience": "Mujeres",
+  "hook": "Glowing for Christmas Eve.",
+  "angle": "Radiante en familia",
+  "promo": "Facial $59.99 + producto GRATIS"
  }
 ]
